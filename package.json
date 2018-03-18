@@ -1,0 +1,26 @@
+{
+  "name": "digital-notice-board",
+  "version": "1.0.0",
+  "description": "A dashboard for events, announcements, code snippets and other fancy stuff.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devugees/digital-notice-board.git"
+  },
+  "keywords": [
+    "dashboard",
+    "react",
+    "node",
+    "mongo",
+    "javascript"
+  ],
+  "author": "Digital Career Institute",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devugees/digital-notice-board/issues"
+  },
+  "homepage": "https://github.com/devugees/digital-notice-board#readme"
+}
