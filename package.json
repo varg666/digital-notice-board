@@ -4,7 +4,7 @@
   "description": "A dashboard for events, announcements, code snippets and other fancy stuff.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/devugees/digital-notice-board/issues"
   },
-  "homepage": "https://github.com/devugees/digital-notice-board#readme"
+  "homepage": "https://github.com/devugees/digital-notice-board#readme",
+  "devDependencies": {
+    "jest": "^22.4.2"
+  }
 }
