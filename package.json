@@ -28,7 +28,12 @@
     "jest": "^22.4.2"
   },
   "dependencies": {
+    "bcryptjs": "*",
+    "connect-flash": "*",
     "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "passport": "^0.4.0",
+    "passport-http": "*",
+    "passport-local": "*"
   }
 }
