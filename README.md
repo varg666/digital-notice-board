@@ -25,13 +25,24 @@ Start backend
 
 
 
+
 ## API Reference
 
 Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
 ## Tests
+Test files are next to the components.
 
-Describe and show how to run the tests with code examples.
+Eg: `Video.js` and `Video.test.js`
+
+Run test suite locally
+
+`npm run tests`
+
+Everytime when you push you see the [TravisCI](https://travis-ci.org/devugees/digital-notice-board) build running all tests.
+ This badge shows the build status for the development branch [![Build Status](https://travis-ci.org/devugees/digital-notice-board.svg?branch=develop)](https://travis-ci.org/devugees/digital-notice-board)
+
+
 
 ## Contributors
 
