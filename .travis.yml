@@ -4,5 +4,4 @@ node_js:
 before_script: cd frontend
 cache:
   directories:
-    - "node_modules"
-
+  - node_modules # NPM packages
