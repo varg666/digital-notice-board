@@ -17,7 +17,13 @@ A short description of the motivation behind the creation and maintenance of the
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+Start frontend
+`cd frontend && yarn start`
+
+Start backend
+`cd backend && npm run server`
+
+
 
 ## API Reference
 
