@@ -1,10 +1,10 @@
-import React , {Componenet} from 'react';
 
-export default const Option = () => {
-  return(
-    <div>
-      <p> <
-    </div>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Video from './Video';
 
-    )
-}
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Video />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
