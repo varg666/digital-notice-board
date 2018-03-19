@@ -41,9 +41,10 @@
     "description": "Team work video",
     "expiryDate": "01.07.2018",
     "displayDate": "01.07.2018",
-    "content": {
-            "street": "Vulkanstr. 1",
-            "postal": "11000",
-            "city": "Berlin"
-        }
+    "content":
+    {
+        "street": "Vulkanstr. 1",
+        "postal": "11000",
+        "city": "Berlin"
+    }
 }]
