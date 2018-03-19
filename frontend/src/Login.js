@@ -7,44 +7,19 @@ class Login extends React.Component {
         render(){
             return (
     <div className="container">    
-                    <ul>
-                        <li class="tab active"><a href="#signup">Sign Up</a></li>
-                        <li class="tab"><a href="#login">Log In</a></li>
-                    </ul>
-      
-                    <div className="tab-content">
-                        <div id="signup">   
+                    <div>
+                        <div>   
                             <h1>Sign Up</h1>
           
-                    <form action="/" method="post" >
-          
-                       
+                    
 
-                        <div class="field-wrap">
-                            <label>
-                                Email Address<span>*</span>
-                            </label>
-                            <input type="email"required autocomplete="off"/>
                         </div>
-          
-                        <div class="field-wrap">
-                            <label>
-                                Set A Password<span class="req">*</span>
-                            </label>
-                            <input type="password"required autocomplete="off"/>
-                        </div>
-            
-                            <button type="submit" class="button button-block">Get Started</button>
-          
-                    </form>
-
-                </div>
         
                         <div id="login">   
                         
                             <form action="/" method="post">
                         
-                            <div class="field-wrap">
+                            <div>
                                 <label>
                                 Email Address<span>*</span>
                                 </label>
@@ -58,9 +33,10 @@ class Login extends React.Component {
                                 <input type="password"required autocomplete="off"/>
                             </div>
                         
-                                <p><a href="#">Forgot Password?</a></p>
+                                <button>Log In</button>
+                                <p><a href="#">Register a new account</a></p>
+                                <p><a href="#">Forgot Password</a></p>
                         
-                        <button class="button button-block">Log In</button>
                         
                         </form>
 
