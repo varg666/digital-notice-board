@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000;
+const mockupJson = require("./mockup/mockup.json");
+
 
 app.get('/',(req,res) => {
-  res.send('Hello World!');
+  res.send(mockupJson);
 });
 
 app.listen(PORT,() => {
