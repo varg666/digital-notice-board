@@ -4,7 +4,7 @@
   "description": "A dashboard for events, announcements, code snippets and other fancy stuff.",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server/index.js",
+    "server": "node server/index.js",
     "test": "jest"
   },
   "repository": {
@@ -28,11 +28,12 @@
     "jest": "^22.4.2"
   },
   "dependencies": {
+    "bcryptjs": "*",
+    "connect-flash": "*",
     "body-parser": "^1.18.2",
-    "dotenv": "^5.0.1",
     "express": "^4.16.3",
-    "mongoose": "^5.0.10",
-    "nodemon": "^1.17.2"
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "passport-http": "*",
+    "passport-local": "*"
   }
 }
