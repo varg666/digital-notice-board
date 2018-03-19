@@ -16,11 +16,11 @@ const date = dt.getDate()+ "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
   return(
     <div style={style}>
       <p>
-        <strong>Strong {this.props}</strong>
-        {this.props} Text
+        <strong>Strong </strong>
+         Text
       </p>
       <icon>
-        {this.props} Icon
+         Icon
       </icon>
       <div>
         {date}
