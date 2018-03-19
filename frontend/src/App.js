@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import AddVideo from './components/video/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
+import ForgotPassword from "./components/forgot/ForgotPassword.js"
 
 class App extends Component {
    constructor(props){
@@ -59,6 +60,7 @@ class App extends Component {
         </header>
         <AddVideo />
         <ModulesSideBar />
+        <ForgotPassword />
       </div>
     );
   }
