@@ -18,21 +18,7 @@ class Login extends React.Component {
           
                     <form action="/" method="post" >
           
-                        <div>
-                            <div>
-                                <label>
-                                    First Name<span>*</span>
-                                </label>
-                                <input type="text" required autocomplete="off" />
-                            </div>
-        
-                            <div class="field-wrap">
-                                <label>
-                                    Last Name<span>*</span>
-                                </label>
-                                <input type="text"required autocomplete="off"/>
-                            </div>
-                        </div>
+                       
 
                         <div class="field-wrap">
                             <label>
