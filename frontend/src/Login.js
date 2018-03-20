@@ -29,7 +29,24 @@ class Login extends React.Component {
     handleSubmit(e) {
         //alert('new user submitted: ' + this.state.value);
         e.preventDefault();
-    }
+        
+        const data = {
+            email: this.state.loginData.email,
+            password: this.state.loginData.password
+        };
+        
+        fetch('/login', {
+          method: 'POST', 
+          body: JSON.stringify(data), 
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          })
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response));
+    };
+
+
     validateForm(value) {      
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailPattern.test(value);
@@ -90,3 +107,5 @@ class Login extends React.Component {
 
 
 export default Login;
+
+
