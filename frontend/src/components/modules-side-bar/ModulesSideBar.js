@@ -13,15 +13,13 @@ class ModulesSideBar extends Component {
       icon =(<p>video picture</p>)
     } else if (this.props.data.type === 'image'){
       icon =(<p>image picture</p>)
-
-    }else if (this.props.data.type === 'code'){
-      icon =(<img src="https://media.istockphoto.com/vectors/vector-code-editor-icon-vector-id528678591" />)
-    };
+    }
    
     return (
       <div className="ModulesSideBar">
     <h4>{this.props.data.title}</h4>
       <p>{this.props.data.description}</p>
+      <img src={this.props.data.iconUrl} />
       <div className="picture-container">
       {icon}
       </div>
