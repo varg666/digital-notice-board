@@ -6,28 +6,36 @@ class Login extends React.Component {
         this.state = {
             loginData : {
                 email: "",
-                password:""
+                password:"",
+                isActive: true
             }
         }
-        this.clickHandler = this.clickHandler.bind(this);
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
-
-
-    clickHandler(event) {
+    
+    handleChange(event) {
         console.log(this.state)
-        console.log(event)
+        console.log(this.state.loginData)
         const loginDataCopy = {...this.state.loginData};
         loginDataCopy[event.target.name] = event.target.value;
         this.setState({loginData : loginDataCopy});
-    };
         
-    validateForm: function() {      
-        if(this.state.loginData.email).value ==  {
+       
 
-        }
+    };
+    
+    handleSubmit(e) {
+        //alert('new user submitted: ' + this.state.value);
+        e.preventDefault;
+    }
+    validateForm(value) {      
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(value);
+        
       };
-
+ 
 
 
 
@@ -39,42 +47,39 @@ class Login extends React.Component {
                     <div>
                         <div>   
                             <h1>Sign Up</h1>
-
                         </div>
-        
                         <div id="login">   
-                        
-                            <form action="/" method="post">
-                        
+                            <form onSubmit={this.handleSubmit} action="/" method="post">
                             <div>
                                 <label>
                                 Email Address<span>*</span>
                                 </label>
-                                <input 
-                                    value={this.state.loginData.email}
-                                    onChange={}
-                                    type="email"required autocomplete="off"/>
+                                <input
+                                    value={this.state.loginData.email} 
+                                    onChange={this.handleChange}
+                                    type="email"
+                                    name="email"
+                                    />
                             </div>
                         
                             <div>
                                 <label>
                                     Password<span>*</span>
                                 </label>
-                                <input type="password"required autocomplete="off"/>
+                                <input 
+                                    value={this.state.loginData.password}
+                                    onChange={this.handleChange}
+                                    type="password" 
+                                    name="password"
+                                    />
                             </div>
                         
-                                <button onClick={(e) => this.clickHandler(e)}>Log In</button>
+                                <button onClick={(e) => this.handleChange(e)}>Log In</button>
                                 <p><a href="#">Register a new account</a></p>
                                 <p><a href="#">Forgot Password</a></p>
-                        
-                        
-                        </form>
-
+                            </form>
                         </div>
-                        
                     </div>
-
-
     </div>    
             );
         }
