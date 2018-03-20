@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/login/Login.js';
-import AddVideo from './components/AddVideo/AddVideo';
+import Video from './components/video/Video.js';
+import AddVideo from './components/video/AddVideo.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgotPassword/ForgotPassword.js"
 
@@ -50,26 +51,15 @@ class App extends Component {
             "authorImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
             "authorName": "Aemal Surname"
         }
-    },
-    {
-        "type": "event",
-        "iconUrl": "https://png.icons8.com/ios-glyphs/50/000000/megaphone.png",
-        "title": "19th of March to 22nd march",
-        "subtitle": "Devugees Project Week",
-        "description": "Team work video",
-        "expiryDate": "01.07.2018",
-        "displayDate": "01.07.2018",
-        "content": {
-                "street": "Vulkanstr. 1",
-                "postal": "11000",
-                "city": "Berlin"
-            }
-        }]
+    }
+      ],
+      youtubeCode: ['HCnGKF_Ro2A']
+    }
+  }
 
-     }
+endingHandler = () => {
+  console.log("The video has ended");
 }
-
-
   render() {
     return (
       <div className="App">
@@ -77,7 +67,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-          {this.state.data.map((item, value) => <ModulesSideBar key={value} data={item} /> )}
+          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
         <ForgotPassword />
         <Login  />
         <AddVideo />
