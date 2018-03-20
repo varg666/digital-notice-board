@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/login/Login.js';
 import Video from './components/video/Video.js';
-import AddVideo from './components/video/AddVideo.js';
+import AddVideo from './components/AddVideo/AddVideo.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgotPassword/ForgotPassword.js"
 
