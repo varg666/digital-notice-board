@@ -3,7 +3,7 @@ import React from 'react';
 class AddVideo extends React.Component {
   render() {
     return (
-      <div className="AddVideo">
+      <form className="AddVideo">
         <label className="edit-title">Title</label>
         <input type="text"/>
         <label className="edit-desc">Description</label>
@@ -16,7 +16,7 @@ class AddVideo extends React.Component {
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <a href="#">Delete this video</a>
         <button type="submit">Add</button>
-      </div>
+      </form>
     );
   }
 }
