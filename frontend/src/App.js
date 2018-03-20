@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Login from './components/login/Login.js';
 import logo from './logo.svg';
 import './App.css';
+import Login from './components/login/Login.js';
 import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgotPassword/ForgotPassword.js"
