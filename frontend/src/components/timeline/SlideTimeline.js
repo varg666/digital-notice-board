@@ -1,5 +1,5 @@
 import React from 'react';
-import { PROGRESS_BAR_SPEED } from './constants/misc.js'
+import { PROGRESS_BAR_SPEED } from '../../constants/misc.js'
 import { Button } from 'reactstrap';
 import { Progress } from 'reactstrap';
 
