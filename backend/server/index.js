@@ -12,6 +12,7 @@ const session = require('express-session');
 const passport = require('passport');
 const users = require('./routes/users');
 const User = require('./models/user');
+const content = require('./routes/content');
 
 
 // Connection to DB using .env File
@@ -98,6 +99,9 @@ app.post('/login',
 
 // Lougout
 app.get('/logout', users.logout);
+
+// Add New Slide
+app.post('/addslide', content.addSlide);
 
 // Server Port
 const PORT = process.env.PORT || 4000;
