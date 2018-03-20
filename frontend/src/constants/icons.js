@@ -15,10 +15,10 @@ export default function getIcons(iconType) {
       return PHOTOS_ICON;
     }
     case CODE: {
-      return CODE;
+      return CODE_ICON;
     }
     case ANNOUNCEMENT: {
-      return ANNOUNCEMENT;
+      return ANNOUNCEMENT_ICON;
     }
   }
 }
