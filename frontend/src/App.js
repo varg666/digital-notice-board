@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Login from './Login.js';
 import logo from './logo.svg';
 import './App.css';
-import AddVideo from './components/video/AddVideo';
+import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js"
 
