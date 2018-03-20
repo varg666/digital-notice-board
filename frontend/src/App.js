@@ -16,7 +16,7 @@ class App extends Component {
         data:
         [
     {
-        "type": "video",
+        "type": "VIDEO",
         "iconUrl": "https://png.icons8.com/ios/50/000000/play-button-circled-filled.png",
         "title": "The Rabbit and the turle",
         "expiryDate": "01.07.2018",
@@ -28,7 +28,7 @@ class App extends Component {
         }
     },
     {
-        "type": "image",
+        "type": "PHOTOS",
         "iconUrl": "https://png.icons8.com/ios-glyphs/50/000000/picture.png",
         "title": "Startup Trip",
         "description": "Team work video",
@@ -40,7 +40,7 @@ class App extends Component {
         }
     },
     {
-        "type": "code",
+        "type": "CODE",
         "iconUrl": "https://png.icons8.com/ios/50/000000/code-file-filled.png",
         "title": "The Rabbit and the turle",
         "description": "Team work video",
@@ -54,7 +54,7 @@ class App extends Component {
         }
     },
     {
-        "type": "event",
+        "type": "ANNOUNCEMENT",
         "iconUrl": "https://png.icons8.com/ios-glyphs/50/000000/megaphone.png",
         "title": "19th of March to 22nd march",
         "subtitle": "Devugees Project Week",
