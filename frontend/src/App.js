@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './components/login/Login.js';
 import Register from './components/Register/Register.js';
+import Photos from './components/photos/Photos.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
@@ -105,7 +106,7 @@ sendInfo = (e) => {
 
 
   render() {
-    return (
+    return (      
       <div className="App">
         <Nav>
           <NavItem>
@@ -128,9 +129,9 @@ sendInfo = (e) => {
         <SlideTimeline />
         <SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
                       profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
+        <Photos />
       </div>
     );
   }
 }
-
 export default App;
