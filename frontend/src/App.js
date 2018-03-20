@@ -61,7 +61,6 @@ class App extends Component {
         <AddVideo />
         <ModulesSideBar />
         <ForgotPassword />
-        <ModulesSideBar />
       </div>
     );
   }
