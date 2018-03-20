@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/devugees/digital-notice-board#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "jest": "^22.4.2"
   },
   "dependencies": {
