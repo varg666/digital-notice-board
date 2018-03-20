@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Option from '../option/Option';
 import getIcons from '../../constants/icons.js';
 
 
@@ -19,7 +20,7 @@ class ModulesSideBar extends Component {
    
     return (
       <div className="ModulesSideBar">
-    <h4>{this.props.data.title}</h4>
+      <h4>{this.props.data.title}</h4>
       <p>{this.props.data.description}</p>
       <img src={getIcons(this.props.data.type)} />
       <div className="picture-container">

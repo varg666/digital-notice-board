@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login/Login.js';
 import logo from './logo.svg';
 import './App.css';
+import Video from './components/video/Video.js';
 import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
@@ -54,6 +55,7 @@ class App extends Component {
             "authorImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
             "authorName": "Aemal Surname"
         }
+
     },
     {
         "type": "ANNOUNCEMENT",
@@ -68,10 +70,15 @@ class App extends Component {
                 "postal": "11000",
                 "city": "Berlin"
             }
-        }]
-
-     }   
+        }],
+           youtubeCode: ['HCnGKF_Ro2A']
+      
+        }   
 }
+
+  endingHandler = () => {
+  console.log("The video has ended");
+    }
   
 
   render() {
@@ -82,6 +89,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+          <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
           {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
         <ForgotPassword />
         <Login  />
