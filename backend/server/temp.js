@@ -1,3 +1,3 @@
-import { VIDEO, PHOTOS, CODE, ANNOUNCEMENT } from '../../frontend/src/constants/slideTypes.js';
+const { VIDEO, PHOTOS, CODE, ANNOUNCEMENT } = require('../../frontend/src/constants/slideTypes.js');
 
 console.log(VIDEO);
