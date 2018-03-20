@@ -5,7 +5,7 @@ import './App.css';
 import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js"
-import Reactstrap from '/.reactstrap.js';
+import SlideTimeline from './SlideTimeline.js';
 
 
 class App extends Component {
@@ -84,7 +84,7 @@ class App extends Component {
         <ForgotPassword />
         <Login  />
         <AddVideo />
-        <Reactstrap />
+        <SlideTimeline />
       </div>
     );
   }
