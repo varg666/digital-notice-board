@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AddVideo from './components/video/AddVideo';
+import Video from './components/video/Video.js';
+import AddVideo from './components/video/AddVideo.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js"
 
@@ -43,14 +44,14 @@ class App extends Component {
           "price":"50.99",
           "liked" :false  
         }
-      ]
+      ],
+      youtubeCode: ['HCnGKF_Ro2A']
     }
   }
 
-
-
-
-
+endingHandler = () => {
+  console.log("The video has ended");
+}
   render() {
     return (
       <div className="App">
@@ -58,6 +59,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
         <AddVideo />
         <ModulesSideBar />
         <ForgotPassword />
