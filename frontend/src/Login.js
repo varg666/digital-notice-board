@@ -28,7 +28,7 @@ class Login extends React.Component {
     
     handleSubmit(e) {
         //alert('new user submitted: ' + this.state.value);
-        e.preventDefault;
+        e.preventDefault();
     }
     validateForm(value) {      
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
