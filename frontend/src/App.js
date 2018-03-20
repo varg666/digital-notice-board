@@ -4,13 +4,10 @@ import logo from './logo.svg';
 import './App.css';
 import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
-<<<<<<< HEAD
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
-=======
-import ForgotPassword from "./components/forgot/ForgotPassword.js"
 import SlideTimeline from './components/timeline/SlideTimeline.js';
->>>>>>> develop
+
 
 
 class App extends Component {
