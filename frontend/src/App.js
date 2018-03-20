@@ -6,61 +6,76 @@ import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js"
 
 class App extends Component {
-   constructor(props){
+
+      constructor(props){
       super(props);
       this.state = {
         data:
-      [
+        [
+    {
+        "type": "video",
+        "title": "The Rabbit and the turle",
+        "expiryDate": "01.07.2018",
+        "displayDate": "01.07.2018",
+        "description": "",
+        "content":
         {
-          "id":0,
-          "name":"javaScript:The Definitive Guide, 6t Edition",
-          "release":"September 2010",
-          "amount":1,
-          "price":"2.99",
-          "liked" :false
-        },
-        {
-          "id":1,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"3.99",
-          "liked" :false  
-        },
-        {
-          "id":2,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"340.99",
-          "liked" :false  
-        },
-        {
-          "id":3,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"50.99",
-          "liked" :false  
+            "src": "https://pixabay.com/en/background-image-colorful-art-967820/"
         }
-      ]
-    }
-  }
+    },
+    {
+        "type": "image",
+        "title": "Startup Trip",
+        "description": "Team work video",
+        "expiryDate": "01.07.2018",
+        "displayDate": "01.07.2018",
+        "content":
+        {
+            "src": ["https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/"]
+        }
+    },
+    {
+        "type": "code",
+        "title": "The Rabbit and the turle",
+        "description": "Team work video",
+        "expiryDate": "01.07.2018",
+        "displayDate": "01.07.2018",
+        "content":
+        {
+            "codeImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
+            "authorImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
+            "authorName": "Aemal Surname"
+        }
+    },
+    {
+        "type": "event",
+        "title": "19th of March to 22nd march",
+        "subtitle": "Devugees Project Week",
+        "description": "Team work video",
+        "expiryDate": "01.07.2018",
+        "displayDate": "01.07.2018",
+        "content": {
+                "street": "Vulkanstr. 1",
+                "postal": "11000",
+                "city": "Berlin"
+            }
+        }]
 
-
-
-
+     }   
+}
+  
 
   render() {
+    console.log(this.state.data)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <AddVideo />
-        <ModulesSideBar />
+          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
         <ForgotPassword />
+        <AddVideo />
       </div>
     );
   }
