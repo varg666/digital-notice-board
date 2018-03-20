@@ -19,9 +19,9 @@ const date = dt.getDate()+ "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
         <strong>Strong </strong>
          Text
       </p>
-      <icon>
+      <i>
          Icon
-      </icon>
+      </i>
       <div>
         {date}
       </div>
