@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Login from './Login.js';
+import Login from './components/login/Login.js';
 import logo from './logo.svg';
 import './App.css';
 import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
-import ForgotPassword from "./components/forgot/ForgotPassword.js"
+import ForgotPassword from "./components/forgotPassword/ForgotPassword.js"
 
 class App extends Component {
 
@@ -71,14 +71,13 @@ class App extends Component {
   
 
   render() {
-    console.log(this.state.data)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
+          {this.state.data.map((item, value) => <ModulesSideBar key={value} data={item} /> )}
         <ForgotPassword />
         <Login  />
         <AddVideo />

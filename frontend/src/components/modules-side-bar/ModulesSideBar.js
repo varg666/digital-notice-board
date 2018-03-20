@@ -19,7 +19,7 @@ class ModulesSideBar extends Component {
       <div className="ModulesSideBar">
     <h4>{this.props.data.title}</h4>
       <p>{this.props.data.description}</p>
-      <img src={this.props.data.iconUrl} />
+      <img src={this.props.data.iconUrl} alt="" />
       <div className="picture-container">
       {icon}
       </div>
