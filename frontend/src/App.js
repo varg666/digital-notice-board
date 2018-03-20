@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+import getIcons from './constants/icons.js';
+import { VIDEO } from './constants/slideTypes.js';
 
 import './App.css';
 import AddVideo from './components/AddVideo/AddVideo';
@@ -6,50 +9,6 @@ import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js"
 
 class App extends Component {
-   constructor(props){
-      super(props);
-      this.state = {
-        data:
-      [
-        {
-          "id":0,
-          "name":"javaScript:The Definitive Guide, 6t Edition",
-          "release":"September 2010",
-          "amount":1,
-          "price":"2.99",
-          "liked" :false
-        },
-        {
-          "id":1,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"3.99",
-          "liked" :false  
-        },
-        {
-          "id":2,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"340.99",
-          "liked" :false  
-        },
-        {
-          "id":3,
-          "name":"Ruby on Rails: Up and Running",
-          "release":"March 2007",
-          "amount":1,
-          "price":"50.99",
-          "liked" :false  
-        }
-      ]
-    }
-  }
-
-
-
-
 
   render() {
     return (<div className="App">
@@ -102,7 +61,7 @@ class App extends Component {
         <div className="slide">
 
           <div className="slide-icon">
-<img className="icon"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVGhD7dk7aBRBHMfx8/0ivhCR4AtBIigigmgjSWeKNFaKooIWIhbaxMoigiCCD/CFaKNVJF2CRRpNEW0EwUo7wUJBUBBEUfH1/ekODOc/mztvZm9X5wcfkizHzPzY3N7uXC0lJeWfy9zsZ2UzA/fwA5d1oKrZApWQb5iNyqUbw3BFZAEqkUU4hqfwC1SmyDbcwkdYBZxSFpmPI3gCa9GWUhXZjBt4D2uxedpeZB4O4RGsBTaqbUU24ArewVpYswotomv9PjyAtZhWFFKkC+fxFtYiQohWZCZ24T6+w5o8pOBF1uAMXsOaMJYgRaZjJ0ah+x5rotgmLbIRa3//+kdW4BRewhq8SLlFDkMv+oodOpBFn7wj0PH6Adslt4h/h3lJB7KshD9IGeQWuQv3wms6kCUViSgV8Qcpg1TEH6QMcotchHvhUR3IsgyTPXoWLbeINr8G0I9pOuBlMY7jGayBi5ZbpJFMQQ8G8QnWJEVouYifpTiBF7AmiyloERf/IlGU4EU64d/K69nkJGKfpeBF9sAN/hkLoehi0QedrRjPLMGLHIQbXM/oU1GfVTiNV/AX04rgRbbCn+AqtG9r5Tb817YieBFdjh/Dn+QDbmITXPR06V+ur+Ms/vZZP3gRZT3ewJpwHBfw3Dv2BcuhzMJujKGZ3ZcoRZTVGEIjj8PnYGUddJvUyH5YtCIuKqR/mYnO0B1oDywvc7AfD2GNIdGLuGgxB6CzpO/+9EbvRbPRro4uIPV7xoUVCZ3t8It0oJLRB6177+griUpH27N7seTXXykpKf9barWf/pGYy3erAssAAAAASUVORK5CYII=" /></div>
+<img src={getIcons(VIDEO)} /></div>
 
           <div className="slide-text">
             <h3>Announcement</h3>
