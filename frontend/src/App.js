@@ -51,6 +51,7 @@ class App extends Component {
             "authorImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
             "authorName": "Aemal Surname"
         }
+    }
       ],
       youtubeCode: ['HCnGKF_Ro2A']
     }
