@@ -1,28 +1,29 @@
 [
 	{
 		"type": "video", 
-		"title": "The Rabbit and the turle", 
-		"expiryDate": "01.07.2018", 
-		"displayDate": "01.07.2018",
+		"title": "The Rabbit and the turle video", 
+		"displayDate": "19.03.2018", 
+		"expiryDate": "01.07.2018",
 		"content": {
-			"youtubeEmbedCode": "<iframe width='560'> src='https://www.youtube.com/embed/U8XF6AFGqlc' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>"
+			"youtubeCode": "eofpZPRUnP8",
+			"FIX ME": "you need to cut with slice the code like https://www.youtube.com/watch?v=eofpZPRUnP8 into just the videoID (slice from =v until the end)"
 		}
 	}, {
-		"type": "Image Gallery",
+		"type": "image",
 		"title": "Startup Trip",
 		"description": "Team work video",
+		"displayDate": "19.03.2018",
 		"expiryDate": "01.07.2018",
-		"displayDate": "01.07.2018",
 		"imageGallerySrcs":
 				[ "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/", "https://pixabay.com/en/background-image-colorful-art-967820/"
 		]
 	},
 	{
-		"type": "Code Snippet",
+		"type": "code",
 		"title": "The Rabbit and the turle",
 		"description": "Team work video",
+		"displayDate": "19.03.2018",
 		"expiryDate": "01.07.2018",
-		"displayDate": "01.07.2018",
 		"content": {
 			"codeImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
 			"authorImage": "https://pixabay.com/en/background-image-colorful-art-967820/",
@@ -30,12 +31,12 @@
 		}
 	},
 	{
-		"type": "Event",
+		"type": "event",
 		"title": "19th of March to 22nd march",
 		"subtitle": "Devugees Project Week",
 		"description": "Team work video",
+		"displayDate": "19.03.2018",
 		"expiryDate": "01.07.2018",
-		"displayDate": "01.07.2018",
 		"content": {
 			"adress": {
 				"street": "Vulkanstr. 1", 
