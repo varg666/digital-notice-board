@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Login from './components/Login/Login.js';
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/login/Login.js';
 import Video from './components/video/Video.js';
 import AddVideo from './components/AddVideo/AddVideo.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
-import ForgotPassword from "./components/forgotPassword/ForgotPassword.js"
+import ForgotPassword from "./components/forgot/ForgotPassword.js"
+import SlideTimeline from './components/timeline/SlideTimeline.js';
+
 
 class App extends Component {
 
@@ -71,6 +74,7 @@ endingHandler = () => {
         <ForgotPassword />
         <Login  />
         <AddVideo />
+        <SlideTimeline />
       </div>
     );
   }
