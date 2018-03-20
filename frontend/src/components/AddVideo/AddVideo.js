@@ -14,6 +14,7 @@ class AddVideo extends React.Component {
         <input type="date"/>
         <label>YouTube Embeded Code</label>
         <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button type="submit">Add</button>
       </div>
     );
   }
