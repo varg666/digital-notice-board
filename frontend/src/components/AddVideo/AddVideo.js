@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+import 'moment/locale/de';
+
 
 class AddVideo extends React.Component {
 
@@ -27,21 +30,19 @@ class AddVideo extends React.Component {
     })
   }
 
-  changeDate = (date) => {
-    return date.split('-').reverse().join('-');
-  }
-
   sendingDateStart = e => {
-    const newDate = this.changeDate(e.target.value);
+    let startDate = e.target.value;
+    startDate = moment(startDate).format('L');
     this.setState({
-    displayDate: newDate
+    displayDate: startDate
     })
   }
 
   sendingDateEnd = e => {
-    const newDate = this.changeDate(e.target.value);
+    let endDate = e.target.value;
+    endDate = moment(endDate).format('L');
     this.setState({
-    expiryDate: newDate
+    expiryDate: endDate
     })
   }
   
