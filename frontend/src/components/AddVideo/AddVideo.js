@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+import 'moment/locale/de';
+
 
 class AddVideo extends React.Component {
 
@@ -8,7 +11,7 @@ class AddVideo extends React.Component {
     displayDate: null,
     expiryDate: null,
     textarea: null
-  }
+  };
 
   sendInfo = (e) => {
     e.preventDefault();
@@ -27,18 +30,23 @@ class AddVideo extends React.Component {
     })
   }
 
-sendingDateStart = e => {
+  sendingDateStart = e => {
+    let startDate = e.target.value;
+    startDate = moment(startDate).format('L');
     this.setState({
-    displayDate: e.target.value
+    displayDate: startDate
     })
   }
 
-sendingDateEnd = e => {
+  sendingDateEnd = e => {
+    let endDate = e.target.value;
+    endDate = moment(endDate).format('L');
     this.setState({
-    expiryDate: e.target.value
+    expiryDate: endDate
     })
   }
-sendingVideo = e => {
+  
+  sendingVideo = e => {
     this.setState({
     textarea: e.target.value
     })
@@ -52,7 +60,7 @@ sendingVideo = e => {
         <label className="edit-desc">Description</label>
         <input onChange={this.sendingDesc} type="text"/>
         <label className="edit-date">Display Date</label>
-        <input onChange={this.sendingTitleDateStart} type="date"/>
+        <input onChange={this.sendingDateStart} type="date"/>
         <label className="edit-date">Expiry Date</label>
         <input onChange={this.sendingDateEnd} type="date"/>
         <label>Youtube Embed Code</label>
