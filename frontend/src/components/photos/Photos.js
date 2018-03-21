@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './Photos.css';
 import '../../../node_modules/animate.css/animate.min.css'
+import Slides from "./slides.js"
 
 class Photos extends Component {
+    constructor (props) {
+    super (props);
+    
+}
 
   render() {
     return (
@@ -10,21 +15,16 @@ class Photos extends Component {
       <div className="photos">
         {/*The big picture*/}
         <img className="animated zoomIn" src="http://via.placeholder.com/857x480" />
-      {/*The container with slides under the big picture*/}
-        <div className="thumbnails">
-          <img className="animated slideInRight" src="http://via.placeholder.com/115x70" />
-          <img className="animated slideInDown" src="http://via.placeholder.com/115x70" />
-          <img className="animated jackInTheBox" src="http://via.placeholder.com/115x70" />
-          <img className="animated slideInUp" src="http://via.placeholder.com/115x70" />
-          <img className="animated slideInLeft" src="http://via.placeholder.com/115x70" />
-        </div>
-        {/*Progressbar*/}
+        {/*The container with slides under the big picture*/}
+        <Slides />
+       {/*Progressbar*/}
         <div className="progress animated rotateInUpRight">
-          <div className="progressBar">0%</div>
+          <div className="progressBar"></div>
         </div>
       </div>
     );
   }
 }
+
 
 export default Photos;
