@@ -8,18 +8,14 @@ const addSlide = (req, res) => {
         res.send({message: "No content sent!"});
     }
 
-    if(req.body){
-      console.log(req.body);
-      console.log(req.body.expiryDate);
-      console.log(req.body.displayDate);
-    }
+    let slide = req.body;
+    slide.content = JSON.stringify(slide.content);
 
-     newSlide = new Content(req.body);
+    newSlide = new Content(slide);
       newSlide.save(function(err) {
         if(err) {
           return res.send(err);
         }
-        
         return res.send({message: "Content created successfully!"})
     });
 };
