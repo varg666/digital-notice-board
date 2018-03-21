@@ -1,4 +1,5 @@
 import React from 'react';
+import './Login.css';
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,25 +15,25 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
     }
-    
+
     handleChange(event) {
         const loginDataCopy = {...this.state.loginData};
         loginDataCopy[event.target.name] = event.target.value;
         this.setState({loginData : loginDataCopy});
 
     };
-    
+
     handleSubmit(e) {
         e.preventDefault();
-        
+
         const data = {
             email: this.state.loginData.email,
             password: this.state.loginData.password
         };
-        
+
         fetch('/login', {
-            method: 'POST', 
-            body: JSON.stringify(data), 
+            method: 'POST',
+            body: JSON.stringify(data),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -40,58 +41,63 @@ class Login extends React.Component {
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
     };
-    
-    
-    validateEmail(value) {      
-        if(!value) return true;  
+
+
+    validateEmail(value) {
+        if(!value) return true;
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailPattern.test(value);
-        
+
       };
 
         render(){
             return (
-    <div className="container">    
+    <div className="container">
                     <div>
-                        <div>   
+                        <div className="title">
                             <h1>Login</h1>
                         </div>
-                        <div id="login">   
+                        <div id="login" className="login-box">
                             <form onSubmit={this.handleSubmit} action="/" method="post">
                             <div>
                                 <label>
                                 Email Address<span>*</span>
                                 </label>
                                 <input
-                                    value={this.state.loginData.email} 
+                                    value={this.state.loginData.email}
                                     onChange={this.handleChange}
                                     onSubmit={this.validateEmail}
                                     type="text"
                                     name="email"
                                     />
-                                    <div>{!this.validateEmail(this.state.loginData.email) ? <div>Invalid Email</div>  : null }
-									</div>
+                                    <div>{!this.validateEmail(this.state.loginData.email) ? <div className="invalid">Invalid Email</div>  : null }
+                  									</div>
                             </div>
-                        
+                            <br />
+
                             <div>
                                 <label>
                                     Password<span>*</span>
                                 </label>
-                                <input 
+                                <input
                                     value={this.state.loginData.password}
                                     onChange={this.handleChange}
-                                    type="password" 
+                                    type="password"
                                     name="password"
                                     />
                             </div>
-                        
-                                <button onClick={(e) => this.handleChange(e)}>Log In</button>
-                                <p><a href="#">Register a new account</a></p>
-                                <p><a href="#">Forgot Password</a></p>
+
+                                <button className="login-button" onClick={(e) => this.handleChange(e)}>Log In</button>
+                                <br />
+                                <br />
+
+                                <a href="#">Register a new account</a>
+                                <br />
+                                <a href="#">Forgot Password</a>
                             </form>
                         </div>
                     </div>
-    </div>    
+    </div>
             );
         }
 
@@ -101,5 +107,3 @@ class Login extends React.Component {
 
 
 export default Login;
-
-

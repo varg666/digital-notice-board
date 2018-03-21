@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
+
+
+:root {
+  --main-bg-color: #fff;
+  --login-box-bg-color: rgba(0, 122, 255, 0.8);
+  --input-bg: #0054e6;
+  --grey-description-bg-color: #c6c6c6;
+  --light-font-color: #fff;
+  --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
+  --title-font-weight: 700;
+  --title-font-size: 2rem;
+  --title-font-color: #333;
+  --running-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  --running-font-weight: 400;
+  --running-font-size: 1.4rem;
+  --running-font-color: #000;
+  --title-letter-spacing: .05000rem;
+  --p-line-height: 2rem;
+  --small-font-size: .9rem;
+  --invalid-font-color: #a10000;
+  --login-a-hover: #4100e6;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+
+.skewed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  padding-top: 0;
+  transform: skew(-20deg);
+  z-index: -1;
+  height: 100%;
+  background: var(--right-slides-bg-color);
+  padding: 3rem 1rem;
+}
+
+.title h1 {
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  color: var(--title-font-color);
+  font-size: var(--title-font-size);
+  text-align: center;
+}
+
+.login-box {
+  border-radius: 5px;
+  background-color: var(--login-box-bg-color);
+  margin: 0 auto;
+  padding: 15px;
+  width: 30vh;
+}
+
+.login-box input {
+  background-color: var(--input-bg);
+  color: var(--light-font-color);
+  font-family: var(--title-font-family);
+  font-weight: 200;
+  height: 40px;
+  border: 1px solid var(--input-bg);
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20vh;
+}
+
+input:active {
+  background-color: var(--input-bg);
+}
+
+.login-box label {
+  font-family: var(--title-font-family);
+  color: var(--light-font-color);
+  font-weight: 200;
+}
+
+.login-box a {
+  color: var(--light-font-color);
+  text-decoration: underline;
+  font-family: var(--running-font-family);
+  font-size: var(--small-font-size);
+}
+
+.login-box a:hover {
+  color: var(--login-a-hover);
+}
+
+.invalid {
+font-family: var(--title-font-family);
+color: var(--invalid-font-color);
+padding: 2px;
+background-color:
+}
+
+.login-button {
+  border-radius: 5px;
+  background-color: var(--main-bg-color);
+  padding: 5px;
+  width: 100px;
+  margin-top: 15px;
+}

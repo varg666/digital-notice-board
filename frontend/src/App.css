@@ -7,7 +7,7 @@
   --right-slides-bg-color: rgba(0, 122, 255, 0.8);
   --right-slides-bg-selected: #0054e6;
   --video-description-bg-color: #c6c6c6;
-  --light-text-color: #fff;
+  --light-font-color: #fff;
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
   --title-font-weight: 700;
   --title-font-size: 2rem;
@@ -23,7 +23,6 @@
 
 body {
   background-color: var(--main-bg-color);
-  font-family: 'Dosis', sans-serif;
 }
 
 .App {
@@ -126,7 +125,7 @@ height: 100vh;
   grid-template-columns: 10% 90%;
   border-radius: 5px;
   background-color: var(--right-slides-bg-color);
-  color: var(--light-text-color);
+  color: var(--light-font-color);
   font-size: var(--running-font-size);
   font-weight: var(--running-font-weight);
   margin-bottom: 10px;
@@ -139,7 +138,7 @@ height: 100vh;
   grid-template-columns: 10% 90%;
   border-radius: 5px;
   background-color: var(--right-slides-bg-selected);
-  color: var(--light-text-color);
+  color: var(--light-font-color);
   font-size: var(--running-font-size);
   font-weight: 100;
   margin-bottom: 15px;
@@ -147,6 +146,7 @@ height: 100vh;
 
 .slide-text {
   padding-left: 30px;
+  font-family: var(--running-font-family);
 
 }
 
@@ -173,8 +173,9 @@ height: 100vh;
   margin-bottom: 0;
   padding-bottom: 5px;
   text-align: right;
-  color:  var(--title-font-color);
+  color: var(--light-font-color);
   font-size: var(--small-font-size);
+  font-family: var(--running-font-family);
 }
 
 .material-icons {
