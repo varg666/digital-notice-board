@@ -8,14 +8,18 @@ class SlideTimeline extends React.Component {
         super(props);
 
         this.state = {
-            progress:0,     
+            progress:0,
+            time:props.time     
         }  
 
         this.progressTimer = this.progressTimer.bind(this); 
     };
 
+    calculateSeconds(time){
+        return (time / 100) * (1000)
+    }
     componentDidMount() {
-        this.interval = setInterval(this.progressTimer, PROGRESS_BAR_SPEED);
+        this.interval = setInterval(this.progressTimer, this.calculateSeconds(this.state.time));
     } 
     
     progressTimer () {
