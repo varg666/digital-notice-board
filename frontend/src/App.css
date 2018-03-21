@@ -1,28 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
+
+
+:root {
+  --main-bg-color: #fff;
+  --video-description-bg-color: #e6ce00;
+  --right-slides-bg-color: rgba(0, 122, 255, 0.8);
+  --right-slides-bg-selected: #0054e6;
+  --video-description-bg-color: #c6c6c6;
+  --light-text-color: #fff;
+  --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
+  --title-font-weight: 700;
+  --title-font-size: 2rem;
+  --title-font-color: #333;
+  --running-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  --running-font-weight: 400;
+  --running-font-size: 1.4rem;
+  --running-font-color: #000;
+  --title-letter-spacing: .05000rem;
+  --p-line-height: 2rem;
+  --small-font-size: .9rem;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  font-family: 'Dosis', sans-serif;
+}
+
 .App {
-  text-align: center;
+  z-index: 100;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 65% 30%;
+  grid-gap: 1%;
+  padding-left: 2%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.skewed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  padding-top: 0;
+  transform: skew(-20deg);
+  z-index: -1;
+  height: 100%;
+  background: var(--right-slides-bg-color);
+  padding: 3rem 1rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.column1 {
+height: 100vh;
+
 }
 
-.App-title {
-  font-size: 1.5em;
+.column2 {
+  height: 100vh;
 }
 
-.App-intro {
-  font-size: large;
+.slide-body {
+  padding-left: 15px;
+  padding-bottom: 25px;
+  padding-right: 15px;
+  border-radius: 5px;
+  padding-top: 15px;
+  background-color: var(--video-description-bg-color);
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.video {
+  width: 100% !important;
+  /* min-height: 500px !important; */
+  height: 60vh;
+}
+
+.timer {
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color:  var(--video-description-bg-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.description {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  font-weight: 400;
+  background-color: var(--video-description-bg-color);
+  color: var(--title-font-color);
+  height: 20vh;
+}
+
+.description p {
+  color: var(--running-font-color);
+  font-family: var(--running-font-family);
+  font-weight: var(--running-font-weight);
+  font-size: var(--running-font-size);
+  line-height: var(--p-line-height);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+}
+
+.description h3 {
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  letter-spacing: var(--title-letter-spacing);
+  margin-top: 0;
+  padding-top: 15px;
+}
+
+.slide-icon {
+  vertical-align: middle;
+}
+
+.slide {
+  padding-left: 8px;
+  padding-bottom: 3%;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border-radius: 5px;
+  background-color: var(--right-slides-bg-color);
+  color: var(--light-text-color);
+  font-size: var(--running-font-size);
+  font-weight: var(--running-font-weight);
+  margin-bottom: 10px;
+}
+
+.slide-selected {
+  padding-bottom: 3%;
+  padding-left: 8px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border-radius: 5px;
+  background-color: var(--right-slides-bg-selected);
+  color: var(--light-text-color);
+  font-size: var(--running-font-size);
+  font-weight: 100;
+  margin-bottom: 15px;
+}
+
+.slide-text {
+  padding-left: 30px;
+
+}
+
+.slide-text h3 {
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  font-family: var(--title-font-family);
+  letter-spacing: var(--title-letter-spacing);
+  padding-top: 15px;;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+.slide-text p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  font-size: var(--running-font-size);
+
+}
+
+.slide-text small {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  text-align: right;
+  color:  var(--title-font-color);
+  font-size: var(--small-font-size);
+}
+
+.material-icons {
+  width: 50px;
+  padding-top: 55%;
+  padding-left: 10px;
+}
+
+.material-icons.md-48 { font-size: 48px; }
+
+.fa-bullhorn {
+  padding-top: 55%;
+  padding-left: 10px;
 }
