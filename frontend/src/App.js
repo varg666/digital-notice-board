@@ -9,7 +9,7 @@ import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
 import SlideTimeline from './components/timeline/SlideTimeline.js';
-
+import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
 
 
 class App extends Component {
@@ -73,14 +73,14 @@ class App extends Component {
             }
         }],
            youtubeCode: ['HCnGKF_Ro2A']
-      
-        }   
+
+        }
 }
 
   endingHandler = () => {
   console.log("The video has ended");
     }
-  
+
 
   render() {
     console.log(this.state.data)
@@ -97,6 +97,8 @@ class App extends Component {
         <Register  />
         <AddVideo />
         <SlideTimeline />
+        <SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
+                      profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
       </div>
     );
   }
