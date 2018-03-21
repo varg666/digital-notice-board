@@ -64,7 +64,7 @@ class ForgotPassword extends Component {
 	        	</form>
 	        		<br />
 	        	
-	        	<a href="/admin">login</a>
+	        	<a href="/login">login</a>
       </div>
       // !END Main html element for the React component
     );
