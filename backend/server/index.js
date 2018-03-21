@@ -11,6 +11,7 @@ const passport = require('passport');
 const flash = require("connect-flash");
 const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin");
+const path = require("path");
 
 // Bring in Models
 // const User = require('./models/user');
