@@ -19,7 +19,7 @@ class ModulesSideBar extends Component {
     }
    
     return (
-      <div className="ModulesSideBar" onClick={this.props.haha}>
+      <div className="ModulesSideBar" onClick={this.props.switchModule}>
         <h4>{this.props.data.title}</h4>
         <p>{this.props.data.description}</p>
         <img src={getIcons(this.props.data.type)} />

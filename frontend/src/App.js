@@ -77,7 +77,11 @@ class App extends Component {
         }
 }
 
-  slideHandler = (e) => {
+endingHandler = () => {
+    console.log("The video has ended"); 
+    }
+    
+  slideHandler (e) {
   console.log(e);
     }
 
@@ -91,7 +95,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
-          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} haha={this.slideHandler.bind(this)} /> )}
+          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
         <ForgotPassword />
         <Login  />
         <Register  />
