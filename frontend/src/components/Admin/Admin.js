@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
+import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 
 class Admin extends Component {
   constructor(props) {
@@ -52,21 +53,32 @@ class Admin extends Component {
 
   render() {
     return (
-      <div className="d-flex">
-        <div className="w-50" >
-          <ul className="list-group m-3">
-            {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar  onclick={() => this.handleClick(item)} key={value} data={item}/> </li>)}
-          </ul>
-          <Search/>
-        </div>
-
-        <div className="card w-100 m-3">
-          <div className="card-body" >
-            <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
+  <div className="section">
+    <Nav>
+      <NavItem>
+        <NavLink href="/">
+          <Button color="primary">Frontend</Button>
+        </NavLink>
+      </NavItem>
+    </Nav>
+        <div className="d-flex">
+          <div className="w-50" >
+            <ul className="list-group m-3">
+              {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar  onclick={() => this.handleClick(item)} key={value} data={item}/> </li>)}
+            </ul>
+            <Search/>
           </div>
-        </div>
 
-      </div>
+          <div className="card w-100 m-3">
+            <div className="card-body" >
+              //TODO here should rendered individual edit views like eg:
+              //frontend/src/components/AddVideo/AddVideo.js
+              <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
+            </div>
+          </div>
+
+        </div>
+  </div>
     )
   }
 }
