@@ -7,32 +7,36 @@ class SlideTimeline extends React.Component {
     constructor(props) {
         super(props);
 
-      this.state = {
-          progress:0,
-          
-      }  
-      this.progressTimer = this.progressTimer.bind(this);
-      
+        this.state = {
+            progress:0,     
+        }  
+
+        this.progressTimer = this.progressTimer.bind(this); 
     };
 
-   componentDidMount() {
+    componentDidMount() {
         this.interval = setInterval(this.progressTimer, PROGRESS_BAR_SPEED);
     } 
-     progressTimer () {
+    
+    progressTimer () {
         this.setState(prevState => {
             return { progress:prevState.progress + 1 }
         })
     } 
-        render() {
+
+    render() {
+        if(this.state.progress === 100){
+                clearInterval(this.interval)
+        }
             return(
                 <div>
-                    <div className="text-center">25%</div>
+                    <div className="text-center">{this.state.progress}%</div>
                     <Progress value={this.state.progress} />
                 </div>    
             );
-        }    
+    }    
 }
-// this.state.progress.value
+
 
 
 
