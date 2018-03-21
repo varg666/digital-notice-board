@@ -8,7 +8,7 @@ class AddVideo extends React.Component {
     displayDate: null,
     expiryDate: null,
     textarea: null
-  }
+  };
 
   sendInfo = (e) => {
     e.preventDefault();
