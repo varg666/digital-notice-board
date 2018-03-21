@@ -37,6 +37,25 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 // Add New Slide
-router.post('/add', addSlide);
+router.post('/add', ensureAuthenticated, addSlide);
+
+// delete Slide
+router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
+  Content.findById(req.params.id, function(err, Content) {
+    if(!Content)
+      return res.send({err: 'Content not found'});
+
+    Content.remove(function(err) {
+      if(err) {
+        return res.send(err);
+      }
+
+      console.log('Content deleted');
+      return res.send(Content);
+    });
+  });
+});
+
+
 
 module.exports = router;
