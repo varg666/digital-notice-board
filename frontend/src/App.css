@@ -4,7 +4,6 @@
 :root {
   --main-bg-color: #fff;
   --video-description-bg-color: #e6ce00;
-  --title-text-color: #333;
   --right-slides-bg-color: rgba(0, 122, 255, 0.8);
   --right-slides-bg-selected: #0054e6;
   --video-description-bg-color: #c6c6c6;
@@ -12,12 +11,14 @@
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
   --title-font-weight: 700;
   --title-font-size: 2rem;
+  --title-font-color: #333;
   --running-font-family: 'Roboto', Helvetica, Arial, sans-serif;
   --running-font-weight: 400;
   --running-font-size: 1.4rem;
   --running-font-color: #000;
   --title-letter-spacing: .05000rem;
   --p-line-height: 2rem;
+  --small-font-size: .9rem;
 }
 
 body {
@@ -89,7 +90,7 @@ height: 100vh;
   border-radius: 5px;
   font-weight: 400;
   background-color: var(--video-description-bg-color);
-  color: var(--title-text-color);
+  color: var(--title-font-color);
   height: 20vh;
 }
 
@@ -145,7 +146,7 @@ height: 100vh;
 }
 
 .slide-text {
-  padding-left: 10px;
+  padding-left: 30px;
 
 }
 
@@ -171,11 +172,20 @@ height: 100vh;
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 5px;
-
+  text-align: right;
+  color:  var(--title-font-color);
+  font-size: var(--small-font-size);
 }
 
-.icon {
-  width: 30px;
-  padding-top: 75%;
-  padding-left: 20%;
+.material-icons {
+  width: 50px;
+  padding-top: 55%;
+  padding-left: 10px;
+}
+
+.material-icons.md-48 { font-size: 48px; }
+
+.fa-bullhorn {
+  padding-top: 55%;
+  padding-left: 10px;
 }
