@@ -24,7 +24,7 @@ const ContentSchema = mongoose.Schema({
     required: true 
   },
   content: {
-    type: Array,
+    type: String,
     required: true 
   }
 });
