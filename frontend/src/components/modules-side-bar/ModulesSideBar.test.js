@@ -23,24 +23,16 @@ const testItem = `
   `
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const app = mount(<ModulesSideBar data={testItem}/>);
-
-  ReactDOM.render(app, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const app = shallow(<ModulesSideBar data={testItem}/>);
 });
 
 
 
 it('testing the text', () => {
-  const div = document.createElement('div');
-  const app = mount(<ModulesSideBar data={testItem} />);
+  const app = shallow(<ModulesSideBar data={testItem} />);
   const p = app.find('.date-container')
   const text = p.find('p').at(0)
   expect(text.text()).toBe('start at:  ');
-
-  ReactDOM.render(app, div);
-  ReactDOM.unmountComponentAtNode(div);
 });
 
 it('renders a ChildComponent', () => {
