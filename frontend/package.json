@@ -9,7 +9,10 @@
     }
   },
   "dependencies": {
+<<<<<<< HEAD
     "babel-eslint": "^8.1.0",
+=======
+>>>>>>> develop
     "babel-jest": "^23.0.0-alpha.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
@@ -18,10 +21,14 @@
     "eslint": "^4.14.0",
     "bootstrap": "^4.0.0",
     "jest": "^22.4.2",
-    "react-test-renderer": "^16.2.0",
+    "jest-cli": "^23.0.0-alpha.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-player": "^1.3.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "reactstrap": "^5.0.0-beta.3",
-    "react-player": "^1.3.0"
+    "react-test-renderer": "^16.2.0",
+    "reactstrap": "^5.0.0-beta.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,6 +38,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+<<<<<<< HEAD
+=======
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-stage-2": "^6.24.1",
+>>>>>>> develop
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1"
   }
