@@ -9,18 +9,20 @@ class AddVideo extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.sendChildInfo} className="AddVideo">
-        <label className="edit-title">Title</label>
-        <input id="title"  type="text"/>
-        <label className="edit-desc">Description</label>
-        <input id="desc" type="text"/>
-        <label className="edit-date">Display Date</label>
-        <input id="datestart" type="date"/>
-        <label className="edit-date">Expiry Date</label>
-        <input id="dateend" type="date"/>
+        <h1>Add Video</h1>
+        <label>Title</label>
+        <input  className="form-control" id="title" type="text"/>
+        <label>Description</label>
+        <input  className="form-control" id="desc" type="text"/>
+        <label>Display Date</label>
+        <input  className="form-control" id="datestart" type="date"/>
+        <label>Expiry Date</label>
+        <input  className="form-control" id="dateend" type="date"/>
         <label>Youtube Embed Code</label>
-        <input id="url" className="video-url" />
+        <input className="form-control"  id="url"/>
         <a href="#">Delete this Video</a>
-        <button type="submit">Add</button>
+        <br/>
+        <button type="submit"className="btn btn-primary">Add</button>
       </form>
     );
   }

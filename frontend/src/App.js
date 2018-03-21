@@ -90,7 +90,9 @@ sendInfo = (e) => {
     e.preventDefault()
     var form = {}
     for(let i = 0; i < e.target.elements.length; i++) {
-      form[e.target.elements[i].id] = e.target.elements[i].value
+    if(e.target.elements[i].value !== "") {
+        form[e.target.elements[i].id] = e.target.elements[i].value
+      }
     }
     console.log(form)
     this.setState({form: form})
@@ -120,81 +122,3 @@ sendInfo = (e) => {
 }
 
 export default App;
-
-/*
-
-state = {
-    title: null,
-    description: null,
-    displayDate: null,
-    expiryDate: null,
-    textarea: null
-  };
-
-  sendInfo = (e) => {
-    e.preventDefault()
-    var form = {}
-    for(let i = 0; i < e.target.elements.length; i++) {
-      form[e.target.elements[i].id] = e.target.elements[i].value
-    }
-    console.log(form)
-    this.setState({form: form})
-  }
-
-  sendingTitle = e => {
-    this.setState({
-    title: e.target.value
-    })
-  }
-
-  sendingDesc = e => {
-    this.setState({
-    description: e.target.value
-    })
-  }
-
-  sendingDateStart = e => {
-    let startDate = e.target.value;
-    startDate = moment(startDate).format('L');
-    this.setState({
-    displayDate: startDate
-    })
-  }
-
-  sendingDateEnd = e => {
-    let endDate = e.target.value;
-    endDate = moment(endDate).format('L');
-    this.setState({
-    expiryDate: endDate
-    })
-  }
-  
-  sendingVideo = e => {
-    this.setState({
-    textarea: e.target.value
-    })
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.sendInfo} className="AddVideo">
-        <label className="edit-title">Title</label>
-        <input id="title" onChange={this.sendingTitle} type="text"/>
-        <label className="edit-desc">Description</label>
-        <input id="desc" onChange={this.sendingDesc} type="text"/>
-        <label className="edit-date">Display Date</label>
-        <input id="dates" onChange={this.sendingDateStart} type="date"/>
-        <label className="edit-date">Expiry Date</label>
-        <input id="datee" onChange={this.sendingDateEnd} type="date"/>
-        <label>Youtube Embed Code</label>
-        <input id="url" className="video-url" onChange={this.sendingVideo}/>
-        <a href="#">Delete this Video</a>
-        <button type="submit">Add</button>
-      </form>
-    );
-  }
-}
-
-export default AddVideo;
-
-*/
