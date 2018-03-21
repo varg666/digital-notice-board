@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import App from '../../App'
-import Login from '../Login/Login';
+import Login from '../login/Login';
 import Admin from '../Admin/Admin';
 
 
