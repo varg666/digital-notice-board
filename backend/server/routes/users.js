@@ -4,21 +4,6 @@ const passport = require('passport');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
-// Creating a Hash Function
-const hashPassword = (newUser, callback) => {
-  bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-          newUser.password = hash;
-          newUser.save(callback);
-      });
-  });
-}
-
-// Register and creating new user route
-router.get('/register', (req, res) => {
-  res.json({'success': 'You are on the registration page'});
-});
-
 router.post('/register', (req, res)  => {
   const email = req.body.email;
   const password = req.body.password;
@@ -28,28 +13,31 @@ router.post('/register', (req, res)  => {
   } else if(!password) {
     return res.send({"error": "Must provide an password"});
   } else {
-    var newUser = new User({
-      email:email,
+    const newUser = new User({
+      email: email,
       password: password
     });
 
-    hashPassword(newUser, (err, user) => {
-      if(err) {
-        return res.json({'err': err});
-      }
+    bcrypt.genSalt(10, function(err, salt){
+      bcrypt.hash(newUser.password, salt, function(err, hash){
+        if(err){
+          console.log(err);
+        }
+        newUser.password = hash;
+        newUser.save(function(err){
+          if(err){
+            res.send(err);
+            return;
+          } else {
+            res.json({'success': 'You are registered and can now login'});
+          }
+        });
+      });
     });
-
-    res.json({'success': 'You are registered and can now login'});
   }
 });
 
-
-// Get Login Page
-router.get('/login',  (req, res)  => {
-  res.json({'success': 'You are on the login page'});
-});
-
-// Post to Login Page
+// Post to Login Page 
 router.post('/login', (req, res, next) => {
   if (req.body.password && req.body.email) {
     passport.authenticate('local', (err, user, info) => {
@@ -67,10 +55,6 @@ router.post('/login', (req, res, next) => {
 });
 
 // Reset Password 
-router.get('/resets', (req, res)  => {
-  res.json({'success': 'You are on the reset password route'});
-});
-
 router.post('/resets', (req, res)  => {
   //
 });

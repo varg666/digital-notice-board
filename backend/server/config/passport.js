@@ -25,8 +25,8 @@ module.exports = (passport) => {
         } else {
           return done(null, false, { "error": "Wrong password" });
         }
-      });
-    });
+      }); // End Brcypt
+    }); // End Euser FindOne
   })); // End Local Strategy
 
   passport.serializeUser((user, done) => {
