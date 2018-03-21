@@ -12,22 +12,17 @@ class Login extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.validateForm = this.validateForm.bind(this);
+        this.validateEmail = this.validateEmail.bind(this);
     }
     
     handleChange(event) {
-        console.log(this.state)
-        console.log(this.state.loginData)
         const loginDataCopy = {...this.state.loginData};
         loginDataCopy[event.target.name] = event.target.value;
         this.setState({loginData : loginDataCopy});
-        
-       
 
     };
     
     handleSubmit(e) {
-        //alert('new user submitted: ' + this.state.value);
         e.preventDefault();
         
         const data = {
@@ -36,34 +31,30 @@ class Login extends React.Component {
         };
         
         fetch('/login', {
-          method: 'POST', 
-          body: JSON.stringify(data), 
-          headers: new Headers({
-            'Content-Type': 'application/json'
-          })
+            method: 'POST', 
+            body: JSON.stringify(data), 
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
         }).then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
     };
-
-
-    validateForm(value) {      
+    
+    
+    validateEmail(value) {      
+        if(!value) return true;  
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailPattern.test(value);
         
       };
- 
-
-
-
-
 
         render(){
             return (
     <div className="container">    
                     <div>
                         <div>   
-                            <h1>Sign Up</h1>
+                            <h1>Login</h1>
                         </div>
                         <div id="login">   
                             <form onSubmit={this.handleSubmit} action="/" method="post">
@@ -74,9 +65,12 @@ class Login extends React.Component {
                                 <input
                                     value={this.state.loginData.email} 
                                     onChange={this.handleChange}
-                                    type="email"
+                                    onSubmit={this.validateEmail}
+                                    type="text"
                                     name="email"
                                     />
+                                    <div>{!this.validateEmail(this.state.loginData.email) ? <div>Invalid Email</div>  : null }
+									</div>
                             </div>
                         
                             <div>
