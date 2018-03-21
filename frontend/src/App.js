@@ -10,7 +10,6 @@ import getIcons from './constants/icons.js'
 import SlideTimeline from './components/timeline/SlideTimeline.js';
 
 
-
 class App extends Component {
 
       constructor(props){
@@ -72,14 +71,14 @@ class App extends Component {
             }
         }],
            youtubeCode: ['HCnGKF_Ro2A']
-      
-        }   
+
+        }
 }
 
   endingHandler = () => {
   console.log("The video has ended");
     }
-  
+
 
   render() {
     console.log(this.state.data)

@@ -6,7 +6,7 @@
   --video-description-bg-color: #e6ce00;
   --title-text-color: #333;
   --right-slides-bg-color: rgba(0, 122, 255, 0.8);
-  --right-slides-bg-selected: #4100e6;
+  --right-slides-bg-selected: #0054e6;
   --video-description-bg-color: #c6c6c6;
   --light-text-color: #fff;
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
@@ -25,6 +25,17 @@ body {
   font-family: 'Dosis', sans-serif;
 }
 
+.App {
+  z-index: 100;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 65% 30%;
+  grid-gap: 1%;
+  padding-left: 2%;
+}
+
 .skewed {
   position: absolute;
   top: 0;
@@ -36,17 +47,6 @@ body {
   height: 100%;
   background: var(--right-slides-bg-color);
   padding: 3rem 1rem;
-}
-
-.App {
-  z-index: 100;
-  height: 100vh;
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 65% 30%;
-  grid-gap: 1%;
-  padding-left: 2%;
 }
 
 .column1 {
@@ -90,7 +90,7 @@ grid-row-gap: 0;
 .video {
   width: 100% !important;
   /* min-height: 500px !important; */
-  height: 60vh;
+  height: 63vh;
 }
 
 .slide-icon {
