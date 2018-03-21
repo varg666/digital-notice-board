@@ -3,14 +3,6 @@ import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
 
-const style = {
-  display: 'inline-block',
-  padding: '3px',
-  textAlign: 'center',
-  margin: '3px',
-  border: '1px solid black'
-};
-
 class Admin extends Component {
   constructor(props) {
     super(props);
@@ -61,14 +53,14 @@ class Admin extends Component {
   render() {
     return (
       <div className="d-flex">
-        <div className="w-25" style={style}>
+        <div className="w-50" >
           <ul className="list-group m-3">
             {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar  onclick={() => this.handleClick(item)} key={value} data={item}/> </li>)}
           </ul>
           <Search/>
         </div>
 
-        <div className="card">
+        <div className="card w-100 m-3">
           <div className="card-body" >
             <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
           </div>
