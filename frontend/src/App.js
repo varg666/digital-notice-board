@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Login from './components/Login/Login.js';
+import Register from './components/Register/Register.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
@@ -93,6 +94,7 @@ class App extends Component {
           {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
         <ForgotPassword />
         <Login  />
+        <Register  />
         <AddVideo />
         <SlideTimeline />
       </div>
