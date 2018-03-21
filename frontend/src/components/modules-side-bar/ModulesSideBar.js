@@ -19,6 +19,7 @@ class ModulesSideBar extends Component {
     }
    
     return (
+<<<<<<< HEAD
       <div className="ModulesSideBar">
       <h4>{this.props.data.title}</h4>
       <p>{this.props.data.description}</p>
@@ -30,6 +31,17 @@ class ModulesSideBar extends Component {
       <p>start at: {this.props.data.displayDate} </p>
        <p>start at: {this.props.data.expiryDate} </p>
       </div>
+=======
+      <div className="ModulesSideBar" onClick={this.props.switchModule}>
+        <h4>{this.props.data.title}</h4>
+        <p>{this.props.data.description}</p>
+        <img src={getIcons(this.props.data.type)} />
+        <div className="picture-container">{icon}</div>
+        <div className="date-container">
+          <p>start at: {this.props.data.displayDate} </p>
+          <p>start at: {this.props.data.expiryDate} </p>
+        </div>
+>>>>>>> develop
       </div>
      
     );

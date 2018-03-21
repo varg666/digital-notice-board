@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Login from './components/Login/Login.js';
+import Login from './components/login/Login.js';
 import Register from './components/Register/Register.js';
 import logo from './logo.svg';
 import './App.css';
@@ -78,8 +78,12 @@ class App extends Component {
         }
 }
 
-  endingHandler = () => {
-  console.log("The video has ended");
+endingHandler = () => {
+    console.log("The video has ended"); 
+    }
+    
+  slideHandler (e) {
+  console.log(e);
     }
 
 
@@ -91,7 +95,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
-          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
+          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
         <ForgotPassword />
         <Login  />
         <Register  />
