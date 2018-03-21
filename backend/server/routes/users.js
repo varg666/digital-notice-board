@@ -44,17 +44,18 @@ router.post('/register', (req, res)  => {
 });
 
 
-// Get Login Page 
+// Get Login Page
 router.get('/login',  (req, res)  => {
   res.json({'success': 'You are on the login page'});
 });
 
-// Post to Login Page 
+// Post to Login Page
 router.post('/login', (req, res, next) => {
-  if (req.body.password && req.body.email) { 
+  if (req.body.password && req.body.email) {
     passport.authenticate('local', (err, user, info) => {
       if (err) { return next(err); }
-      if (!user) { return res.send({"error": "Email/ password combination incorrect!"}); }
+      if (info["error"]) { return res.send(info)}
+
       req.logIn(user, (err) => {
         if (err) { return next(err); }
         return res.send({"success": "Login Success"});
