@@ -23,46 +23,28 @@ import React, { Component, PropTypes } from 'react';
    top:"0"
   }
 
-
 class SildeDetail extends Component {
-
     render(props) {
         return (
-
           <div>
           <a style={style3} href="#" >Logout</a>
-
-
             <div style={style}>
-              <p>Silde Details</p><br/>
-
+              <h1>Silde Details</h1><br/>
               <p><strong>Title</strong></p>
-              <p style={style2}>{this.props.type} sdsd</p>
-
+              <input type="text" className="form-control" value={this.props.type}/>
               <p><strong>Description</strong></p>
-              <p style={style2}>{this.props.description} Hello Description</p>
-
+              <input type="text" className="form-control" value={this.props.description}/>
               <p><strong>DisplayDate</strong></p>
-              <p style={style2}>{this.props.displayDate}</p>
-
+              <input type="text" className="form-control" value={this.props.displayDate}/>
               <p><strong>ExpiryDate</strong></p>
-              <p style={style2}>{this.props.expiryDate}</p>
-
-
+              <input type="text" className="form-control" value={this.props.expiryDate}/>
               <p><strong>YoutubeCode</strong></p>
-              <p style={style2}>{this.props.youtubeCode} Hello YoutubeCode</p>
-
+              <input className="form-control" value={this.props.youtubeCode} />
               <a href="#"> Delete this Silde</a><br/>
-
-              <button> save changeas</button>
-
-
+              <button className="btn btn-primary"> save changeas</button>
             </div>
           </div>
-            
         );
     }
 }
-
-
 export default SildeDetail;
