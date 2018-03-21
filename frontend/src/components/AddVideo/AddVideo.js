@@ -27,18 +27,25 @@ class AddVideo extends React.Component {
     })
   }
 
-sendingDateStart = e => {
+  changeDate = (date) => {
+    return date.split('-').reverse().join('-');
+  }
+
+  sendingDateStart = e => {
+    const newDate = this.changeDate(e.target.value);
     this.setState({
-    displayDate: e.target.value
+    displayDate: newDate
     })
   }
 
-sendingDateEnd = e => {
+  sendingDateEnd = e => {
+    const newDate = this.changeDate(e.target.value);
     this.setState({
-    expiryDate: e.target.value
+    expiryDate: newDate
     })
   }
-sendingVideo = e => {
+  
+  sendingVideo = e => {
     this.setState({
     textarea: e.target.value
     })
@@ -52,7 +59,7 @@ sendingVideo = e => {
         <label className="edit-desc">Description</label>
         <input onChange={this.sendingDesc} type="text"/>
         <label className="edit-date">Display Date</label>
-        <input onChange={this.sendingTitleDateStart} type="date"/>
+        <input onChange={this.sendingDateStart} type="date"/>
         <label className="edit-date">Expiry Date</label>
         <input onChange={this.sendingDateEnd} type="date"/>
         <label>Youtube Embed Code</label>
