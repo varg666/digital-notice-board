@@ -7,17 +7,18 @@ import getIcons from '../../constants/icons.js';
 
 
 class ModulesSideBar extends Component {
-    
+
 
 
   render() {
-    let icon = (<p>event icon</p> )
-    if(this.props.data.type === 'video'){
-      icon =(<p>video picture</p>)
-    } else if (this.props.data.type === 'image'){
-      icon =(<p>image picture</p>)
-    }
-   
+
+  let icon = (<p>event icon</p> )
+  
+  if(this.props.data.type === 'video'){
+    icon =(<p>video picture</p>)
+  } else if (this.props.data.type === 'image'){
+    icon =(<p>image picture</p>)
+  }
     return (
       <div className="ModulesSideBar">
       <h4>{this.props.data.title}</h4>
@@ -27,7 +28,7 @@ class ModulesSideBar extends Component {
       {icon}
       </div>
       <div className="date-container">
-      <p>start at: {this.props.data.displayDate} </p>
+        <p>start at: {this.props.data.displayDate} </p>
        <p>start at: {this.props.data.expiryDate} </p>
       </div>
       </div>
