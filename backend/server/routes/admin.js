@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Content = require('../models/content');
+const moment = require('moment');
 
 const addSlide = (req, res) => {
     if(!req.body) {
@@ -9,6 +10,8 @@ const addSlide = (req, res) => {
 
     if(req.body){
       console.log(req.body);
+      console.log(req.body.expiryDate);
+      console.log(req.body.displayDate);
     }
 
      newSlide = new Content(req.body);
@@ -25,12 +28,12 @@ const ensureAuthenticated  = (req, res, next) => {
   if(req.isAuthenticated()){
     return next();
   } else {
-    res.send('You can not access this page. You are not authenticated');
+    res.send({"error": "You are not authenticated."});
   }
 };
 
 router.get('/', ensureAuthenticated, (req, res) => {
-  res.json({'success': 'You are signed into the admin panel'});
+  res.json({"success": "You are signed into the admin panel."});
 });
 
 // Add New Slide

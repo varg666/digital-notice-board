@@ -65,6 +65,15 @@ router.post('/login', (req, res, next) => {
   }
 });
 
+// Reset Password 
+router.get('/resets', (req, res)  => {
+  res.json({'success': 'You are on the reset password route'});
+});
+
+router.post('/resets', (req, res)  => {
+  //
+});
+
 // Lougout 
 router.get('/logout', (req, res)  => {
   req.logout();
