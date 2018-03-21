@@ -50,7 +50,7 @@ class Register extends React.Component {
                                 </label>
                                 <input 
                                     type="text" 
-                                    name="email"
+                                    name="email" required
                                     value={this.state.registerData.email}
                                     onChange={this.handleChange}
                                     onSubmit={this.validateEmail}
@@ -64,7 +64,7 @@ class Register extends React.Component {
                                 </label>
                                 <input 
                                     type="password" 
-                                    name="password" 
+                                    name="password"  required
                                     value={this.state.registerData.password}
                                     onChange={this.handleChange}  
                                     /><br/>
@@ -73,7 +73,7 @@ class Register extends React.Component {
                                 </label>
                                 <input 
                                     type="password" 
-                                    name="confirmPassword" 
+                                    name="confirmPassword" required
                                     value={this.state.registerData.confirmPassword}
                                     onChange={this.handleChange}    
                                     /><br/>
