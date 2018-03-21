@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Login from './components/Login/Login.js';
+import Login from './components/login/Login.js';
+import Register from './components/Register/Register.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
@@ -8,7 +9,8 @@ import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
 import SlideTimeline from './components/timeline/SlideTimeline.js';
-
+import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
+import moment from 'moment';
 
 
 class App extends Component {
@@ -72,14 +74,30 @@ class App extends Component {
             }
         }],
            youtubeCode: ['HCnGKF_Ro2A']
-      
-        }   
+
+        }
 }
 
-  endingHandler = () => {
-  console.log("The video has ended");
+endingHandler = () => {
+    console.log("The video has ended"); 
     }
-  
+    
+  slideHandler (e) {
+  console.log(e);
+    }
+
+sendInfo = (e) => {
+    e.preventDefault()
+    var form = {}
+    for(let i = 0; i < e.target.elements.length; i++) {
+    if(e.target.elements[i].value !== "") {
+        form[e.target.elements[i].id] = e.target.elements[i].value
+      }
+    }
+    console.log(form)
+    this.setState({form: form})
+  }
+
 
   render() {
     console.log(this.state.data)
@@ -90,11 +108,14 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
-          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} /> )}
+          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
         <ForgotPassword />
         <Login  />
-        <AddVideo />
+        <Register  />
+        <AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
         <SlideTimeline />
+        <SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
+                      profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
       </div>
     );
   }

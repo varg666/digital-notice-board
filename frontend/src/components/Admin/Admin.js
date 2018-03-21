@@ -60,14 +60,20 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>
-        <div style={style}>
-          {this.state.data.map((item, value) => <ModulesSideBar onclick={() => this.handleClick(item)} key={value} data={item}/>)}
+      <div className="d-flex">
+        <div className="w-25" style={style}>
+          <ul className="list-group m-3">
+            {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar  onclick={() => this.handleClick(item)} key={value} data={item}/> </li>)}
+          </ul>
           <Search/>
         </div>
-        <div>
-          <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
+
+        <div className="card">
+          <div className="card-body" >
+            <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
+          </div>
         </div>
+
       </div>
     )
   }

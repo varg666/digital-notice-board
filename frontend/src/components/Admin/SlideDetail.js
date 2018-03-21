@@ -2,14 +2,14 @@ import React, { Component, PropTypes } from 'react';
 
 
  const style = {
-  display: 'inline-block',
-  padding: '10rem',
-  textAlign: 'center',
-  margin: '3px',
-  border: '1px solid black',
-  position:"absolute",
-  right:"1.2rem",
-  top:"1.2rem"
+  //display: 'inline-block',
+  //padding: '10rem',
+  //textAlign: 'center',
+  //margin: '3px',
+  //border: '1px solid black',
+  //position:"absolute",
+  //right:"1.2rem",
+  //top:"1.2rem"
 
     };
 
@@ -18,9 +18,9 @@ import React, { Component, PropTypes } from 'react';
   };
 
   const style3={
-   position:"absolute",
-   right:"0",
-   top:"0"
+   //position:"absolute",
+   //right:"0",
+   //top:"0"
   }
 
 class SildeDetail extends Component {

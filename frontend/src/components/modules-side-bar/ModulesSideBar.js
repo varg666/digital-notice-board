@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import getIcons from '../../constants/icons.js';
 
 
-
-
-
 class ModulesSideBar extends Component {
     
 
