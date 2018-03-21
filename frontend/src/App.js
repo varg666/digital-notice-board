@@ -81,7 +81,6 @@ class App extends Component {
   componentDidMount() {
     fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
       this.setState({data: data})
-      console.log(this.state)
     })
 
   }
@@ -101,13 +100,11 @@ sendInfo = (e) => {
         form[e.target.elements[i].id] = e.target.elements[i].value
       }
     }
-    console.log(form)
     this.setState({form: form})
   }
 
 
   render() {
-    console.log(this.state.data)
     return (
       <div className="App">
         <Nav>
@@ -118,7 +115,9 @@ sendInfo = (e) => {
           </NavItem>
         </Nav>
 
-        <h1>This comes from the database</h1>
+        <div>
+          <h1 id="title">Digital-notice-board</h1>
+        </div>
         {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
         <h1>And here come the other components</h1>
         <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
