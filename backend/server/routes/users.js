@@ -1,8 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
-
-// Creating a Hash
+// Creating a Hash Function
 const hashPassword = (newUser, callback) => {
   bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -12,36 +14,19 @@ const hashPassword = (newUser, callback) => {
   });
 }
 
-// Query to DB for Email Adress
-exports.getUserByEmail = (email, callback) => {
-  const query = {email: email};
-  User.findOne(query, callback);
-} 
+// Register and creating new user route
+router.get('/register', (req, res) => {
+  res.json({'success': 'You are on the registration page'});
+});
 
-// Query to DB for ID Adress
-exports.getUserById = (id, callback) => {
-   User.findById(id, callback);
-}
-
-// Comparing the Password
-exports.comparePassword = (candidatePassword, hash, callback) => {
-  bcrypt.compare(candidatePassword, hash,  (err, isMatch) => {
-      if(err) throw err;
-      callback(null, isMatch);
-  });
-}
-
-exports.createUser = (req, res)  => {
+router.post('/register', (req, res)  => {
   const email = req.body.email;
   const password = req.body.password;
-
-  // Validation with expressValidator
-  const errors = req.validationErrors();
-
-  if(errors){
-    res.send('register',{
-      errors:errors
-    });
+  
+  if(!email) {
+    return res.send({"error": "Must provide an email adress"});
+  } else if(!password) {
+    return res.send({"error": "Must provide an password"});
   } else {
     var newUser = new User({
       email:email,
@@ -49,36 +34,35 @@ exports.createUser = (req, res)  => {
     });
 
     hashPassword(newUser, (err, user) => {
-      if(err) throw err;
-      console.log(user);
+      if(err) {
+        return res.json({'err': err});
+      }
     });
-    req.flash('success_msg', 'You are registered and can now login');
-    res.redirect('/login');
-  }
-};
 
-exports.logout = (req, res)  => {
+    res.json({'success': 'You are registered and can now login'});
+  }
+});
+
+
+// Get Login Page 
+router.get('/login',  (req, res)  => {
+  res.json({'success': 'You are on the login page'});
+});
+
+// Post to Login Page 
+// Login Process
+router.post('/login', function(req, res, next){
+  passport.authenticate('local', {
+    successRedirect:'/admin',
+    failureRedirect:'/users/login',
+    failureFlash: true
+  })(req, res, next);
+});
+
+// Lougout
+router.get('/logout', (req, res)  => {
   req.logout();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/login');
-};
+  res.json({'success': 'You are logged out'});
+});
 
-exports.login =  (req, res)  => {
-  res.send('Hi from login');
-};
-
-exports.register =  (req, res) => {
-  res.send('Hi fromregister');
-};
-
-exports.content = (req, res) => {
-  res.send('Hi from index');
-};
-exports.ensureAuthenticated  = (req, res, next) =>{
-  if(req.isAuthenticated()){
-    return next();
-  } else {
-    //req.flash('error_msg','You are not logged in');
-    res.redirect('/login');
-  }
-};
+module.exports = router;

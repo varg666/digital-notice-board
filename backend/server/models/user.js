@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 
 // User Schema
 const UserSchema = mongoose.Schema({
-	password: {
-		type: String
-	},
-	email: {
-		type: String
-	}
+  password: {
+    type: String
+  },
+  email: {
+    type: String
+  }
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

@@ -4,20 +4,28 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const userFunctions = require('../routes/users');
 
+// Comparing the Password
+const comparePassword = (candidatePassword, hash, callback) => {
+  bcrypt.compare(candidatePassword, hash,  (err, isMatch) => {
+      if(err) res.send(err);
+      callback(null, isMatch);
+  });
+}
+
 module.exports = (passport) => {
     passport.use(new LocalStrategy({
       usernameField: "email",
       passwordField: "password"
       }, (username, password, done) => {
-       userFunctions.getUserByEmail(username, (err, user) => {
-         console.log("email from passport function" + username);
-        if(err) console.log("error from login");
-        if(!username){
-          return done(null, false, {message: 'Unknown Email adress'});
-        }
-
-        userFunctions.comparePassword(password, user.password, (err, isMatch) => {
-          if(err) throw err;
+        const query = {email: username};
+        User.findOne(query, function(err, user) {
+          if (err) throw err;
+          if(!user) {
+              return done(null, false, {message: "Email Not Found"})
+        }  
+        // Match Password 
+        comparePassword(password, user.password, (err, isMatch) => {
+          if(err) { return done(err)}
           if(isMatch){
             return done(null, user);
           } else {
@@ -27,12 +35,12 @@ module.exports = (passport) => {
        });
       }));
 
-    passport.serializeUser((user, done) => {
-      done(null, user.id);
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
     });
-
-    passport.deserializeUser((id, done) => {
-      userFunctions.getUserById(id, (err, user) => {
+    
+    passport.deserializeUser(function(id, done) {
+      User.findById(id, function(err, user) {
         done(err, user);
       });
     });

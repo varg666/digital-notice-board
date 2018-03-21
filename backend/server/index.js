@@ -1,36 +1,39 @@
 const express = require('express');
 const app = express();
-const mockupJson = require("./mockup/mockup.json");
-var mongo = require('mongodb');
+const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
-const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const users = require('./routes/users');
-const User = require('./models/user');
-const content = require('./routes/content');
+const flash = require("connect-flash");
+const userRoutes = require("./routes/users");
+const adminRoutes = require("./routes/admin");
 
+// Bring in Models
+// const User = require('./models/user');
+const Content = require('./models/content');
 
 // Connection to DB using .env File
 mongoose.connect(process.env.DB_URI);
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.once("open", () => {
-	console.log("DB Connection established");
+  console.log("DB Connection established");
 });
 
 db.on("error", (err) => {
-	console.log(err);
+  console.log(err);
 });
 
 // Using Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(flash());
 
 // Using session to create a cookie using passport
 app.use(session({
@@ -63,45 +66,22 @@ app.use(expressValidator({
   }
 }));
 
-// Connect Flash
-app.use(flash());
-
-// Global Vars
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
+// Home Route - Display the Slides
+app.get("/", (req, res) => {
+  Content.find({}, (err, slides) => {
+      if (err) {
+          console.log(err)
+      } else {
+          // if slides not expired display
+          const today = new Date();
+          const currentSlides = slides.filter((slide) => slide.expiryDate > today)
+          res.send(currentSlides);
+      } 
+  }) 
 });
 
-
-// Routes
-// Main Route
-app.get('/', users.ensureAuthenticated, users.content);
-
-// Register and creating new user route
-app.get('/register', users.register);
-app.post('/register', users.createUser);
-
-// Login
-app.get('/login', users.login);
-app.post('/login',
-  passport.authenticate('local', {
-  	successRedirect:'/', 
-  	failureRedirect:'/login',
-  	failureFlash: true}),
-  (req, res) => {
-  	console.log(req.body);
-  	res.send("Logged in!");
-  	res.redirect("/");
- });
-
-// Lougout
-app.get('/logout', users.logout);
-
-// Add New Slide
-app.post('/addslide', content.addSlide);
+app.use("/admin", adminRoutes)
+app.use("/", userRoutes);
 
 // Server Port
 const PORT = process.env.PORT || 4000;
