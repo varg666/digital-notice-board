@@ -50,13 +50,12 @@ router.get('/login',  (req, res)  => {
 });
 
 // Post to Login Page 
-// Login Process
-router.post('/login', function(req, res, next) {
+router.post('/login', (req, res, next) => {
   if (req.body.password && req.body.email) { 
-    passport.authenticate('local', function(err, user, info) {
+    passport.authenticate('local', (err, user, info) => {
       if (err) { return next(err); }
       if (!user) { return res.send({"error": "Email/ password combination incorrect!"}); }
-      req.logIn(user, function(err) {
+      req.logIn(user, (err) => {
         if (err) { return next(err); }
         return res.send({"success": "Login Success"});
       });
