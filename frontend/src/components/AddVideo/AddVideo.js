@@ -15,7 +15,6 @@ class AddVideo extends React.Component {
 
   sendInfo = (e) => {
     e.preventDefault();
-    console.log(this.state);
   }
 
   sendingTitle = e => {
