@@ -15,7 +15,6 @@ const addSlide = (req, res) => {
 
     if(slide.type === 'video') {
       slide.content = getYoutubeID(slide.content)
-      console.log('yes is a video')
     }
 
     if(typeof(slide.content) !== 'string') {

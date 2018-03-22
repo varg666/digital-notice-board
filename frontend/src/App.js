@@ -28,7 +28,6 @@ class App extends Component {
     fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
     })
-
   }
 
   endingHandler = () => {
