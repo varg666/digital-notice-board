@@ -43,6 +43,37 @@ router.get('/', ensureAuthenticated, (req, res) => {
 // Add New Slide
 router.post('/add', ensureAuthenticated, addSlide);
 
+// Add New Slide
+router.put('/edit/:id', (req, res) => {
+  Content.findById(req.params.id, function(err, Content) {
+    if(!Content)
+      return res.send({err: 'Content not found'});
+
+  let slide = req.body;
+  if(req.body.type === 'video') {
+      slide.content = getYoutubeID(slide.content)
+  }
+  if(typeof(slide.content) !== 'string') {
+    slide.content = JSON.stringify(slide.content)
+  }
+
+  let newSlide = Content;
+  newSlide.type = slide.type;
+  newSlide.title = slide.title;
+  newSlide.description = slide.description;
+  newSlide.expiryDate = slide.expiryDate;
+  newSlide.displayDate = slide.displayDate;
+  newSlide.content = slide.content;
+
+  newSlide.save(function(err) {
+        if(err) {
+          return res.send(err);
+        }
+        return res.send({message: "Slide updated successfully!"})
+    });
+  });
+});
+
 // delete Slide
 router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
   Content.findById(req.params.id, function(err, Content) {
@@ -58,7 +89,5 @@ router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
     });
   });
 });
-
-
 
 module.exports = router;
