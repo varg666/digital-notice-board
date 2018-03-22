@@ -35,8 +35,10 @@ it('testing the text', () => {
   expect(text.text()).toBe('start at:  ');
 });
 
-it('renders a ChildComponent', () => {
-  let wrapper = mount(<ModulesSideBar data={testItem}/>);
-  let child = wrapper.find(".ModulesSideBar");
-  expect(child.length).toEqual(1);
+
+it('testing the text', () => {
+  const app = shallow(<ModulesSideBar data={testItem} />);
+  const p = app.find('.date-container')
+  const text = p.find('p').at(1)
+  expect(text.text()).toBe('start at:  ');
 });
