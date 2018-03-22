@@ -3,6 +3,12 @@ const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const waterfall = require('async-waterfall');
+const async = require('async');
+const crypto = require('crypto');
+const mailnotifier = require('./mailnotifier');
+
+
 
 router.post('/register', (req, res)  => {
   const email = req.body.email;
@@ -58,6 +64,46 @@ router.post('/login', (req, res, next) => {
 router.post('/resets', (req, res)  => {
   //
 });
+router.post('/forgot', (req, res)  => {  
+  async.waterfall([
+    function(done) {    
+      crypto.randomBytes(20, (err, buf) => {
+        const token = buf.toString('hex');
+        done(err, token);        
+      });
+    },
+    function(token, done) {      
+      User.findOne({ email: req.body.email }, (err, user) =>{
+        if (!user) {
+          req.flash('error', 'No account with that email address exists.');
+          return res.redirect('/forgot');
+        }
+        user.resetPasswordToken = token;
+        user.save(function(err) {
+          console.log(user);
+          done(err, token, user);
+        });
+      });
+    },
+  
+  ], function(err) {
+    if (err) return next(err);
+    res.redirect('/forgot');
+  });
+});
+
+// Reset Password 
+router.get('/reset/:token', function(req, res) {
+ 
+})
+
+router.get('/email', function(req, res) {
+  
+  mailnotifier.sendMail(req.body.email,'Password Reset','You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+  'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+  'http://localhost/reset/'+ token + '\n\n' +
+  'If you did not request this, please ignore this email and your password will remain unchanged.\n')
+})
 
 // Lougout 
 router.get('/logout', (req, res)  => {

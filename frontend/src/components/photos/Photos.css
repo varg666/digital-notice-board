@@ -1,0 +1,39 @@
+.photos{
+	border: 3px solid grey;
+}
+
+.thumbnails {
+	margin-top: 10px;
+}
+
+.photos img {
+	margin: 10px;
+	border: 3px solid grey;
+}
+
+.thumbnails img {
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.thumbnails img:hover {
+	box-shadow: 5px 5px 10px green;
+}
+
+.progressBar {
+	height: 100%;
+	font-size: 57%;
+}
+
+.progress {
+	border: 1px solid grey;
+	width: 857px;
+	height: 10px;
+	margin: auto;
+	margin-bottom: 10px;
+	background: lightgrey;
+}
+
+.active {
+	border: 5px solid green !important;
+}
