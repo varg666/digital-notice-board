@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matching the snapshot 1`] = `
+<form
+  className="AddVideo"
+  onSubmit={undefined}
+>
+  <h1>
+    Add Video
+  </h1>
+  <input
+    id="type"
+    type="text"
+    value="video"
+  />
+  <label>
+    Title
+  </label>
+  <input
+    className="form-control"
+    id="title"
+    type="text"
+  />
+  <label>
+    Description
+  </label>
+  <input
+    className="form-control"
+    id="description"
+    type="text"
+  />
+  <label>
+    Display Date
+  </label>
+  <input
+    className="form-control"
+    id="displayDate"
+    type="date"
+  />
+  <label>
+    Expiry Date
+  </label>
+  <input
+    className="form-control"
+    id="expiryDate"
+    type="date"
+  />
+  <label>
+    Youtube Embed Code
+  </label>
+  <input
+    className="form-control"
+    id="content"
+  />
+  <a
+    href="#"
+  >
+    Delete this Video
+  </a>
+  <br />
+  <button
+    className="btn btn-primary"
+    type="submit"
+  >
+    Add
+  </button>
+</form>
+`;
