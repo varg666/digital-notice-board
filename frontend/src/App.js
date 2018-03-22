@@ -58,14 +58,14 @@ class App extends Component {
   }
   render() {
     console.log(this.state.currentSlide)
-
-    if(this.state.currentSlide.type === "video"){
-          var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} /> 
-        }
-         else {
-          var content = "hey"
+ if( this.state.currentSlide != 0){
+     if(this.state.currentSlide.type.toLowerCase() === "video"){
+           var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} /> 
          }
-return (
+          else if(this.state.currentSlide.type.toLowerCase() === "photos"){
+           var content = <Photos/>
+          }}
+      return (
 <div className="App">
 <Nav>
 <NavItem>
@@ -86,12 +86,9 @@ return (
 
 <div className='column2'>
 {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item}  
-  handleToggleClick={this.slideHandler.bind(this)} /> )}
+handleToggleClick={this.slideHandler.bind(this)} /> )}
 </div>
-
 <h1>And here come the other components</h1>
-
-
 </div>
 );
 }
