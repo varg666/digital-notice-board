@@ -17,3 +17,34 @@ fetch = jest.fn(() => new Promise(resolve => resolve()));
   ReactDOM.render(app, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+describe('the state', ()=> {
+  it('the state of data' , () => {
+    const div = document.createElement('div');
+    var app = mount(<App />);
+    const youtubeCode = app.state().data;
+    expect(youtubeCode).toEqual([]);
+    ReactDOM.render(app, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
+  it('the state of youtube code' , () => {
+    const div = document.createElement('div');
+    var app = mount(<App />);
+    const youtubeCode = app.state().youtubeCode;
+    expect(youtubeCode).toEqual(['HCnGKF_Ro2A']);
+    ReactDOM.render(app, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
+  it('the state of current slide' , () => {
+    const div = document.createElement('div');
+    var app = mount(<App />);
+    const currentSlide = app.state().currentSlide;
+    expect(currentSlide).toEqual(0);
+    ReactDOM.render(app, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
+})
+
