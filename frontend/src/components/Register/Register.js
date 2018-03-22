@@ -169,6 +169,6 @@ class Register extends React.Component {
 
 
 
-export default Login;
+export default Register;
 
 
