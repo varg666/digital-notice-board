@@ -94,15 +94,4 @@ class App extends Component {
     );
   }
 }
-
-/*
-<ForgotPassword />
-<Login  />
-<Register  />
-<AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
-<SlideTimeline />
-<SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
-profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
-*/
-
 export default App;
