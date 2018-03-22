@@ -40,15 +40,31 @@ class App extends Component {
 
 sendInfo = (e) => {
     e.preventDefault()
-    var form = {}
+    const form = {};
     for(let i = 0; i < e.target.elements.length; i++) {
     if(e.target.elements[i].value !== "") {
         form[e.target.elements[i].id] = e.target.elements[i].value
       }
     }
+    console.log('this a fetach' ,form)  
+    //TODO POST method is sending the object not correctly
     this.setState({form: form})
-  }
-
+        fetch('http://localhost:4000/admin/add', {
+            body: JSON.stringify(form), 
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: 'POST', 
+            mode: 'cors', 
+            redirect: 'follow', 
+            referrer: 'no-referrer', 
+            })
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+    };
 
   render() {
     return (      

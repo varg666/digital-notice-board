@@ -38,5 +38,5 @@
     "jest": "./node_modules/.bin/jest",
     "eject": "react-scripts eject"
   },
-  "devDependencies": { }
+  "devDependencies": {}
 }
