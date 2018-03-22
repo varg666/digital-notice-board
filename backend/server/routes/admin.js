@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Content = require('../models/content');
 const moment = require('moment');
+const getYoutubeID = require('./youtube');
 
 const addSlide = (req, res) => {
     if(!req.body) {
@@ -9,7 +10,12 @@ const addSlide = (req, res) => {
     }
 
     let slide = req.body;
-    slide.content = JSON.stringify(slide.content);
+
+    if(slide.type === 'video') {
+      slide.content = getYoutubeID(slide.content)
+    }
+
+    console.log(slide);
 
     newSlide = new Content(slide);
       newSlide.save(function(err) {
@@ -33,7 +39,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 // Add New Slide
-router.post('/add', ensureAuthenticated, addSlide);
+router.post('/add', addSlide);
 
 // delete Slide
 router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
