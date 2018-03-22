@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import './Video.css';
 
 const Video = (props) => {
 
   return (
- <ReactPlayer className='slide-body' onEnded={props.endingHandler} url={`https://www.youtube.com/embed/${props.youtubeCode}`} /*playing*/  />
+	<div	className='slide-body'>
+ <ReactPlayer width='100%' height='80vh'	onEnded={props.endingHandler} url={`https://www.youtube.com/embed/${props.youtubeCode}`} playing  />
+	</div>
+ 
   );
 };
-export default Video
+export default Video;
