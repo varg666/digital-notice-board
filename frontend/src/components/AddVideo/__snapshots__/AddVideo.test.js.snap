@@ -8,6 +8,11 @@ exports[`matching the snapshot 1`] = `
   <h1>
     Add Video
   </h1>
+  <input
+    id="type"
+    type="text"
+    value="video"
+  />
   <label>
     Title
   </label>
@@ -21,7 +26,7 @@ exports[`matching the snapshot 1`] = `
   </label>
   <input
     className="form-control"
-    id="desc"
+    id="description"
     type="text"
   />
   <label>
@@ -29,7 +34,7 @@ exports[`matching the snapshot 1`] = `
   </label>
   <input
     className="form-control"
-    id="datestart"
+    id="displayDate"
     type="date"
   />
   <label>
@@ -37,7 +42,7 @@ exports[`matching the snapshot 1`] = `
   </label>
   <input
     className="form-control"
-    id="dateend"
+    id="expiryDate"
     type="date"
   />
   <label>
@@ -45,7 +50,7 @@ exports[`matching the snapshot 1`] = `
   </label>
   <input
     className="form-control"
-    id="url"
+    id="content"
   />
   <a
     href="#"
