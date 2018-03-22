@@ -15,7 +15,9 @@ const addSlide = (req, res) => {
       slide.content = getYoutubeID(slide.content)
     }
 
-    console.log(slide);
+    if(typeof(slide.content) !== 'string') {
+      slide.content = JSON.stringify(slide.content)
+    }
 
     newSlide = new Content(slide);
       newSlide.save(function(err) {
