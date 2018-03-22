@@ -7,7 +7,7 @@ class AddVideo extends React.Component {
     return (
       <form onSubmit={this.props.sendChildInfo} className="AddVideo">
         <h1>Add Video</h1>
-        <input type="hidden" id="type" value="video"/>
+        <input type="text" id="type" value="video"/>
         <label>Title</label>
         <input  className="form-control" id="title" type="text"/>
         <label>Description</label>
