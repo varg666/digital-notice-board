@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 import getIcons from '../../constants/icons.js';
 
 class ModulesSideBar extends Component {
-//      constructor(props){
-//       super(props);
-//       this.state = {
-//          moduleData: {
-//             "id": '',
-//             "type": '',
-//             "title": '',
-//             "description": '',
-//             "expiryDate": '',
-//             "displayDate": '',
-//             "content": []
+     constructor(props){
+      super(props);
+      this.state = {
+         moduleData: {
+            "id": '',
+            "type": '',
+            "title": '',
+            "description": '',
+            "expiryDate": '',
+            "displayDate": '',
+            "content": []
 
-//        } 
+       } 
 
-//    this.handleToggleClick= this.handleToggleClick.bind(this);
+   this.handleToggleClick= this.handleToggleClick.bind(this);
 
-// }
-//   handleToggleClick(e){
-//     console.log(e)
-//   }
+}
+  handleToggleClick(e){
+    console.log(e)
+  }
   render(props) {
     let icon;
     if(this.props.data.type === 'video'){
