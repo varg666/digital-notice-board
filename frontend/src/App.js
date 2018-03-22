@@ -10,7 +10,8 @@ import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
 import SlideTimeline from './components/timeline/SlideTimeline.js';
 import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
-
+import moment from 'moment';
+import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 
 class App extends Component {
 
@@ -77,29 +78,53 @@ class App extends Component {
         }
 }
 
+  componentDidMount() {
+    fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
+      this.setState({data: data})
+    })
+
+  }
 endingHandler = () => {
-    console.log("The video has ended"); 
+    console.log("The video has ended");
     }
-    
+
   slideHandler (e) {
   console.log(e);
     }
 
+sendInfo = (e) => {
+    e.preventDefault()
+    var form = {}
+    for(let i = 0; i < e.target.elements.length; i++) {
+    if(e.target.elements[i].value !== "") {
+        form[e.target.elements[i].id] = e.target.elements[i].value
+      }
+    }
+    this.setState({form: form})
+  }
+
 
   render() {
-    console.log(this.state.data)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-          <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
-          {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
+        <Nav>
+          <NavItem>
+            <NavLink href="admin1">
+              <Button color="primary">Admin</Button>
+            </NavLink>
+          </NavItem>
+        </Nav>
+
+        <div>
+          <h1 id="title">Digital-notice-board</h1>
+        </div>
+        {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
+        <h1>And here come the other components</h1>
+        <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
         <ForgotPassword />
         <Login  />
         <Register  />
-        <AddVideo />
+        <AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
         <SlideTimeline />
         <SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
                       profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>

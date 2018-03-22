@@ -1,5 +1,14 @@
 [![Build Status](https://travis-ci.org/devugees/digital-notice-board.svg?branch=develop)](https://travis-ci.org/devugees/digital-notice-board)
 
+# Development
+
+#### Start server backend server
+`cd backend && npm run server`
+#### Start server frontend server
+`cd frontend && yarn start`
+or
+` cd frontend && npm start `
+
 ## Synopsis
 
 This is the Digital Career Institute Dashboard. It has plenty of modules which loop automatically through and inform the audience about upcoming events, github activity or little code snippets.

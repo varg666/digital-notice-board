@@ -26,6 +26,13 @@ db.once("open", () => {
   console.log("DB Connection established");
 });
 
+app.use(function (req, res, next) {
+    // TODO restrict access to final domain
+    //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 db.on("error", (err) => {
   console.log(err);
 });
@@ -78,9 +85,10 @@ app.get("/", (req, res) => {
           console.log(err)
       } else {
           // if slides not expired display
+          // TODO nice feature - but i need the slides for develop the frontend. We include that later 😘
           const today = new Date();
-          const currentSlides = slides.filter((slide) => slide.expiryDate > today)
-          res.send(currentSlides);
+          //const currentSlides = slides.filter((slide) => slide.expiryDate > today)
+          res.send(slides);
       } 
   }) 
 });
