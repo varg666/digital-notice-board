@@ -5,6 +5,8 @@ const moment = require('moment');
 const getYoutubeID = require('./youtube');
 
 const addSlide = (req, res) => {
+ 
+  console.log(req.body)
     if(!req.body) {
         res.send({message: "No content sent!"});
     }
@@ -13,6 +15,7 @@ const addSlide = (req, res) => {
 
     if(slide.type === 'video') {
       slide.content = getYoutubeID(slide.content)
+      console.log('yes is a video')
     }
 
     if(typeof(slide.content) !== 'string') {
