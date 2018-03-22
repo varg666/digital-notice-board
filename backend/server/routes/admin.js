@@ -85,8 +85,7 @@ router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
         return res.send(err);
       }
 
-      console.log('Content deleted');
-      return res.send(Content);
+      return res.send('Content deleted');
     });
   });
 });

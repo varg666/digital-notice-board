@@ -11,7 +11,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true
-  }
+  },
+  resetPasswordToken: { 
+    type: String, 
+  } 
 });
 
 UserSchema.post('save', function(err, doc, next) {
