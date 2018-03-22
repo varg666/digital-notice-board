@@ -39,14 +39,52 @@ const ensureAuthenticated  = (req, res, next) => {
   }
 };
 
+// Admin Home Route
 router.get('/', ensureAuthenticated, (req, res) => {
-  res.json({"success": "You are signed into the admin panel."});
+  Content.find({}, (err, slides) => {
+      if (err) {
+          console.log(err)
+      } else {
+          res.send(slides);
+      } 
+  })
 });
 
-// Add New Slide
-router.post('/add', addSlide);
+// Add New Slide Route
+router.post('/add', ensureAuthenticated, addSlide);
 
-// delete Slide
+// Edit New Slide Route
+router.put('/edit/:id', ensureAuthenticated, (req, res) => {
+  Content.findById(req.params.id, function(err, Content) {
+    if(!Content)
+      return res.send({err: 'Content not found'});
+
+  let slide = req.body;
+  if(req.body.type === 'video') {
+      slide.content = getYoutubeID(slide.content)
+  }
+  if(typeof(slide.content) !== 'string') {
+    slide.content = JSON.stringify(slide.content)
+  }
+
+  let newSlide = Content;
+  newSlide.type = slide.type;
+  newSlide.title = slide.title;
+  newSlide.description = slide.description;
+  newSlide.expiryDate = slide.expiryDate;
+  newSlide.displayDate = slide.displayDate;
+  newSlide.content = slide.content;
+
+  newSlide.save(function(err) {
+        if(err) {
+          return res.send(err);
+        }
+        return res.send({message: "Slide updated successfully!"})
+    });
+  });
+});
+
+// Delete Slide
 router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
   Content.findById(req.params.id, function(err, Content) {
     if(!Content)
@@ -57,12 +95,9 @@ router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
         return res.send(err);
       }
 
-      console.log('Content deleted');
-      return res.send(Content);
+      return res.send('Content deleted');
     });
   });
 });
-
-
 
 module.exports = router;
