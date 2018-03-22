@@ -44,7 +44,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 router.post('/add', ensureAuthenticated, addSlide);
 
 // delete Slide
-router.delete('/delete/:id', (req,res) => {
+router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
   Content.findById(req.params.id, function(err, Content) {
     if(!Content)
       return res.send({err: 'Content not found'});
