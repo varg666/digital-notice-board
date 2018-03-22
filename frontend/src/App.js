@@ -68,7 +68,7 @@ return (
 <div className="App">
 <Nav>
 <NavItem>
-<NavLink href="admin1">
+<NavLink href="admin">
 <Button color="primary">Admin</Button>
 </NavLink>
 </NavItem>
