@@ -3,7 +3,26 @@ import React, { Component } from 'react';
 import getIcons from '../../constants/icons.js';
 
 class ModulesSideBar extends Component {
+//      constructor(props){
+//       super(props);
+//       this.state = {
+//          moduleData: {
+//             "id": '',
+//             "type": '',
+//             "title": '',
+//             "description": '',
+//             "expiryDate": '',
+//             "displayDate": '',
+//             "content": []
 
+//        } 
+
+//    this.handleToggleClick= this.handleToggleClick.bind(this);
+
+// }
+//   handleToggleClick(e){
+//     console.log(e)
+//   }
   render(props) {
     let icon;
     if(this.props.data.type === 'video'){
@@ -14,7 +33,8 @@ class ModulesSideBar extends Component {
    
     return (
       <div className="ModulesSideBar slide-selected" onClick={this.props.onclick}>
-        <div className='slide-icon'>
+        <h4 onClick={this.props.onclick}>{this.props.data.title}</h4>
+        <p onClick={this.props.onclick}>{this.props.data.description}</p>
         <img onClick={this.props.onclick} src={getIcons(this.props.data.type)} />
         <h4  className='slide-text' onClick={this.props.onclick}>{this.props.data.title}</h4>
         </div>

@@ -38,7 +38,7 @@ class App extends Component {
   console.log(e);
     }
 
-sendInfo = (e) => {
+  sendInfo = (e) => {
     e.preventDefault()
     var form = {}
     for(let i = 0; i < e.target.elements.length; i++) {

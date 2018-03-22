@@ -22,7 +22,7 @@ render(){
 		<div className="authorData">
 			<img src={this.props.profilePic} />
 		</div>
-		<SlideTimeline time={50} />
+		<SlideTimeline time={10} />
 		<Caption data={this.state.headerData} />
 	</div>
 		);
