@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
+import AddVideo from '../AddVideo/AddVideo';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 
 class Admin extends Component {
@@ -32,6 +33,33 @@ class Admin extends Component {
       console.log(this.state)
     })
 
+  }
+  sendInfo = (e) => {
+    e.preventDefault()
+    const form = {};
+    for (let i = 0; i < e.target.elements.length; i++) {
+      if (e.target.elements[i].value !== "") {
+        form[e.target.elements[i].id] = e.target.elements[i].value
+      }
+    }
+    console.log('this a fetach', form)
+    //TODO POST method is sending the object not correctly
+    this.setState({form: form})
+    fetch('http://localhost:4000/admin/add', {
+      body: JSON.stringify(form),
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      method: 'POST',
+      mode: 'cors',
+      redirect: 'follow',
+      referrer: 'no-referrer'
+    })
+    .then(res => res.json())
+    .then(response => console.log('Success:', response))
+    .catch(error => console.error('Error:', error))
   }
   handleClick = (item) => {
     console.log(item.content)
@@ -74,6 +102,7 @@ class Admin extends Component {
               //TODO here should rendered individual edit views like eg:
               //frontend/src/components/AddVideo/AddVideo.js
               <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
+              <AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
             </div>
           </div>
 

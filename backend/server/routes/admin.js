@@ -5,6 +5,8 @@ const moment = require('moment');
 const getYoutubeID = require('./youtube');
 
 const addSlide = (req, res) => {
+ 
+  console.log(req.body)
     if(!req.body) {
         res.send({message: "No content sent!"});
     }
@@ -36,15 +38,22 @@ const ensureAuthenticated  = (req, res, next) => {
   }
 };
 
+// Admin Home Route
 router.get('/', ensureAuthenticated, (req, res) => {
-  res.json({"success": "You are signed into the admin panel."});
+  Content.find({}, (err, slides) => {
+      if (err) {
+          console.log(err)
+      } else {
+          res.send(slides);
+      } 
+  })
 });
 
-// Add New Slide
+// Add New Slide Route
 router.post('/add', ensureAuthenticated, addSlide);
 
-// Add New Slide
-router.put('/edit/:id', (req, res) => {
+// Edit New Slide Route
+router.put('/edit/:id', ensureAuthenticated, (req, res) => {
   Content.findById(req.params.id, function(err, Content) {
     if(!Content)
       return res.send({err: 'Content not found'});
@@ -74,7 +83,7 @@ router.put('/edit/:id', (req, res) => {
   });
 });
 
-// delete Slide
+// Delete Slide
 router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
   Content.findById(req.params.id, function(err, Content) {
     if(!Content)
