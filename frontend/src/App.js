@@ -5,7 +5,6 @@ import Photos from './components/photos/Photos.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
-import AddVideo from './components/AddVideo/AddVideo';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
@@ -43,32 +42,7 @@ class App extends Component {
     console.log(this.state.currentSlide)
   }
 
-  sendInfo = (e) => {
-    e.preventDefault()
-    const form = {};
-    for (let i = 0; i < e.target.elements.length; i++) {
-      if (e.target.elements[i].value !== "") {
-        form[e.target.elements[i].id] = e.target.elements[i].value
-      }
-    }
-    console.log('this a fetach', form)
-    //TODO POST method is sending the object not correctly
-    this.setState({form: form})
-    fetch('http://localhost:4000/admin/add', {
-      body: JSON.stringify(form),
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      },
-      method: 'POST',
-      mode: 'cors',
-      redirect: 'follow',
-      referrer: 'no-referrer'
-    }).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => console.log('Success:', response));
-  };
 
-}
 handleToggleClick(e) {
   console.log(e)
 }
