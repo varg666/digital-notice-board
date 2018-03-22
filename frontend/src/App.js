@@ -28,7 +28,6 @@ class App extends Component {
     fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
     })
-
   }
 
   endingHandler = () => {
@@ -70,11 +69,25 @@ class App extends Component {
             .then(response => console.log('Success:', response));
     };
 
-handleToggleClick(e) {
-  console.log(e)
-}
-render() {
-  console.log(this.state.currentSlide)
+    if(this.state.currentSlide.type === "video"){
+          var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} /> 
+        }
+         else {
+          var content = "hey"
+         }
+return (
+<div className="App">
+<Nav>
+<NavItem>
+<NavLink href="admin">
+<Button color="primary">Admin</Button>
+</NavLink>
+</NavItem>
+</Nav>
+<div className="skewed"></div>
+<div>
+<h1 id="title">Digital-notice-board</h1>
+</div>
 
   if (this.state.currentSlide.type === "video") {
     var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {
