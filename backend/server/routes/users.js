@@ -80,7 +80,7 @@ router.post('/forget', (req, res)  => {
         user.resetPasswordToken = token; 
         user.save(function(err, user) { 
           console.log(err, 'error here'); 
-          mailnotifier.sendMail(`laythmassoud8@gmail.com`,`Password Reset`,`You are receiving this because you (or someone else) have requested the reset of the password for your account. 
+          mailnotifier.sendMail(user.email,`Password Reset`,`You are receiving this because you (or someone else) have requested the reset of the password for your account. 
           'Please click on the following link: http://localhost:3000/resetpassword/${token}  
            or paste this into your browser to complete the process:`) 
           res.send('it is working') 
