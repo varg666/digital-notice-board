@@ -1,8 +1,11 @@
+import React from 'react';
+import  './style.css';
+import { Nav, NavItem, NavLink } from 'reactstrap';
+//import {Helmet} from "react-helmet";
+//import Typekit from 'typekit';
 
-import React, { Component } from 'react';
-import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 class Login extends React.Component {
-
+      
         constructor(props) {
        super(props);
        this.state = {
@@ -16,25 +19,25 @@ class Login extends React.Component {
        this.handleSubmit = this.handleSubmit.bind(this);
        this.validateEmail = this.validateEmail.bind(this);
    }
-
+   
    handleChange(event) {
        const loginDataCopy = {...this.state.loginData};
        loginDataCopy[event.target.name] = event.target.value;
        this.setState({loginData : loginDataCopy});
 
    };
-
+   
    handleSubmit(e) {
        e.preventDefault();
-
+       
        const data = {
            email: this.state.loginData.email,
            password: this.state.loginData.password
        };
-
+       
        fetch('/login', {
-           method: 'POST',
-           body: JSON.stringify(data),
+           method: 'POST', 
+           body: JSON.stringify(data), 
            headers: new Headers({
                'Content-Type': 'application/json'
            })
@@ -42,15 +45,15 @@ class Login extends React.Component {
        .catch(error => console.error('Error:', error))
        .then(response => console.log('Success:', response));
    };
-
-
-   validateEmail(value) {
-       if(!value) return true;
+   
+   
+   validateEmail(value) {      
+       if(!value) return true;  
        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
        return emailPattern.test(value);
-
+       
      };
-
+     
         render(){
 
             const style = {
@@ -63,7 +66,7 @@ class Login extends React.Component {
         <div>
             <svg className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
                 <defs>
-                    <circle id="armMaskPath" cx="100" cy="100" r="100"/>
+                    <circle id="armMaskPath" cx="100" cy="100" r="100"/>    
                 </defs>
                 <clipPath id="armMask">
                     <use xlinkHref="#armMaskPath" overflow="visible"/>
@@ -133,18 +136,18 @@ class Login extends React.Component {
                 </g>
                 <path className="nose" d="M97.7 79.9h4.7c1.9 0 3 2.2 1.9 3.7l-2.3 3.3c-.9 1.3-2.9 1.3-3.8 0l-2.3-3.3c-1.3-1.6-.2-3.7 1.8-3.7z" fill="#3a5e77"/>
                 <g className="arms" clipPath="url(#armMask)">
-
+                             
                 </g>
             </svg>
         </div>
     </div>
-
+    
     <div className="inputGroup inputGroup1">
         <label>Email</label>
         <input type="text" id="email" name="email"
-            className="email" maxLength="256"
+            className="email" maxLength="256" 
             placeholder="Enter Email"
-            value={this.state.loginData.email}
+            value={this.state.loginData.email} 
             onChange={this.handleChange}
             onSubmit={this.validateEmail}
              />
@@ -153,7 +156,7 @@ class Login extends React.Component {
                 </div>
                 <div className="inputGroup inputGroup2">
          <label>Password</label>
-         <input type="password" id="password" className="password"
+         <input type="password" id="password" className="password" 
                            value={this.state.loginData.password}
                            onChange={this.handleChange}
                            name="password"
@@ -161,21 +164,21 @@ class Login extends React.Component {
     </div>
     <div className="inputGroup inputGroup3">
         <button onClick={(e) => this.handleChange(e)} id="login">Log in</button>
-    </div>
+    </div> 
   <br/>
     <Nav>
       <NavItem>
             <NavLink href="/admin/reset">ForgetPassword</NavLink>
           </NavItem>
-
-
+         
+          
           <NavItem>
             <NavLink href="/admin/Register">Register</NavLink>
           </NavItem>
-
+      
           </Nav>
-      </form>
-                </div>
+      </form>  
+                </div>    
             );
         }
 
