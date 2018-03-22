@@ -4,7 +4,7 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 //import Typekit from 'typekit';
 //import  './foobar.js';
 
-class Login extends React.Component {
+class ResetPassword extends React.Component {
     constructor(props) {
             super(props);
 
@@ -162,6 +162,6 @@ class Login extends React.Component {
 
 
 
-export default Login;
+export default ResetPassword;
 
 
