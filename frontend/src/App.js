@@ -51,32 +51,44 @@ sendInfo = (e) => {
 
 
   render() {
-    return (      
-      <div className="App">
-        <Nav>
-          <NavItem>
-            <NavLink href="admin1">
-              <Button color="primary">Admin</Button>
-            </NavLink>
-          </NavItem>
-        </Nav>
+return (
+<div className="App">
+<Nav>
+<NavItem>
+<NavLink href="admin1">
+<Button color="primary">Admin</Button>
+</NavLink>
+</NavItem>
+</Nav>
+<div className="skewed"></div>
+<div>
+<h1 id="title">Digital-notice-board</h1>
+</div>
 
-        <div>
-          <h1 id="title">Digital-notice-board</h1>
-        </div>
-        {this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
-        <h1>And here come the other components</h1>
-        <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
-        <ForgotPassword />
-        <Login  />
-        <Register  />
-        <AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
-        <SlideTimeline />
-        <SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
-                      profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
-        <Photos />
-      </div>
-    );
-  }
+<div className='column1'>
+<Video youtubeCode={this.state.youtubeCode} endingHandler={() => {this.endingHandler()}} />
+</div>
+
+<div className='column2'>
+{this.state.data.map((item,value) => <ModulesSideBar key={value} data={item} switchModule={this.slideHandler.bind(this)} /> )}
+</div>
+
+<h1>And here come the other components</h1>
+
+
+</div>
+);
 }
+}
+
+/*
+<ForgotPassword />
+<Login  />
+<Register  />
+<AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
+<SlideTimeline />
+<SnippetSlide image="https://images.pexels.com/photos/60204/pexels-photo-60204.jpeg?h=350&auto=compress&cs=tinysrgb"
+profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlZ4wEIMhORQAr9rv15Mj5zZt_t4rw_bmlPLTSdh9ocK9zhF8"/>
+*/
+
 export default App;
