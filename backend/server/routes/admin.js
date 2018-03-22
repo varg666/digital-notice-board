@@ -41,7 +41,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 // Add New Slide
-router.post('/add', addSlide);
+router.post('/add', ensureAuthenticated, addSlide);
 
 // delete Slide
 router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
@@ -54,8 +54,7 @@ router.delete('/delete/:id', ensureAuthenticated, (req,res) => {
         return res.send(err);
       }
 
-      console.log('Content deleted');
-      return res.send(Content);
+      return res.send('Content deleted');
     });
   });
 });
