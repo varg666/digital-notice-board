@@ -3,12 +3,30 @@ const mongoose = require('mongoose');
 
 // User Schema
 const ContentSchema = mongoose.Schema({
-  type: String,
-  title: String,
-  description: String,
-  displayDate: Date,
-  expiryDate: Date,
-  content: Array
+  type: {
+    type: String,
+    required: true 
+  },
+  title: {
+    type: String,
+    required: true 
+  },
+  description: {
+    type: String,
+    required: true 
+  },
+  displayDate: {
+    type: Date,
+    required: true 
+  },
+  expiryDate: {
+    type: Date,
+    required: true 
+  },
+  content: {
+    type: String,
+    required: true 
+  }
 });
 
 const Content = module.exports = mongoose.model('Content', ContentSchema);
