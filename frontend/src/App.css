@@ -127,16 +127,16 @@ height: 100vh;
 }
 
 .slide-selected {
-  padding-bottom: 3%;
-  padding-left: 8px;
-  display: block;
-  grid-template-columns: 10% 90%;
-  border-radius: 5px;
+  /*padding-bottom: 3%;*/
+  /*padding-left: 8px;*/
+  /*display: block;*/
+  /*grid-template-columns: 10% 90%;*/
+  /*border-radius: 5px;*/
   background-color: var(--right-slides-bg-selected);
   color: var(--light-text-color);
-  font-size: var(--running-font-size);
-  font-weight: 100;
-  margin-bottom: 15px;
+  /*font-size: var(--running-font-size);*/
+  /*font-weight: 100;*/
+  /*margin-bottom: 15px;*/
 }
 
 .slide-text {
