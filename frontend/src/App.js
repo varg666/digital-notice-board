@@ -92,7 +92,7 @@ class App extends Component {
         </div>
 
         <div className='column2'>
-          {this.state.data.map((item, value) => <ModulesSideBar key={value} data={item} handleToggleClick={this.slideHandler.bind(this)}/>)}
+          {this.state.data.map((item, value) => <ModulesSideBar current={this.state.currentSlide} key={value} data={item} handleToggleClick={this.slideHandler.bind(this)}/>)}
         </div>
 
         <h1>And here come the other components</h1>
