@@ -1,0 +1,5 @@
+.repo {
+  height: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+}

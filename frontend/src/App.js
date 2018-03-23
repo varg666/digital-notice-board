@@ -5,6 +5,7 @@ import Photos from './components/photos/Photos.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
+import Github from './components/Github/Github.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
@@ -63,6 +64,8 @@ class App extends Component {
         }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
         var content = <Photos/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
+        var content = <Github data={this.state.currentSlide}/>
       }
     }
     return (
