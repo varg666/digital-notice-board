@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Login from './components/login/Login.js';
-import Register from './components/Register/Register.js';
+import Register from './components/register/Register.js';
 import Photos from './components/photos/Photos.js';
 import logo from './logo.svg';
 import './App.css';
 import Video from './components/video/Video.js';
-import Github from './components/Github/Github.js';
+import Github from './components/github/Github.js';
 import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'

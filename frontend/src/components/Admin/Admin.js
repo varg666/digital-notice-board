@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
-import AddVideo from '../AddVideo/AddVideo';
+import AddVideo from '../addvideo/AddVideo';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 
 class Admin extends Component {
