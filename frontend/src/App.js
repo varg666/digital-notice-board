@@ -13,6 +13,7 @@ import SlideTimeline from './components/timeline/SlideTimeline.js';
 import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
 import moment from 'moment';
 import {Button, Nav, NavItem, NavLink} from 'reactstrap';
+require('dotenv').config()
 
 class App extends Component {
 
@@ -26,7 +27,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
+    //Read the configuration from /frontend/.env with fallback if not .env file created
+    var domain = process.env.REACT_APP_DOMAIN || "http://localhost"
+    var port = process.env.REACT_APP_BACKENDPORT || 4000
+    fetch(`${domain}:${port}`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
     })
   }
