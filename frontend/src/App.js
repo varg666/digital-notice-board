@@ -21,29 +21,68 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      youtubeCode: ['qJz18c6gw8c'],
-      currentSlide: 0
+      youtubeCode: ['B7bqAsxee4I'],
+      currentSlide: 0,
+      playing: true
     }
   }
-
+  findItemById() {
+    var key = 0;
+    for (let i = 0; i < this.state.data.length; i++) {
+      if (this.state.data[i]._id == this.state.currentSlide._id) {
+        if (this.state.data.length > i) {
+          key = ++i;
+        }
+      }
+    }
+    return key
+  }
+  autoSwitchSlide(key) {
+    console.log("slide switched automatically to: ", key);
+    if (this.state.data.length > key) {
+      this.setState({currentSlide: this.state.data[key]})
+    } else {
+      this.setState({currentSlide: this.state.data[0]})
+    }
+  }
   componentDidMount() {
     //Read the configuration from /frontend/.env with fallback if not .env file created
     var domain = process.env.REACT_APP_DOMAIN || "http://localhost"
     var port = process.env.REACT_APP_BACKENDPORT || 4000
     fetch(`${domain}:${port}`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
+      this.timerID = setInterval(() => {
+        if (this.state.currentSlide.type.toLowerCase() !== 'video') {
+          if (this.state.playing) {
+            var key = this.findItemById(this.state.currentSlide)
+            console.log(key);
+            this.autoSwitchSlide(key)
+          }
+        }
+      }, 3000);
+
     })
   }
-
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
   endingHandler = () => {
+    var key = this.findItemById(this.state.currentSlide)
     console.log("The video has ended");
+    this.autoSwitchSlide(key++)
   }
 
   slideHandler(slide) {
-    console.log(this.state.currentSlide)
-    console.log(slide.props.data);
-    this.setState({currentSlide: slide.props.data})
-    console.log(this.state.currentSlide)
+    this.setState({currentSlide: slide.props.data, playing: false})
+    console.log("Stopped the autocycle");
+    var timerid = ""
+    if (!timerid) {
+      clearTimeout(timerid);
+    }
+    setTimeout(() => {
+      this.setState({playing: true})
+    console.log("And start again the autocycle");
+    }, 3000);
   }
 
   sendInfo = (e) => {
@@ -60,8 +99,16 @@ class App extends Component {
     console.log(e)
   }
   render() {
-    console.log(this.state.currentSlide)
-    if (this.state.currentSlide != 0) {
+    //console.log(this.state.currentSlide)
+    var buttons = ""
+    if (this.state.playing) {
+      buttons = <i className="fa fa-play">playing</i>
+    } else {
+      buttons = <i className="fa fa-pause">pause</i>
+
+    }
+    if (this.state.currentSlide !== undefined && this.state.currentSlide != 0) {
+      //console.log(this.state.currentSlide);
       if (this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {
           this.endingHandler()
@@ -87,6 +134,7 @@ class App extends Component {
         </div>
 
         <div className='column1'>
+          {buttons}
           {content}
 
         </div>
@@ -94,8 +142,6 @@ class App extends Component {
         <div className='column2'>
           {this.state.data.map((item, value) => <ModulesSideBar key={value} data={item} handleToggleClick={this.slideHandler.bind(this)}/>)}
         </div>
-
-        <h1>And here come the other components</h1>
 
       </div>
     );
