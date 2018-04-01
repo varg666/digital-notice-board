@@ -50,7 +50,9 @@ class App extends Component {
     var domain = process.env.REACT_APP_DOMAIN || "http://localhost"
     var port = process.env.REACT_APP_BACKENDPORT || 4000
     fetch(`${domain}:${port}`).then(resp => resp.json()).then((data) => {
+      //get all data from the backend and sets the first slide active
       this.setState({data: data, currentSlide: data[0]})
+      //sets a interval which holds all slides for XXXX milleseconds
       this.timerID = setInterval(() => {
         if (this.state.currentSlide.type.toLowerCase() !== 'video') {
           if (this.state.playing) {
@@ -59,7 +61,7 @@ class App extends Component {
             this.autoSwitchSlide(key)
           }
         }
-      }, 3000);
+      }, 10000);
 
     })
   }

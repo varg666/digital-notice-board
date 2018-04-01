@@ -1,6 +1,7 @@
 import React from 'react';
 import  './style.css';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import axios from 'axios';
 //import {Helmet} from "react-helmet";
 //import Typekit from 'typekit';
 
@@ -35,15 +36,26 @@ class Login extends React.Component {
            password: this.state.loginData.password
        };
        
-       fetch('/login', {
-           method: 'POST', 
-           body: JSON.stringify(data), 
-           headers: new Headers({
-               'Content-Type': 'application/json'
-           })
-       }).then(res => res.json())
-       .catch(error => console.error('Error:', error))
-       .then(response => console.log('Success:', response));
+   axios.post('http://localhost:4000/login', data)
+    .then(function (response) {
+      console.log("Login successful: ", response);
+    })
+    .catch(function (error) {
+      console.log("Error: ", error);
+    });
+
+      //fetch('http://localhost:4000/login', {
+           //method: 'POST', 
+           //mode: 'no-cors',
+           //body: data, 
+           //headers: new Headers({
+            //"Access-Control-Allow-Origin": "*",
+               //'Content-Type': 'application/json'
+           //})
+       //}).then(res => console.log(res))
+       //.then(response => console.log('Success:', response))
+       //.catch(error => console.error('Error:', error))
+       //.catch(error => console.error('Error:', error));
    };
    
    
@@ -61,7 +73,7 @@ class Login extends React.Component {
             }
             return (
     <div>
-    <form onSubmit={this.handleSubmit} action="/" method="post">
+    <form onSubmit={this.handleSubmit} action="/login" method="post">
      <div className="svgContainer">
         <div>
             <svg className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">

@@ -33,6 +33,11 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.options("*",function(req,res,next){
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   //other headers here
+    res.status(200).end();
+});
 db.on("error", (err) => {
   console.log(err);
 });
