@@ -17,10 +17,8 @@ class Github extends React.Component {
 
   componentDidMount() {
     fetch(`https://api.github.com/repos/${this.props.data.title}/commits`).then(resp => resp.json()).then((commits) => {
-      console.log(commits[0])
       commits = commits.filter(f => !f.commit.message.includes("Merge"))
       fetch(`https://api.github.com/repos/${this.props.data.title}/issues`).then(resp => resp.json()).then((issues) => {
-        console.log(issues[0])
         this.setState({commits: commits, issues: issues, loading: false})
       })
       .catch(err => {
