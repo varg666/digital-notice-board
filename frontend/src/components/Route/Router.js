@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import App from '../../App'
-import Admin from '../admin/Admin'
+import Admin from '../Admin/Admin'
 import Login from '../login/Login';
-import Register from '../register/Register';
+import Register from '../Register/Register';
 import ForgotPassword from '../forgot/ForgotPassword';
 
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Login from './components/login/Login.js';
-import Register from './components/register/Register.js';
+import Register from './components/Register/Register.js';
 import Photos from './components/photos/Photos.js';
 import logo from './logo.svg';
 import './App.css';
