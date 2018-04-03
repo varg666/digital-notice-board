@@ -10,21 +10,8 @@ class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: {
-        "type": 'bbb',
-        "iconUrl": '',
-        "title": '',
-        "expiryDate": '',
-        "displayDate": '',
-        "description": '',
-        "content": {
-          "src": ''
-        }
-
-      },
       data: [],
-      currentSlide: 0,
-      youtubeCode: ['HCnGKF_Ro2A']
+      currentSlide: 0
 
     }
   }
@@ -32,6 +19,7 @@ class Admin extends Component {
   componentDidMount() {
     fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
+      console.log(this.state)
     })
 
   }
@@ -55,8 +43,10 @@ class Admin extends Component {
         console.log("Error: ", error);
       });
   }
+  slideHandler(slide) {
+    this.setState({currentSlide: slide})
+    }
   handleClick = (item) => {
-    console.log(item.type)
     this.setState({
       current: {
         "type": item.type,
@@ -74,6 +64,12 @@ class Admin extends Component {
   }
 
   render() {
+  if(this.state.currentSlide.type){
+      if ( this.state.currentSlide.type.toLowerCase() === "video") {
+        var content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
+      }
+      }
     return (
   <div className="section">
     <Nav>
@@ -83,24 +79,21 @@ class Admin extends Component {
         </NavLink>
       </NavItem>
     </Nav>
-        <div className="d-flex">
-          <div className="w-50" >
-            <ul className="list-group m-3">
-              {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.handleClick(item)} key={value} data={item}/> </li>)}
-            </ul>
-            <Search/>
-          </div>
+    <div className="d-flex">
+      <div className="w-50" >
+        <ul className="list-group m-3">
+          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/> </li>)}
+        </ul>
+        <Search/>
+      </div>
 
-          <div className="card w-100 m-3">
-            <div className="card-body" >
-              //TODO here should rendered individual edit views like eg:
-              //frontend/src/components/AddVideo/AddVideo.js
-              <SlideDetail type={this.state.current.type} description={this.state.current.description} displayDate={this.state.current.displayDate} expiryDate={this.state.current.expiryDate} youtubeCode={this.state.current.youtubeCode}/>
-              <AddVideo sendChildInfo={this.sendInfo.bind(this)}/>
-            </div>
-          </div>
-
+      <div className="card w-100 m-3">
+        <div className="card-body" >
+          {content}
         </div>
+      </div>
+
+    </div>
   </div>
     )
   }

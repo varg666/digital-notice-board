@@ -13,6 +13,7 @@ import SlideTimeline from './components/timeline/SlideTimeline.js';
 import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
 import moment from 'moment';
 import {Button, Nav, NavItem, NavLink} from 'reactstrap';
+import {PROGRESS_BAR_SPEED} from './constants/misc.js'
 require('dotenv').config()
 
 class App extends Component {
@@ -23,7 +24,8 @@ class App extends Component {
       data: [],
       youtubeCode: ['B7bqAsxee4I'],
       currentSlide: 0,
-      playing: true
+      playing: true,
+      duration: PROGRESS_BAR_SPEED
     }
   }
   findItemById() {
@@ -39,6 +41,7 @@ class App extends Component {
   }
   autoSwitchSlide(key) {
     console.log("slide switched automatically to: ", key);
+    this.setState({duration: PROGRESS_BAR_SPEED})
     if (this.state.data.length > key) {
       this.setState({currentSlide: this.state.data[key]})
     } else {
@@ -57,11 +60,10 @@ class App extends Component {
         if (this.state.currentSlide.type.toLowerCase() !== 'video') {
           if (this.state.playing) {
             var key = this.findItemById(this.state.currentSlide)
-            console.log(key);
             this.autoSwitchSlide(key)
           }
         }
-      }, 10000);
+      }, PROGRESS_BAR_SPEED * 1000);
 
     })
   }
@@ -83,8 +85,8 @@ class App extends Component {
     }
     setTimeout(() => {
       this.setState({playing: true})
-    console.log("And start again the autocycle");
-    }, 3000);
+      console.log("And start again the autocycle");
+    }, PROGRESS_BAR_SPEED * 1000);
   }
 
   sendInfo = (e) => {
@@ -97,11 +99,7 @@ class App extends Component {
     }
     this.setState({form: form})
   }
-  handleToggleClick(e) {
-    console.log(e)
-  }
   render() {
-    //console.log(this.state.currentSlide)
     var buttons = ""
     if (this.state.playing) {
       buttons = <i className="fa fa-play">playing</i>
@@ -110,15 +108,14 @@ class App extends Component {
 
     }
     if (this.state.currentSlide !== undefined && this.state.currentSlide != 0) {
-      //console.log(this.state.currentSlide);
       if (this.state.currentSlide.type.toLowerCase() === "video") {
-        var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => {
-          this.endingHandler()
-        }}/>
+        var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
         var content = <Photos/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <Github data={this.state.currentSlide}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "code") {
+        var content = <SnippetSlide data={this.state.currentSlide}/>
       }
     }
     return (
@@ -138,7 +135,7 @@ class App extends Component {
         <div className='column1'>
           {buttons}
           {content}
-
+          <SlideTimeline time={PROGRESS_BAR_SPEED}/>
         </div>
 
         <div className='column2'>
