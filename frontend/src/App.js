@@ -33,7 +33,7 @@ class App extends Component {
   findItemById() {
     var key = 0;
     for (let i = 0; i < this.state.data.length; i++) {
-      if (this.state.data[i]._id === this.state.currentSlide._id) {
+      if (this.state.data[i]._id == this.state.currentSlide._id) {
         if (this.state.data.length > i) {
           key = ++i;
         }
@@ -109,10 +109,9 @@ class App extends Component {
       buttons = <i className="fa fa-pause">pause</i>
 
     }
-    if (this.state.currentSlide !== undefined && this.state.currentSlide !== 0) {
-      var content = '';
+    if (this.state.currentSlide !== undefined && this.state.currentSlide != 0) {
       if (this.state.currentSlide.type.toLowerCase() === "video") {
-        content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
+        var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
         var content = <Photos data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {

@@ -82,14 +82,7 @@ class Admin extends Component {
     <div className="d-flex">
       <div className="w-50" >
         <ul className="list-group m-3">
-          {this.state.data.map((item, value) => 
-            <li key={value} className="list-group-item mb-2">
-            <ModulesSideBar 
-            current={this.state.currentSlide} 
-            handleToggleClick={() => this.slideHandler(item)} 
-            key={value} 
-            data={item}/> 
-            </li>)}
+          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/></li>)}
         <Search/>
         </ul>
       </div>
