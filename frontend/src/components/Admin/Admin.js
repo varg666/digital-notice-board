@@ -5,6 +5,8 @@ import SlideDetail from "./SlideDetail"
 import AddVideo from '../AddVideo/AddVideo';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
+import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
+
 
 class Admin extends Component {
   constructor(props) {
@@ -67,7 +69,8 @@ class Admin extends Component {
   if(this.state.currentSlide.type){
       if ( this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
-      } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
+      } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
+         var content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
       }
     return (
