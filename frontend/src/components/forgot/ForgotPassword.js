@@ -1,6 +1,6 @@
 import React from 'react';
 import '../login/style.css';
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 
 class ResetPassword extends React.Component {
   constructor(props) {
@@ -38,21 +38,20 @@ class ResetPassword extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <Form>
+        <FormGroup onSubmit={this.handleSubmit}>
           <div className="inputGroup inputGroup1">
-            <label for="email1">Email</label>
-            <input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email" placeholder="Enter email" maxlength="256"/>
+            <Label for="email1">Email</Label>
+            <Input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email form-control" placeholder="Enter email" maxlength="256"/>
             <div>{!this.validateEmail(this.state.data.email)
-                ? <div>Invalid Email</div>
-                : null}
+              ? <div>Invalid Email</div>
+              : null}
             </div>
             <span className="indicator"></span>
           </div>
           <div className="inputGroup inputGroup3">
             <button onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</button>
           </div>
-
           <br/>
           <Nav>
             <NavItem>
@@ -62,10 +61,9 @@ class ResetPassword extends React.Component {
             <NavItem>
               <NavLink href="/admin/Register">Register</NavLink>
             </NavItem>
-
           </Nav>
-        </form>
-      </div>
+        </FormGroup>
+      </Form>
     );
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 import axios from 'axios';
 
 class Login extends React.Component {
@@ -55,23 +55,23 @@ class Login extends React.Component {
       display: 'none'
     }
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} action="/login" method="post" id="loginform">
+      <Form>
+        <FormGroup onSubmit={this.handleSubmit} action="/login" method="post" id="loginform">
           <div className="svgContainer">
             <div></div>
           </div>
 
           <div className="inputGroup inputGroup1">
-            <label>Email</label>
-            <input type="text" id="email" name="email" className="email" maxLength="256" placeholder="Enter Email" value={this.state.loginData.email} onChange={this.handleChange} onSubmit={this.validateEmail}/>
+            <Label>Email</Label>
+            <Input type="text" id="email" name="email" className="email" maxLength="256" placeholder="Enter Email" value={this.state.loginData.email} onChange={this.handleChange} onSubmit={this.validateEmail}/>
             <div>{!this.validateEmail(this.state.loginData.email)
                 ? <div>Invalid Email</div>
                 : null}
             </div>
           </div>
           <div className="inputGroup inputGroup2">
-            <label>Password</label>
-            <input type="password" id="password" className="password" value={this.state.loginData.password} onChange={this.handleChange} name="password" placeholder="Enter Password"/>
+            <Label>Password</Label>
+            <Input type="password" id="password" className="password" value={this.state.loginData.password} onChange={this.handleChange} name="password" placeholder="Enter Password"/>
           </div>
           <div className="inputGroup inputGroup3">
             <button onClick={(e) => this.handleChange(e)} id="login">Log in</button>
@@ -87,8 +87,8 @@ class Login extends React.Component {
             </NavItem>
 
           </Nav>
-        </form>
-      </div>
+        </FormGroup>
+      </Form>
     );
   }
 

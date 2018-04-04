@@ -1,6 +1,6 @@
 import React from 'react';
 import '../login/style.css';
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 
 class Register extends React.Component {
   constructor(props) {
@@ -36,12 +36,12 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} action="/" method="post">
+      <Form>
+        <FormGroup onSubmit={this.handleSubmit} action="/" method="post">
 
           <div className="inputGroup inputGroup1">
-            <label for="email1">Email</label>
-            <input type="text" id="email" className="email" type="text" name="email" required value={this.state.registerData.email} onChange={this.handleChange} onSubmit={this.validateEmail} maxlength="256" placeholder="Enter Email"/>
+            <Label for="email1">Email</Label>
+            <Input type="text" id="email" className="email" type="text" name="email" required value={this.state.registerData.email} onChange={this.handleChange} onSubmit={this.validateEmail} maxlength="256" placeholder="Enter Email"/>
             <div>{!this.validateEmail(this.state.registerData.email)
                 ? <div>Invalid Email</div>
                 : null}
@@ -49,8 +49,8 @@ class Register extends React.Component {
           </div>
 
           <div className="inputGroup inputGroup2">
-            <label for="password">Password</label>
-            <input type="password" id="password" className="password" name="password" required value={this.state.registerData.password} onChange={this.handleChange} placeholder="Enter Password"/>
+            <Label for="password">Password</Label>
+            <Input type="password" id="password" className="password" name="password" required value={this.state.registerData.password} onChange={this.handleChange} placeholder="Enter Password"/>
           </div>
           <div className="inputGroup inputGroup3">
             <button id="login">Register</button>
@@ -66,8 +66,8 @@ class Register extends React.Component {
             </NavItem>
 
           </Nav>
-        </form>
-      </div>
+        </FormGroup>
+      </Form>
     );
   }
 }
