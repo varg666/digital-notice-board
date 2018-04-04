@@ -111,7 +111,7 @@ class App extends Component {
       if (this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
-        var content = <Photos/>
+        var content = <Photos data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <Github data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
@@ -129,7 +129,7 @@ class App extends Component {
         </Nav>
         <div className="skewed"></div>
         <div>
-          <h1 id="title">Digital-notice-board</h1>
+          <h1 id="title">DCI Digital Notice Board</h1>
         </div>
 
         <div className='column1'>
