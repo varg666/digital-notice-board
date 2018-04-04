@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 import axios from 'axios';
 
 class Login extends React.Component {
@@ -55,7 +55,7 @@ class Login extends React.Component {
       display: 'none'
     }
     return (
-      <Form>
+      <Form className="border border-success rounded w-25 mx-auto mt-5 p-5">
         <FormGroup onSubmit={this.handleSubmit} action="/login" method="post" id="loginform">
           <div className="svgContainer">
             <div></div>
@@ -69,17 +69,17 @@ class Login extends React.Component {
                 : null}
             </div>
           </div>
-          <div className="inputGroup inputGroup2">
+          <div className="inputGroup inputGroup2 pt-3">
             <Label>Password</Label>
             <Input type="password" id="password" className="password" value={this.state.loginData.password} onChange={this.handleChange} name="password" placeholder="Enter Password"/>
           </div>
-          <div className="inputGroup inputGroup3">
-            <button onClick={(e) => this.handleChange(e)} id="login">Log in</button>
+          <div className="inputGroup inputGroup3 pt-3">
+            <Button color="success" block onClick={(e) => this.handleChange(e)} id="login">Log in</Button>
           </div>
           <br/>
-          <Nav>
+          <Nav className="justify-content-center">
             <NavItem>
-              <NavLink href="/admin/reset">ForgetPassword</NavLink>
+              <NavLink href="/admin/reset">Forgot Password?</NavLink>
             </NavItem>
 
             <NavItem>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../login/style.css';
-import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 
 class Register extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form className="border border-success rounded w-25 mx-auto mt-5 p-5">
         <FormGroup onSubmit={this.handleSubmit} action="/" method="post">
 
           <div className="inputGroup inputGroup1">
@@ -48,21 +48,21 @@ class Register extends React.Component {
             </div>
           </div>
 
-          <div className="inputGroup inputGroup2">
+          <div className="inputGroup inputGroup2 pt-3">
             <Label for="password">Password</Label>
             <Input type="password" id="password" className="password" name="password" required value={this.state.registerData.password} onChange={this.handleChange} placeholder="Enter Password"/>
           </div>
-          <div className="inputGroup inputGroup3">
-            <button id="login">Register</button>
+          <div className="inputGroup inputGroup3 pt-3">
+            <Button color="success" block id="login">Register</Button>
           </div>
           <br/>
-          <Nav>
+          <Nav className="justify-content-center">
             <NavItem>
               <NavLink href="/admin/login">Login</NavLink>
             </NavItem>
 
             <NavItem>
-              <NavLink href="/admin/reset">ForgetPassword</NavLink>
+              <NavLink href="/admin/reset">Forgot Password?</NavLink>
             </NavItem>
 
           </Nav>

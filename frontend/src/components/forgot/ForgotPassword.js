@@ -1,6 +1,6 @@
 import React from 'react';
 import '../login/style.css';
-import {Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 
 class ResetPassword extends React.Component {
   constructor(props) {
@@ -11,7 +11,6 @@ class ResetPassword extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
-
   }
 
   handleSubmit(e) {
@@ -38,7 +37,7 @@ class ResetPassword extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form className="border border-success rounded w-25 mx-auto mt-5 p-5">
         <FormGroup onSubmit={this.handleSubmit}>
           <div className="inputGroup inputGroup1">
             <Label for="email1">Email</Label>
@@ -49,11 +48,11 @@ class ResetPassword extends React.Component {
             </div>
             <span className="indicator"></span>
           </div>
-          <div className="inputGroup inputGroup3">
-            <button onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</button>
+          <div className="inputGroup inputGroup3 pt-3">
+            <Button color="success" block onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</Button>
           </div>
           <br/>
-          <Nav>
+          <Nav className="justify-content-center">
             <NavItem>
               <NavLink href="/admin/login">Login</NavLink>
             </NavItem>
@@ -66,7 +65,6 @@ class ResetPassword extends React.Component {
       </Form>
     );
   }
-
 }
 
 export default ResetPassword;
