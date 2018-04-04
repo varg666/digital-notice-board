@@ -20,5 +20,7 @@ export default function getIcons(iconType) {
     case ANNOUNCEMENT: {
       return ANNOUNCEMENT_ICON;
     }
+    default:
+      console.log('Sorry, there are no icons');
   }
 }
