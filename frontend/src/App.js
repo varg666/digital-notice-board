@@ -129,7 +129,7 @@ class App extends Component {
         </Nav>
         <div className="skewed"></div>
         <div>
-          <h1 id="title">Digital-notice-board</h1>
+          <h1 id="title">DCI Digital Notice Board</h1>
         </div>
 
         <div className='column1'>
