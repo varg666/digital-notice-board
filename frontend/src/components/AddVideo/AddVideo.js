@@ -29,7 +29,7 @@ class AddVideo extends React.Component {
     };
     console.log(field);
     if (field == "title") {
-      var regExp = /^[a-zA-Z0-9_]+$/;
+      var regExp = /^[a-zA-Z0-9_|]+$/;
       var match = value.match(regExp);
       console.log(match);
       if (match) {
@@ -39,6 +39,16 @@ class AddVideo extends React.Component {
       }
     }
 
+    if (field == "description") {
+      var regExp = /^[a-zA-Z0-9!"#$%&'()*+,.\/:;<=>?@\[\] ^_`{|}~-]*$/;
+      var match = value.match(regExp);
+      console.log(match);
+      if (match) {
+        this.setState({ errors: { [field]: "Nice Text" }, fields: { [field]: false } })
+      } else {
+        this.setState({ errors: { [field]: "Please Write A description Make Sense" }, fields: { [field]: true } })
+      }
+    }
 
     if (field == "content") {
       var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -71,6 +81,7 @@ class AddVideo extends React.Component {
         <FormGroup>
           <Label>Description</Label>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description} className="form-control" type="text" />
+          <FormFeedback>{this.state.errors["description"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
         </FormGroup>
 
