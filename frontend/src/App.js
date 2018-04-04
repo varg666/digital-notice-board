@@ -10,10 +10,11 @@ import ModulesSideBar from './components/modules-side-bar/ModulesSideBar';
 import ForgotPassword from "./components/forgot/ForgotPassword.js";
 import getIcons from './constants/icons.js'
 import SlideTimeline from './components/timeline/SlideTimeline.js';
-import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
+import CodeSnippet from './components/CodeSnippet/CodeSnippet.js';
 import moment from 'moment';
 import {Button, Nav, NavItem, NavLink} from 'reactstrap';
-import {PROGRESS_BAR_SPEED} from './constants/misc.js'
+import {PROGRESS_BAR_SPEED} from './constants/misc.js';
+import highlight from 'highlight.js';
 require('dotenv').config()
 
 class App extends Component {
@@ -115,7 +116,7 @@ class App extends Component {
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <Github data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
-        var content = <SnippetSlide data={this.state.currentSlide}/>
+        var content = <CodeSnippet data={this.state.currentSlide}/>
       }
     }
     return (

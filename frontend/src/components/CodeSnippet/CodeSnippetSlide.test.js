@@ -1,3 +1,6 @@
+
+// TODO make the test workin`
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CodeSnippetSlide from './CodeSnippetSlide';
