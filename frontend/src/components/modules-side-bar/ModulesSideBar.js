@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Option from '../option/Option';
 import getIcons from '../../constants/icons.js';
-import { Badge, ListGroup, ListGroupItem} from 'reactstrap';
+import { ListGroup, ListGroupItem} from 'reactstrap';
 
 class ModulesSideBar extends Component {
 
@@ -32,9 +32,7 @@ class ModulesSideBar extends Component {
             </div>
             <div className="text ">
               <h4>{this.props.data.title}</h4>
-              {
-              }
-              </div>
+            </div>
           </div>
         </ListGroupItem>
       </ListGroup>
