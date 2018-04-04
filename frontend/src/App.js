@@ -14,6 +14,8 @@ import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
 import moment from 'moment';
 import {Button, Nav, NavItem, NavLink} from 'reactstrap';
 import {PROGRESS_BAR_SPEED} from './constants/misc.js'
+import Announcement from './components/Announcement/Announcement';
+
 require('dotenv').config()
 
 class App extends Component {
@@ -116,6 +118,8 @@ class App extends Component {
         var content = <Github data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
         var content = <SnippetSlide data={this.state.currentSlide}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
+        var content = <Announcement data={this.state.currentSlide}/>
       }
     }
     return (
