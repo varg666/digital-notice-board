@@ -41,7 +41,7 @@ class ResetPassword extends React.Component {
         <FormGroup onSubmit={this.handleSubmit}>
           <div className="inputGroup inputGroup1">
             <Label for="email1">Email</Label>
-            <Input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email form-control" placeholder="Enter email" maxlength="256"/>
+            <Input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email form-control" placeholder="Enter Email" maxlength="256"/>
             <div>{!this.validateEmail(this.state.data.email)
               ? <div>Invalid Email</div>
               : null}
@@ -54,7 +54,7 @@ class ResetPassword extends React.Component {
           <br/>
           <Nav className="justify-content-center">
             <NavItem>
-              <NavLink href="/admin/login">Login</NavLink>
+              <NavLink href="/admin/login">Log in</NavLink>
             </NavItem>
 
             <NavItem>

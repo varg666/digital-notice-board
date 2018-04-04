@@ -58,7 +58,7 @@ class Register extends React.Component {
           <br/>
           <Nav className="justify-content-center">
             <NavItem>
-              <NavLink href="/admin/login">Login</NavLink>
+              <NavLink href="/admin/login">Log in</NavLink>
             </NavItem>
 
             <NavItem>
