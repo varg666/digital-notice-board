@@ -9,35 +9,35 @@ import React, { Component } from 'react';
           clicked: false,
           animated: "animated slideInRight",
           size: "115x70",
-          src: "http://via.placeholder.com/115x70"
+          src: "https://www.facebook.com/devugees/photos/a.271358913221387.1073741826.134931656864114/593032241054051/?type=3"
         },
 
         {
           clicked: false,
           animated: "animated slideInDown",
           size: "115x70",
-          src: "http://via.placeholder.com/115x70"
+          src: "../img/02.jpg"
         },
 
         {
           clicked: false,
           animated: "animated jackInTheBox",
           size: "115x70",
-          src: "http://via.placeholder.com/115x70"
+          src: "../img/02.jpg"
         },
 
         {
           clicked: false,
           animated: "animated slideInUp",
           size: "115x70",
-          src: "http://via.placeholder.com/115x70"
+          src: "/img/01.jpg"
         },
 
        {
           clicked: false,
           animated: "animated slideInLeft",
           size: "115x70",
-          src: "http://via.placeholder.com/115x70"
+          src: "/img/01.jpg"
         }
       ]
 
