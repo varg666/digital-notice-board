@@ -1,5 +1,7 @@
 .photos{
-	border: 3px solid grey;
+	border: 0;
+	border-radius: 3px;
+
 }
 
 .thumbnails {
@@ -8,16 +10,15 @@
 
 .photos img {
 	margin: 10px;
-	border: 3px solid grey;
+	border: 0;
+	border-radius: 5px;
+
 }
 
 .thumbnails img {
-	border-radius: 10px;
+	border-radius: 3px;
 	margin: 10px;
-}
-
-.thumbnails img:hover {
-	box-shadow: 5px 5px 10px green;
+	height: 69px;
 }
 
 .progressBar {
