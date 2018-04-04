@@ -22,7 +22,7 @@ class AddAnnouncement extends React.Component {
 		render(){
 		return(
 			<form onSubmit={this.props.sendChildInfo} className="AddVideo">
-        		<h1>Add Video</h1>
+        		<h1>Add Announcement</h1>
     			<FormGroup>
 		          <Label for="examplePassword">Title</Label>
 		          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title}/>
