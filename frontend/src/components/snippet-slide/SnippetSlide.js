@@ -16,10 +16,10 @@ render(){
   return(
   <div>
     <div className="SnippetSlide">
-      <img src={this.props.image} />
+      <img src={this.props.image} alt="img" />
     </div>
     <div className="authorData">
-      <img src={this.props.profilePic} />
+      <img src={this.props.profilePic} alt="img" />
     </div>
     <Caption data={this.state.headerData} />
   </div>
