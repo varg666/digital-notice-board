@@ -111,7 +111,7 @@ class App extends Component {
       if (this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
-        var content = <Photos/>
+        var content = <Photos data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <Github data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
