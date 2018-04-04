@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 import './style.css';
 import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 const moment = require('moment');
