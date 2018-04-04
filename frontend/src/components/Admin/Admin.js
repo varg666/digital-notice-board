@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
-import AddVideo from '../addvideo/AddVideo';
+import AddVideo from '../AddVideo/AddVideo';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
 
