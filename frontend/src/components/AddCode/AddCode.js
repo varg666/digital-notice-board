@@ -25,7 +25,7 @@ class AddCode extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.sendChildInfo} className="AddVideo">
+      <Form onSubmit={this.props.sendChildInfo}>
         <h1>Add Code</h1>
         <FormGroup>
           <Label for="examplePassword">Title</Label>
@@ -74,9 +74,10 @@ class AddCode extends React.Component {
             value={this.state.form.content}
           />
         </FormGroup>
-        <a href="#">Delete this Video</a>
-        <br/>
-        <button type="submit" className="btn btn-primary">Add</button>
+        <div class="d-flex justify-content-between">
+          <a className="text-muted" href="#">Delete this Slide</a>
+          <button type="submit" className="btn btn-primary">Add</button>
+      </div>
       </Form>
     );
   }
