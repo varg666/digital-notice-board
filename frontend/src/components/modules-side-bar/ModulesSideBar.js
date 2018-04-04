@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import Option from '../option/Option';
 import getIcons from '../../constants/icons.js';
+import { ListGroup, ListGroupItem } from 'reactstrap';
+
 
 class ModulesSideBar extends Component {
 
@@ -23,19 +25,20 @@ class ModulesSideBar extends Component {
     // the active indicator for the current sidebar module slide
     var classes = (this.props.current && this.props.current._id === this.props.data._id ) ? " slide-selected" : ""
     return (
-      <div className={ `type_${this.props.data.type.toLowerCase()} card p-3 mb-3 ${classes}`} onClick={(e)=>this.props.handleToggleClick(this)}>
-        <div className="d-flex flex-column flex-md-row align-items-center">
-          <div className="mr-md-3">
-            {icon}
-          </div>
-          <div className="text ">
-            <h4 className="">{this.props.data.title}</h4>
-            {
-             }
-             </div>
-        </div>
-      </div>
-
+      <ListGroup>
+        <ListGroupItem className={ `type_${this.props.data.type.toLowerCase()} card p-3 mb-3 ${classes}`} onClick={(e)=>this.props.handleToggleClick(this)}>
+          <ListGroupItem className="d-flex flex-column flex-md-row align-items-center">
+            <ListGroupItem className="mr-md-3">
+              {icon}
+            </ListGroupItem>
+            <ListGroupItem className="text ">
+              <h4 className="">{this.props.data.title}</h4>
+              {
+              }
+              </ListGroupItem>
+          </ListGroupItem>
+        </ListGroupItem>
+      </ListGroup>
     );
   }
 }
