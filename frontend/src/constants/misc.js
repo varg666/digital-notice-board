@@ -1,1 +1,1 @@
-export const PROGRESS_BAR_SPEED = 100;  // seconds
+export const PROGRESS_BAR_SPEED = 4;  // seconds
