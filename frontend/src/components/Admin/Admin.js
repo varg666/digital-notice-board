@@ -90,8 +90,8 @@ class Admin extends Component {
             key={value} 
             data={item}/> 
             </li>)}
-        </ul>
         <Search/>
+        </ul>
       </div>
 
       <div className="card w-100 m-3">
