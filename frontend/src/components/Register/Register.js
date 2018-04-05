@@ -1,6 +1,8 @@
 import React from 'react';
 import '../login/style.css';
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import Navigation from "../Navigation/Navigation.js"
+
 
 class Register extends React.Component {
   constructor(props) {
@@ -36,38 +38,29 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} action="/" method="post">
+      <Form className="border border-success rounded w-25 mx-auto mt-5 p-5">
+        <FormGroup onSubmit={this.handleSubmit} action="/" method="post">
 
           <div className="inputGroup inputGroup1">
-            <label for="email1">Email</label>
-            <input type="text" id="email" className="email" type="text" name="email" required value={this.state.registerData.email} onChange={this.handleChange} onSubmit={this.validateEmail} maxlength="256" placeholder="Enter Email"/>
+            <Label for="email1">Email</Label>
+            <Input type="text" id="email" className="email" type="text" name="email" required value={this.state.registerData.email} onChange={this.handleChange} onSubmit={this.validateEmail} maxlength="256" placeholder="Enter Email"/>
             <div>{!this.validateEmail(this.state.registerData.email)
                 ? <div>Invalid Email</div>
                 : null}
             </div>
           </div>
 
-          <div className="inputGroup inputGroup2">
-            <label for="password">Password</label>
-            <input type="password" id="password" className="password" name="password" required value={this.state.registerData.password} onChange={this.handleChange} placeholder="Enter Password"/>
+          <div className="inputGroup inputGroup2 pt-3">
+            <Label for="password">Password</Label>
+            <Input type="password" id="password" className="password" name="password" required value={this.state.registerData.password} onChange={this.handleChange} placeholder="Enter Password"/>
           </div>
-          <div className="inputGroup inputGroup3">
-            <button id="login">Register</button>
+          <div className="inputGroup inputGroup3 pt-3">
+            <Button color="success" block id="login">Register</Button>
           </div>
           <br/>
-          <Nav>
-            <NavItem>
-              <NavLink href="/admin/login">Login</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/admin/reset">ForgetPassword</NavLink>
-            </NavItem>
-
-          </Nav>
-        </form>
-      </div>
+          <Navigation navigation={["login", "forgot"]}/>
+        </FormGroup>
+      </Form>
     );
   }
 }

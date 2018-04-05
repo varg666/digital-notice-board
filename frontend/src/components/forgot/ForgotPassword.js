@@ -1,6 +1,7 @@
 import React from 'react';
 import '../login/style.css';
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import Navigation from "../Navigation/Navigation.js"
 
 class ResetPassword extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class ResetPassword extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
-
   }
 
   handleSubmit(e) {
@@ -38,37 +38,26 @@ class ResetPassword extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <Form className="border border-success rounded w-25 mx-auto mt-5 p-5">
+        <FormGroup onSubmit={this.handleSubmit}>
           <div className="inputGroup inputGroup1">
-            <label for="email1">Email</label>
-            <input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email" placeholder="Enter email" maxlength="256"/>
+            <Label for="email1">Email</Label>
+            <Input type="text" id="email" type="text" name="email" value={this.state.data.email} onChange={this.handleChange} onSubmit={this.validateEmail} className="email form-control" placeholder="Enter Email" maxlength="256"/>
             <div>{!this.validateEmail(this.state.data.email)
-                ? <div>Invalid Email</div>
-                : null}
+              ? <div>Invalid Email</div>
+              : null}
             </div>
             <span className="indicator"></span>
           </div>
-          <div className="inputGroup inputGroup3">
-            <button onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</button>
+          <div className="inputGroup inputGroup3 pt-3">
+            <Button color="success" block onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</Button>
           </div>
-
           <br/>
-          <Nav>
-            <NavItem>
-              <NavLink href="/admin/login">Login</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/admin/Register">Register</NavLink>
-            </NavItem>
-
-          </Nav>
-        </form>
-      </div>
+          <Navigation navigation={["login", "register"]} />
+        </FormGroup>
+      </Form>
     );
   }
-
 }
 
 export default ResetPassword;
