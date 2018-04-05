@@ -15,7 +15,7 @@ require("dotenv").config();
 class App extends Component {
   state = {
     data: [],
-    youtubeCode: ["egfn6cPDQ6Q"],
+    youtubeCode: ["h9bk0m2TDaA"],
     currentSlide: 0,
     playing: true,
     duration: PROGRESS_BAR_SPEED,
@@ -42,6 +42,7 @@ class App extends Component {
 
   nextSlideInterval = () => {
     clearInterval(this.timerID);
+    // when slide is video, wait for videoEndinghandler instead
     if (this.state.currentSlide.type === "video") return;
     this.timerID = setInterval(() => {
       if (this.state.playing) {
