@@ -1,4 +1,5 @@
-export const VIDEO = 'VIDEO';
-export const PHOTOS = 'PHOTOS';
-export const CODE = 'CODE';
-export const ANNOUNCEMENT = 'ANNOUNCEMENT';
+export const VIDEO = 'video';
+export const PHOTOS = 'photos';
+export const CODE = 'code';
+export const ANNOUNCEMENT = 'announcement';
+export const REPO = 'repo';
