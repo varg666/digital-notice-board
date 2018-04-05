@@ -29,6 +29,7 @@ db.once("open", () => {
 app.use(function (req, res, next) {
     // TODO restrict access to final domain
     //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
@@ -94,8 +95,8 @@ app.get("/", (req, res) => {
           const today = new Date();
           //const currentSlides = slides.filter((slide) => slide.expiryDate > today)
           res.send(slides);
-      } 
-  }) 
+      }
+  })
 });
 
 app.use("/admin", adminRoutes)
