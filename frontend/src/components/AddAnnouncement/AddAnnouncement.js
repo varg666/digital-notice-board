@@ -90,9 +90,11 @@ class AddAnnouncement extends React.Component {
 		          <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
 		        </FormGroup>
 		        
-		        	<a href="#">Delete this Announcement</a>
-		        	<br/>
-		        <button type="submit" className="btn btn-primary">Add</button>
+		        
+		        <div class="d-flex justify-content-between">	
+			        <a href="#">Delete this Announcement</a>	
+			        <button type="submit" className="btn btn-primary">Add</button>
+			    </div>
 		    </form>
 		);
 	}
