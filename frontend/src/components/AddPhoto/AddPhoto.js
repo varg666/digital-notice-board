@@ -80,9 +80,11 @@ class AddPhoto extends React.Component {
                             <FormFeedback>{this.state.errors["content"]}</FormFeedback>
                             <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
                     </FormGroup>
+                    <div class="d-flex justify-content-between">
                         <button type="submit" className="btn btn-info">Save Changes</button>
                         <a href="#">Delete this Slide</a>
                         <br/>
+                    </div>    
                 </Form>
 
         
