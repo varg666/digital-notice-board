@@ -14,6 +14,8 @@ import SnippetSlide from './components/snippet-slide/SnippetSlide.js';
 import moment from 'moment';
 import {Button, Nav, NavItem, NavLink} from 'reactstrap';
 import {PROGRESS_BAR_SPEED} from './constants/misc.js'
+import Announcement from './components/Announcement/Announcement';
+
 require('dotenv').config()
 
 class App extends Component {
@@ -111,11 +113,13 @@ class App extends Component {
       if (this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <Video youtubeCode={this.state.youtubeCode} endingHandler={() => { this.endingHandler() }}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
-        var content = <Photos/>
+        var content = <Photos data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <Github data={this.state.currentSlide}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
         var content = <SnippetSlide data={this.state.currentSlide}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
+        var content = <Announcement data={this.state.currentSlide}/>
       }
     }
     return (
@@ -129,7 +133,7 @@ class App extends Component {
         </Nav>
         <div className="skewed"></div>
         <div>
-          <h1 id="title">Digital-notice-board</h1>
+          <h1 id="title">DCI Digital Notice Board</h1>
         </div>
 
         <div className='column1'>
