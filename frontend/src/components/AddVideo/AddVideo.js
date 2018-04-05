@@ -27,16 +27,38 @@ class AddVideo extends React.Component {
     let data = {
       ...this.state.form
     };
-    if (field == "title") {
-      var regExp = /^[a-zA-Z0-9_]+$/;
+
+    
+
+    if ((field == "title") || (field == "description")){
+      var regExp = /[a-zA-Z0-9_]+$/;
       var match = value.match(regExp);
-      console.log(match);
+      
       if (match) {
         this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
       } else {
         this.setState({errors: { [field]: "No special characters" }, fields: {[field]: true}})
       }
-    }
+      
+
+     }
+      if((field == "displayDate") ||  (field == "expiryDate")){
+         var displayDate1 =document.getElementById("displayDate").value;
+         
+         var dis = Date.parse(displayDate1);
+         console.log(dis);
+          var expiryDate1 = document.getElementById("expiryDate").value;;
+          var exp = Date.parse(expiryDate1)   
+         console.log(exp)
+         if(dis > exp){
+
+         this.setState({errors: { [field]: "please put a valid Expiry Date" }, fields: {[field]: true}})
+         } else{
+          this.setState({errors: { [field]: "right" }, fields: {[field]: false}})
+         }
+       }
+
+
     if (field == "content") {
       var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
       var match = value.match(regExp);
@@ -46,10 +68,13 @@ class AddVideo extends React.Component {
         this.setState({errors: { [field]: "Doesnt look like a valid youtube link" }, fields: {[field]: true}})
       }
     }
+   
+    
     data[field] = value
     data[`validation_${field}`] = value
     this.setState({form: data})
   }
+
   render() {
     var check = undefined
     return (
@@ -61,12 +86,29 @@ class AddVideo extends React.Component {
           <FormFeedback>{this.state.errors["title"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
         </FormGroup>
-        <label>Description</label>
-        <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="text" value={this.state.form.description}/>
-        <label>Display Date</label>
-        <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="displayDate" type="date" value={this.state.form.displayDate}/>
-        <label>Expiry Date</label>
-        <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="expiryDate" type="date" value={this.state.form.expiryDate}/>
+        
+        <FormGroup>
+          <Label for="examplePassword">Description</Label>
+          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description}/>
+          <FormFeedback>{this.state.errors["description"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
+        </FormGroup>
+        
+        <FormGroup>
+        <Label>Display Date</Label>
+        <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="displayDate" type="date" invalid={this.state.fields["displayDate"]} valid={!this.state.fields["displayDate"]}  />
+        <FormFeedback>{this.state.errors["displayDate"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["displayDate"]}</FormFeedback>
+        </FormGroup>
+
+        <FormGroup>
+
+        <Label>Expiry Date</Label>
+        <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="expiryDate" type="date" value={this.state.form.expiryDate}  invalid={this.state.fields["expiryDate"]} valid={!this.state.fields["expiryDate"]}/>
+        <FormFeedback>{this.state.errors["expiryDate"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["expiryDate"]}</FormFeedback>
+        </FormGroup>
+        
         <FormGroup>
           <Label for="examplePassword">Youtube-Link</Label>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>
