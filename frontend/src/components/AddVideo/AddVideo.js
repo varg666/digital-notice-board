@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  Form,
   FormGroup,
   Label,
   Input,
   FormFeedback,
-  FormText
 } from 'reactstrap';
 
 class AddVideo extends React.Component {
@@ -28,7 +26,7 @@ class AddVideo extends React.Component {
       ...this.state.form
     };
     console.log(field);
-    if (field == "title") {
+    if (field === "title") {
       var regExp = /^[a-zA-Z0-9_|]+$/;
       var match = value.match(regExp);
       console.log(match);
@@ -39,7 +37,7 @@ class AddVideo extends React.Component {
       }
     }
 
-    if (field == "description") {
+    if (field === "description") {
       var regExp = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
       var match = value.match(regExp);
       console.log(match);
@@ -50,8 +48,8 @@ class AddVideo extends React.Component {
       }
     }
 
-   if((field == "displayDate") ||  (field == "expiryDate")){
-        var displayDate1 =document.getElementById("displayDate").value;
+   if((field === "displayDate") ||  (field === "expiryDate")){
+        var displayDate1 = document.getElementById("displayDate").value;
         var dis = Date.parse(displayDate1);
          var expiryDate1 = document.getElementById("expiryDate").value;
          var exp = Date.parse(expiryDate1)  
@@ -62,8 +60,8 @@ class AddVideo extends React.Component {
         }
 
 
-    if (field == "content") {
-      var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    if (field === "content") {
+      var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|v=)([^#\&\?]*).*/;
       var match = value.match(regExp);
       console.log(match);
       if (match && match[2].length == 11) {

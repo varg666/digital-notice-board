@@ -26,7 +26,7 @@ class ModulesSideBar extends Component {
     return (
       <ListGroup>
         <ListGroupItem className={ `type_${this.props.data.type.toLowerCase()} card p-3 mb-3 ${classes}`} onClick={(e)=>this.props.handleToggleClick(this)}>
-          <div action className="d-flex flex-column flex-md-row align-items-center">
+          <div className="d-flex flex-column flex-md-row align-items-center">
             <div className="mr-md-3">
               {icon}
             </div>

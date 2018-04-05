@@ -7,7 +7,6 @@ class SnippetSlide extends Component {
     super(props);
           this.state={
             "headerData":{title: "title here", "desc": "discription"}
-
         }
   }
 
@@ -16,10 +15,10 @@ render(){
   return(
   <div>
     <div className="SnippetSlide">
-      <img src={this.props.image} />
+      <img src={this.props.image} alt=""/>
     </div>
     <div className="authorData">
-      <img src={this.props.profilePic} />
+      <img src={this.props.profilePic} alt=""/>
     </div>
     <Caption data={this.state.headerData} />
   </div>

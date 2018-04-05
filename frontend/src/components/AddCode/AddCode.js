@@ -74,7 +74,7 @@ class AddCode extends React.Component {
             value={this.state.form.content}
           />
         </FormGroup>
-        <div class="d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <a className="text-muted" href="#">Delete this Slide</a>
           <button type="submit" className="btn btn-primary">Add</button>
       </div>

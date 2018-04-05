@@ -20,7 +20,6 @@ class Admin extends Component {
   componentDidMount() {
     fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
       this.setState({data: data, currentSlide: data[0]})
-      console.log(this.state)
     })
 
   }
@@ -84,7 +83,7 @@ class Admin extends Component {
     <div className="d-flex">
       <div className="w-50" >
         <ul className="list-group m-3">
-          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/> </li>)}
+          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar key={value} data={item} current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} /> </li>)}
         </ul>
         <Search/>
       </div>
