@@ -6,6 +6,10 @@ import AddVideo from '../AddVideo/AddVideo';
 import AddCode from '../AddCode/AddCode';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
+import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
+import AddGithub from '../AddGithub/AddGithub';
+
+
 
 class Admin extends Component {
   constructor(props) {
@@ -68,8 +72,12 @@ class Admin extends Component {
   if(this.state.currentSlide.type){
       if ( this.state.currentSlide.type.toLowerCase() === "video") {
         var content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
+         var content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
         var content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
+        var content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
       }
     return (
@@ -84,9 +92,9 @@ class Admin extends Component {
     <div className="d-flex">
       <div className="w-50" >
         <ul className="list-group m-3">
-          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/> </li>)}
-        </ul>
+          {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/></li>)}
         <Search/>
+        </ul>
       </div>
 
       <div className="card w-100 m-3">

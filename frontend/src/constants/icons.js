@@ -1,9 +1,10 @@
-import {VIDEO, PHOTOS, CODE, ANNOUNCEMENT} from './slideTypes.js';
+import {VIDEO, PHOTOS, CODE, ANNOUNCEMENT, REPO} from './slideTypes.js';
 
-const VIDEO_ICON = 'https://png.icons8.com/ios/50/000000/play-button-circled-filled.png';
-const PHOTOS_ICON = 'https://png.icons8.com/ios-glyphs/50/000000/picture.png';
-const CODE_ICON = 'https://png.icons8.com/ios/50/000000/code-file-filled.png';
-const ANNOUNCEMENT_ICON = 'https://png.icons8.com/ios-glyphs/50/000000/megaphone.png';
+const VIDEO_ICON = 'fa-youtube';
+const PHOTOS_ICON = 'fa-camera-retro';
+const CODE_ICON = 'fa-code';
+const ANNOUNCEMENT_ICON = 'fa-calendar';
+const REPO_ICON = 'fa-github';
 
 export default function getIcons(iconType) {
   switch (iconType) {
@@ -22,6 +23,10 @@ export default function getIcons(iconType) {
     case ANNOUNCEMENT:
       {
         return ANNOUNCEMENT_ICON;
+      }
+    case REPO:
+      {
+        return REPO_ICON;
       }
     default:
       console.log('Sorry, there are no icons');
