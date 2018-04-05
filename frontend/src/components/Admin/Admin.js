@@ -3,6 +3,7 @@ import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
 import SlideDetail from "./SlideDetail"
 import AddVideo from '../AddVideo/AddVideo';
+import AddCode from '../AddCode/AddCode';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
 import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
@@ -71,6 +72,8 @@ class Admin extends Component {
         var content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
          var content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "code") {
+        var content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
       }
     return (
