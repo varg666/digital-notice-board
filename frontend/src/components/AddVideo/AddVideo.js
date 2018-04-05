@@ -40,15 +40,27 @@ class AddVideo extends React.Component {
     }
 
     if (field == "description") {
-      var regExp = /^[a-zA-Z0-9!"#$%&'()*+,.\/:;<=>?@\[\] ^_`{|}~-]*$/;
+      var regExp = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
       var match = value.match(regExp);
       console.log(match);
       if (match) {
         this.setState({ errors: { [field]: "Nice Text" }, fields: { [field]: false } })
       } else {
-        this.setState({ errors: { [field]: "Please Write A description Make Sense" }, fields: { [field]: true } })
+        this.setState({ errors: { [field]: "Please Write A Date" }, fields: { [field]: true } })
       }
     }
+
+   if((field == "displayDate") ||  (field == "expiryDate")){
+        var displayDate1 =document.getElementById("displayDate").value;
+        var dis = Date.parse(displayDate1);
+         var expiryDate1 = document.getElementById("expiryDate").value;
+         var exp = Date.parse(expiryDate1)  
+        if(dis > exp){
+          this.setState({errors: { [field]: "please put a valid date" }, fields: {[field]: true}})
+        }else{
+          this.setState({errors: { [field]: "right" }, fields: {[field]: false}})
+        }
+
 
     if (field == "content") {
       var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -63,12 +75,12 @@ class AddVideo extends React.Component {
     data[field] = value
     data[`validation_${field}`] = value
     this.setState({form: data})
+    }
   }
   render() {
     var check = undefined
     return (
       <form onSubmit={this.props.sendChildInfo} className="AddVideo">
-
         <h1>Add Video</h1>
 
         <FormGroup>
@@ -78,6 +90,7 @@ class AddVideo extends React.Component {
           <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
         </FormGroup>
 
+
         <FormGroup>
           <Label>Description</Label>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description} className="form-control" type="text" />
@@ -85,17 +98,21 @@ class AddVideo extends React.Component {
           <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
         </FormGroup>
 
+
         <FormGroup>
-          <label>Display Date</label>
-          <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="displayDate" type="date" value={this.state.form.displayDate}/>
+          <Label>Display Date</Label>
+          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} invalid={this.state.fields["Display Date"]} valid={!this.state.fields["Display Date"]} className="form-control" id="displayDate" type="date" value={this.state.form.displayDate}/>
           <FormFeedback>{this.state.errors["Display Date"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["Display Date"]}</FormFeedback>
         </FormGroup>
 
 
-        <label>Expiry Date</label>
-        <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="expiryDate" type="date" value={this.state.form.expiryDate}/>
-
+        <FormGroup>
+          <Label>Expiry Date</Label>
+          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} invalid={this.state.fields["Expiry Date"]} valid={!this.state.fields["Expiry Date"]} className="form-control" id="expiryDate" type="date" value=""/>
+          <FormFeedback>{this.state.errors["Expiry Date"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["Expiry Date"]}</FormFeedback>
+        </FormGroup>
 
 
         <FormGroup>
