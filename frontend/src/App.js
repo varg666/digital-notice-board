@@ -19,7 +19,6 @@ class App extends Component {
     currentSlide: 0,
     playing: true,
     duration: PROGRESS_BAR_SPEED,
-    videoDuration: null
   };
 
   componentDidMount() {
