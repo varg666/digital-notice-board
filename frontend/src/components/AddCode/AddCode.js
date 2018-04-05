@@ -1,18 +1,17 @@
 import React from 'react';
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormFeedback,
-  FormText
-} from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 
 class AddCode extends React.Component {
-  state = {
-    form: this.props.data,
-    fields: {},
-    errors: {}
+  constructor(props) {
+    super(props);
+    var props = this.props.data
+    props.displayDate = props.displayDate ? props.displayDate.slice(0, -14) : props.displayDate
+    props.expiryDate = props.expiryDate ? props.expiryDate.slice(0, -14) : props.expiryDate
+    this.state = {
+      form: this.props.data,
+      fields: {},
+      errors: {}
+    }
   }
 
   //TODO optimize this validation and make it work for the other fields
@@ -25,58 +24,53 @@ class AddCode extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.sendChildInfo}>
-        <h1>Add Code</h1>
+      <Form onSubmit={(e) => this.props.sendChildInfo(e, this)}>
+        <h1>{this.props.data._id ? "Edit Slide" : "Add Slide"}</h1>
         <FormGroup>
           <Label for="examplePassword">Title</Label>
           <Input
-            onChange={(e) => this.onChange(e.target.id, e.target.value)}
             id="title"
-            value={this.state.form.title}
+            defaultValue={this.state.form.title}
           />
         </FormGroup>
         <FormGroup>
           <label>Description</label>
           <input
-            onChange={(e) => this.onChange(e.target.id, e.target.value)}
             className="form-control"
             id="description"
             type="text"
-            value={this.state.form.description}
+            defaultValue={this.state.form.description}
           />
         </FormGroup>
         <FormGroup>
           <label>Display Date</label>
           <input
-            onChange={(e) => this.onChange(e.target.id, e.target.value)}
             className="form-control"
             id="displayDate"
             type="date"
-            value={this.state.form.displayDate}
+            defaultValue={this.state.form.displayDate}
           />
         </FormGroup>
         <FormGroup>
           <label>Expiry Date</label>
           <input
-            onChange={(e) => this.onChange(e.target.id, e.target.value)}
             className="form-control"
             id="expiryDate"
             type="date"
-            value={this.state.form.expiryDate}
+            defaultValue={this.state.form.expiryDate}
           />
         </FormGroup>
         <FormGroup>
           <Label>Code Snippet</Label>
           <Input
-            onChange={(e) => this.onChange(e.target.id, e.target.value)}
             id="content"
             type="textarea"
-            value={this.state.form.content}
+            defaultValue={this.state.form.content}
           />
         </FormGroup>
-        <div class="d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <a className="text-muted" href="#">Delete this Slide</a>
-          <button type="submit" className="btn btn-primary">Add</button>
+          <button type="submit" className="btn btn-primary">{this.props.data._id ? "Edit" : "Add"}</button>
       </div>
       </Form>
     );

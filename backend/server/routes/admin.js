@@ -5,7 +5,7 @@ const moment = require('moment');
 const getYoutubeID = require('./youtube');
 
 const addSlide = (req, res) => {
- 
+
   console.log(req.body)
     if(!req.body) {
         res.send({message: "No content sent!"});
@@ -45,15 +45,16 @@ router.get('/', ensureAuthenticated, (req, res) => {
           console.log(err)
       } else {
           res.send(slides);
-      } 
+      }
   })
 });
 
-// Add New Slide Route
-router.post('/add', ensureAuthenticated, addSlide);
+// TODO when the Login works with passport.js we should use the ensureAuthenticated middleware as in the line below
+// router.post('/add', ensureAuthenticated, addSlide);
+router.post('/add', addSlide);
 
 // Edit New Slide Route
-router.put('/edit/:id', ensureAuthenticated, (req, res) => {
+router.put('/edit/:id', (req, res) => {
   Content.findById(req.params.id, function(err, Content) {
     if(!Content)
       return res.send({err: 'Content not found'});
