@@ -7,6 +7,8 @@ import AddCode from '../AddCode/AddCode';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
 import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
+import AddGithub from '../AddGithub/AddGithub';
+
 
 
 class Admin extends Component {
@@ -74,6 +76,8 @@ class Admin extends Component {
          var content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "code") {
         var content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
+        var content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
       }
     return (
