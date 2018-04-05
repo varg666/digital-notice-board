@@ -30,6 +30,7 @@ class AddPhoto extends React.Component {
             })
             
         }
+       
         render(props){
             return(
                 <Form onSubmit={this.props.sendChildInfo}>
