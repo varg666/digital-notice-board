@@ -18,12 +18,13 @@ class AddPhoto extends React.Component {
         } 
 
         onChange(field, value) {
-            let data = {...this.state.form};
+            const data = {...this.state.form};
             data[field] = value;
             this.setState = {form: data};
         }
         setOfImages(event){
             event.preventDefault();
+            const setOfImagesCopy = {...this.state.setOfImages};
             this.setState({
                 setOfImages: ["hello", "hi"]  
             })
