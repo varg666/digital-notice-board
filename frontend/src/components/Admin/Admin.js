@@ -4,6 +4,7 @@ import Search from "./Search";
 import SlideDetail from "./SlideDetail"
 import AddVideo from '../AddVideo/AddVideo';
 import AddCode from '../AddCode/AddCode';
+import AddPhoto from '../AddPhoto/AddPhoto';
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import axios from 'axios';
 import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
@@ -78,6 +79,8 @@ class Admin extends Component {
         var content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
         var content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
+        var content = <AddPhoto data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
       }
     return (
