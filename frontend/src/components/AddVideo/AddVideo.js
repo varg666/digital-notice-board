@@ -78,13 +78,18 @@ class AddVideo extends React.Component {
   render() {
     var check = undefined
     return (
-      <form onSubmit={this.props.sendChildInfo} className="AddVideo">
-        <h1>Add Video</h1>
-        <FormGroup>
-          <Label for="examplePassword">Title</Label>
-          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title}/>
-          <FormFeedback>{this.state.errors["title"]}</FormFeedback>
-          <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
+      <React.Fragment>
+
+      <FormGroup>
+        <FormFeedback>{this.state.errors["title"]}</FormFeedback>
+        <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
+         </FormGroup>
+     
+      <FormGroup>
+        <Label for="examplePassword">Description</Label>
+        <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description}/>
+          <FormFeedback>{this.state.errors["description"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
         </FormGroup>
         
         <FormGroup>
@@ -115,10 +120,13 @@ class AddVideo extends React.Component {
           <FormFeedback>{this.state.errors["content"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
         </FormGroup>
-        <a href="#">Delete this Video</a>
-        <br/>
-        <button type="submit" className="btn btn-primary">Add</button>
-      </form>
+        
+         <FormGroup>
+           <Label for="examplePassword">Youtube-Link</Label>
+           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>
+            </FormGroup>
+      </React.Fragment>
+     
     );
   }
 }
