@@ -8,44 +8,19 @@ import {
   FormText
 } from 'reactstrap';
 
-class AddAnnouncement extends React.Component {
-	 constructor(props) {
-    	super(props);
-    	this.state = {
-	      form: this.props.data,
-	      fields: {},
-	      errors: {}
-  	}
-}
-		onChange(field, value) {
-    		let data = {
-      		...this.state.form
-    	};
-	    if (field == "title") {
-	      var regExp = /^[a-zA-Z0-9_]+$/;
-	      var match = value.match(regExp);
-	      console.log(match);
-	      if (match) {
-	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
-	      } else {
-	        this.setState({errors: { [field]: "No special characters" }, fields: {[field]: true}})
-	      }
-	    }
-	    if (field == "content") {
-	      var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-	      var match = value.match(regExp);
-	      if (match && match[2].length == 11) {
-	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
-	      } else {
-	        this.setState({errors: { [field]: "Doesnt look like a valid youtube link" }, fields: {[field]: true}})
-	      }
-	    }
-	    data[field] = value
-	    data[`validation_${field}`] = value
-	    this.setState({form: data})
-		}
+class AddGithub extends React.Component {
+	 state = {
+    	form: this.props.data,
+    	fields: {},
+    	errors: {}
+  }
+  onChange(field, value) {
+    let data = {...this.state.form};
+    data[field] = value
+    this.setState({form: data})
+  }
 
-		render(){
+  render(){
 		return(
 			<form onSubmit={this.props.sendChildInfo} className="AddVideo">
         		<h1>Add Announcement</h1>
@@ -90,13 +65,14 @@ class AddAnnouncement extends React.Component {
 		          <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
 		        </FormGroup>
 		        
-		        
-		        <div class="d-flex justify-content-between">	
-			        <a href="#">Delete this Announcement</a>	
-			        <button type="submit" className="btn btn-primary">Add</button>
-			    </div>
+		        	<div class="d-flex justify-content-between">
+		        		<a href="#">Delete this Link</a>
+		        		<button type="submit" className="btn btn-primary">Add Github Link</button>
+		        	</div>
 		    </form>
 		);
 	}
 }
-export default AddAnnouncement;
+export default AddGithub;
+
+
