@@ -25,9 +25,13 @@ class AddVideo extends React.Component {
     let data = {
       ...this.state.form
     };
-    console.log(field);
-    if (field === "title") {
-      console.log(match);
+
+    
+
+    if ((field == "title") || (field == "description")){
+      var regExp = /[a-zA-Z0-9_]+$/;
+      var match = value.match(regExp);
+      
       if (match) {
         this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
       } else {
@@ -67,11 +71,14 @@ class AddVideo extends React.Component {
         this.setState({errors: { [field]: "Doesnt look like a valid youtube link" }, fields: {[field]: true}})
       }
     }
+   
+    
     data[field] = value
     data[`validation_${field}`] = value
     this.setState({form: data})
     }
   }
+
   render() {
     var check = undefined
     return (
@@ -79,10 +86,10 @@ class AddVideo extends React.Component {
         <h1>Add Video</h1>
 
         <FormGroup>
-          <Label for="examplePassword">Title</Label>
-          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title}/>
-          <FormFeedback>{this.state.errors["title"]}</FormFeedback>
-          <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
+          <Label for="examplePassword">Description</Label>
+          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description}/>
+          <FormFeedback>{this.state.errors["description"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
         </FormGroup>
 
 
