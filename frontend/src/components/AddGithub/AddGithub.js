@@ -23,7 +23,7 @@ class AddGithub extends React.Component {
   render(){
 		return(
 			<form onSubmit={this.props.sendChildInfo} className="AddVideo">
-        		<h1>Add Announcement</h1>
+        		<h1>Devugees-digital-notice-board</h1>
     			<FormGroup>
 		          <Label for="examplePassword">Title</Label>
 		          <Input 
