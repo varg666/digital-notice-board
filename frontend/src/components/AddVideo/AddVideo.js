@@ -25,13 +25,12 @@ class AddVideo extends React.Component {
     let data = {
       ...this.state.form
     };
+    console.log(field);
 
-    
-
-    if ((field == "title") || (field == "description")){
-      var regExp = /[a-zA-Z0-9_]+$/;
-      var match = value.match(regExp);
-      
+    if (field === "title") {
+      let regExp = /^[a-zA-Z0-9_|]+$/;
+      let match = value.match(regExp);
+      console.log(match);
       if (match) {
         this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
       } else {
@@ -40,6 +39,8 @@ class AddVideo extends React.Component {
     }
 
     if (field === "description") {
+      let regExp = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
+      let match = value.match(regExp);
       console.log(match);
       if (match) {
         this.setState({ errors: { [field]: "Nice Text" }, fields: { [field]: false } })
@@ -64,7 +65,6 @@ class AddVideo extends React.Component {
       var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|v=)([^#\&\?]*).*/;
       var match = value.match(regExp);
       console.log(match);
-      if (match && match[2].length == 11) {
       if (match && match[2].length === 11) {
         this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
       } else {
@@ -111,9 +111,6 @@ class AddVideo extends React.Component {
 
         <FormGroup>
           <Label>Expiry Date</Label>
-          <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} invalid={this.state.fields["Expiry Date"]} valid={!this.state.fields["Expiry Date"]} className="form-control" id="expiryDate" type="date" value=""/>
-          <FormFeedback>{this.state.errors["Expiry Date"]}</FormFeedback>
-          <FormFeedback valid>{this.state.errors["Expiry Date"]}</FormFeedback>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} invalid={this.state.fields["expiryDate"]} valid={!this.state.fields["expiryDate"]} className="form-control" id="expiryDate" type="date" value=""/>
           <FormFeedback>{this.state.errors["expiryDate"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["expiryDate"]}</FormFeedback>
