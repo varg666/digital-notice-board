@@ -11,7 +11,7 @@ import {
 class AddAnnouncement extends React.Component {
 	 constructor(props) {
     	super(props);
-    	 var props = this.props.data
+    	var props = this.props.data
     	props.content = "https://www.youtube.com/watch?v=" + props.content
     	this.state = {
 	      form: props,
@@ -19,6 +19,34 @@ class AddAnnouncement extends React.Component {
 	      errors: {}
   	}
 }
+		onChange(field, value) {
+    		let data = {
+      		...this.state.form
+    	};
+	    if (field == "title") {
+	      var regExp = /^[a-zA-Z0-9_]+$/;
+	      var match = value.match(regExp);
+	      console.log(match);
+	      if (match) {
+	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
+	      } else {
+	        this.setState({errors: { [field]: "No special characters" }, fields: {[field]: true}})
+	      }
+	    }
+	    if (field == "content") {
+	      var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+	      var match = value.match(regExp);
+	      if (match && match[2].length == 11) {
+	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
+	      } else {
+	        this.setState({errors: { [field]: "Doesnt look like a valid youtube link" }, fields: {[field]: true}})
+	      }
+	    }
+	    data[field] = value
+	    data[`validation_${field}`] = value
+	    this.setState({form: data})
+		}
+
 		render(){
 		return(
 			<form onSubmit={this.props.sendChildInfo} className="AddVideo">
