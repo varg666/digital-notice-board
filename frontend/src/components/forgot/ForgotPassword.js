@@ -1,6 +1,7 @@
 import React from 'react';
 import '../login/style.css';
 import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import Navigation from "../Navigation/Navigation.js"
 
 class ResetPassword extends React.Component {
   constructor(props) {
@@ -52,15 +53,7 @@ class ResetPassword extends React.Component {
             <Button color="success" block onClick={(e) => this.handleChange(e)} className="resetpassbutton" type="submit">Send</Button>
           </div>
           <br/>
-          <Nav className="justify-content-center">
-            <NavItem>
-              <NavLink href="/admin/login">Log in</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/admin/Register">Register</NavLink>
-            </NavItem>
-          </Nav>
+          <Navigation navigation={["login", "register"]} />
         </FormGroup>
       </Form>
     );

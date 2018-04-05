@@ -1,6 +1,8 @@
 import React from 'react';
 import '../login/style.css';
 import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
+import Navigation from "../Navigation/Navigation.js"
+
 
 class Register extends React.Component {
   constructor(props) {
@@ -56,16 +58,7 @@ class Register extends React.Component {
             <Button color="success" block id="login">Register</Button>
           </div>
           <br/>
-          <Nav className="justify-content-center">
-            <NavItem>
-              <NavLink href="/admin/login">Log in</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/admin/reset">Forgot Password?</NavLink>
-            </NavItem>
-
-          </Nav>
+          <Navigation navigation={["login", "forgot"]}/>
         </FormGroup>
       </Form>
     );

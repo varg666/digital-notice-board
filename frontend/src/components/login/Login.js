@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 import {Button, Form, FormGroup, Input, Label, Nav, NavItem, NavLink} from 'reactstrap';
 import axios from 'axios';
+import Navigation from "../Navigation/Navigation.js"
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -77,21 +79,11 @@ class Login extends React.Component {
             <Button color="success" block onClick={(e) => this.handleChange(e)} id="login">Log in</Button>
           </div>
           <br/>
-          <Nav className="justify-content-center">
-            <NavItem>
-              <NavLink href="/admin/reset">Forgot Password?</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/admin/Register">Register</NavLink>
-            </NavItem>
-
-          </Nav>
+          <Navigation navigation={["forgot", "register"]} />
         </FormGroup>
       </Form>
     );
   }
-
 }
 
 export default Login;
