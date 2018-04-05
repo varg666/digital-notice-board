@@ -11,10 +11,8 @@ import {
 class AddAnnouncement extends React.Component {
 	 constructor(props) {
     	super(props);
-    	var props = this.props.data
-    	props.content = "https://www.youtube.com/watch?v=" + props.content
     	this.state = {
-	      form: props,
+	      form: this.props.data,
 	      fields: {},
 	      errors: {}
   	}
