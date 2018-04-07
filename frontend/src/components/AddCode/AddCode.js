@@ -35,7 +35,7 @@ class AddCode extends React.Component {
         <h1>{this.props.data._id ? "Edit Slide" : "Add Slide"}</h1>
         <FormGroup>
           <Label for="examplePassword">Title</Label>
-          <Input id="title" value={this.state.form.title} />
+          <Input id="title" value={this.state.form.title} onChange={(e) => this.onChange(e.target.id, e.target.value)} />
         </FormGroup>
         <FormGroup>
           <label>Description</label>
@@ -44,6 +44,7 @@ class AddCode extends React.Component {
             id="description"
             type="text"
             value={this.state.form.description}
+            onChange={(e) => this.onChange(e.target.id, e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -53,6 +54,7 @@ class AddCode extends React.Component {
             id="displayDate"
             type="date"
             value={this.state.form.displayDate}
+            onChange={(e) => this.onChange(e.target.id, e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -62,11 +64,12 @@ class AddCode extends React.Component {
             id="expiryDate"
             type="date"
             value={this.state.form.expiryDate}
+            onChange={(e) => this.onChange(e.target.id, e.target.value)}
           />
         </FormGroup>
         <FormGroup>
           <Label>Code Snippet</Label>
-          <Input id="content" type="textarea" value={this.state.form.content} />
+          <Input id="content" type="textarea" value={this.state.form.content} onChange={(e) => this.onChange(e.target.id, e.target.value)}/>
         </FormGroup>
         <div className="d-flex justify-content-between">
           <a className="text-muted" href="#">
