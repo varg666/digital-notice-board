@@ -8,12 +8,12 @@ class Announcement extends Component {
 			<Card>
         		<CardBody>
 		          	<CardTitle>{this.props.data.title}</CardTitle>
-		          	<location>{this.props.data.location}</location>
+		          	<span>{this.props.data.location}</span>
 			    </CardBody>
-			       {/* <img  className= "img-fluid mx-3" src="http://co-up.de/photos/coup_3rd_lounge.jpg" />*/}
+		
 			    <CardBody>
 			        <CardText>{this.props.data.description}</CardText>
-			        <CardLink>{this.props.data.link}</CardLink>
+			        <a target="_blank" href={this.props.data.link}>go to event</a>
 		        </CardBody>
       		</Card>
 		</div>
