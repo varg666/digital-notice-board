@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Form,
   FormGroup,
   Label,
   Input,
-  FormFeedback,
-  FormText
+  FormFeedback
+  
 } from 'reactstrap';
 
 class AddAnnouncement extends React.Component {
@@ -21,9 +21,9 @@ class AddAnnouncement extends React.Component {
     		let data = {
       		...this.state.form
     	};
-	    if (field == "title") {
-	      var regExp = /^[a-zA-Z0-9_]+$/;
-	      var match = value.match(regExp);
+	    if (field === "title") {
+	      let regExp = /^[a-zA-Z0-9_]+$/;
+	      let match = value.match(regExp);
 	      console.log(match);
 	      if (match) {
 	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
@@ -31,10 +31,10 @@ class AddAnnouncement extends React.Component {
 	        this.setState({errors: { [field]: "No special characters" }, fields: {[field]: true}})
 	      }
 	    }
-	    if (field == "content") {
-	      var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-	      var match = value.match(regExp);
-	      if (match && match[2].length == 11) {
+	    if (field === "content") {
+	      let regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|v=)([^#]*).*/;
+	      let match = value.match(regExp);
+	      if (match && match[2].length === 11) {
 	        this.setState({errors: { [field]: "Nice" }, fields: {[field]: false}})
 	      } else {
 	        this.setState({errors: { [field]: "Doesnt look like a valid youtube link" }, fields: {[field]: true}})
@@ -47,7 +47,7 @@ class AddAnnouncement extends React.Component {
 
 		render(){
 		return(
-			<form onSubmit={this.props.sendChildInfo} className="AddVideo">
+			<Form onSubmit={this.props.sendChildInfo} className="AddVideo">
         		<h1>Add Announcement</h1>
     			<FormGroup>
 		          <Label for="examplePassword">Title</Label>
@@ -113,10 +113,10 @@ class AddAnnouncement extends React.Component {
 		        
 		        
 		        <div class="d-flex justify-content-between">	
-			        <a href="#">Delete this Announcement</a>	
+			        <a href="">Delete this Announcement</a>	
 			        <button type="submit" className="btn btn-primary">Add</button>
 			    </div>
-		    </form>
+		    </Form>
 		);
 	}
 }
