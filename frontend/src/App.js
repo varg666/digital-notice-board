@@ -126,13 +126,7 @@ class App extends Component {
       slidesToShow: 7,
       slidesToScroll: 1,
       vertical: true,
-      verticalSwiping: true,
-      beforeChange: function(currentSlide, nextSlide) {
-        console.log("before change", currentSlide, nextSlide);
-      },
-      afterChange: function(currentSlide) {
-        console.log("after change", currentSlide);
-      }
+      verticalSwiping: true
     };
 
     return (
