@@ -7,6 +7,7 @@
   --right-slides-bg-selected: #0054e6;
   --video-description-bg-color: #c6c6c6;
   --light-text-color: #fff;
+  --playpause-text-color: #aaa;
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
   --title-font-weight: 700;
   --title-font-size: 2rem;
@@ -166,7 +167,6 @@ height: 100vh;
   margin-bottom: 0;
   padding-bottom: 5px;
   font-size: var(--running-font-size);
-
 }
 
 .slide-text small {
@@ -182,12 +182,26 @@ height: 100vh;
   width: 50px;
   padding-top: 55%;
   padding-left: 10px;
-
 }
 
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 .fa-bullhorn {
   padding-top: 55%;
   padding-left: 10px;
+}
+
+.fa-play {
+  color: var(--title-font-color);
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.playpause {
+  font-size: 1rem;
+  color: var(--playpause-text-color);
+  font-family: var(--title-font-family);
+  text-transform: uppercase;
 }

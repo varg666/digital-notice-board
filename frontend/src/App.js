@@ -130,9 +130,9 @@ class App extends Component {
 
         <div className="column1">
           {this.state.playing ? (
-            <i className="fa fa-play">playing</i>
+            <span className="playpause">playing</span>
           ) : (
-            <i className="fa fa-pause">pause</i>
+            <span className="playpause">paused</span>
           )}
           {content}
           <SlideTimeline time={this.state.duration} />
