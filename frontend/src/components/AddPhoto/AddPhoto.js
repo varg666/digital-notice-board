@@ -19,14 +19,13 @@ class AddPhoto extends React.Component {
         } 
 
         onChange(field, value) {
-            console.log(field)
             const data = {...this.state.form};
             data[field] = value;
-            console.log(data)
             this.setState = {form: data};
         };
-       
-       
+        
+        
+   
         
        
         render(props){
@@ -36,13 +35,13 @@ class AddPhoto extends React.Component {
                     
                     <FormGroup >
                         <Label for="exampleText">Title</Label>
-                        <Input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title} />
+                        <Input type="textarea" onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title} />
                         <FormFeedback>{this.state.errors["title"]}</FormFeedback>
                         <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleText">Description</Label>
-                        <Input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="text" value={this.state.form.description} id="description" />
+                        <Input type="textarea" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="textarea" value={this.state.form.description} id="description" />
                     </FormGroup>
                     <FormGroup>    
                             <label>Display Date</label>
@@ -86,8 +85,7 @@ class AddPhoto extends React.Component {
                     </FormGroup>
                     <div class="d-flex justify-content-between">
                         <a href="#">Delete this Slide</a>
-                        <button type="submit" className="btn btn-primary">Save Changes</button>
-                        
+                        <button type="submit" className="btn btn-primary">{this.props.data._id ? "Edit" : "Add"}</button>
                     </div>    
                 </Form>
 
