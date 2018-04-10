@@ -1,5 +1,6 @@
 import React from 'react';
 import Highlight from 'react-highlight';
+import "./SnippetSlide.css"
 
 const SnippetSlide = (props) => {
   return(
@@ -8,7 +9,7 @@ const SnippetSlide = (props) => {
       <h3 className="card-title">{props.data.title} </h3>
       <p className="card-text">{props.data.description} </p>
     </div>
-    <Highlight language="javascript">
+    <Highlight className="javascript">
       {props.data.content}
     </Highlight>
   </div>
