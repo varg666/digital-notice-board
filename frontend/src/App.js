@@ -116,37 +116,24 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Nav>
-          <NavItem>
-            <NavLink href="admin">
-              <Button color="primary">Admin</Button>
-            </NavLink>
-          </NavItem>
-        </Nav>
-        <div className="skewed" />
-        <div>
-          <h1 id="title">DCI Digital Notice Board</h1>
+        <div className="skewed">
         </div>
-
-        <div className="column1">
-          {this.state.playing ? (
-            <i className="fa fa-play">playing</i>
-          ) : (
-            <i className="fa fa-pause">pause</i>
-          )}
-          {content}
-          <SlideTimeline time={this.state.duration} />
-        </div>
-
-        <div className="column2">
-          {this.state.data.map((item, value) => (
-            <ModulesSideBar
-              current={this.state.currentSlide}
-              key={value}
-              data={item}
-              handleToggleClick={this.slideHandler.bind(this)}
-            />
-          ))}
+        <h1 id="title">DCI Digital Notice Board</h1>
+        <div className="grid">
+          <div className="column1">
+            {content}
+            <SlideTimeline time={this.state.duration} />
+          </div>
+          <div className="column2">
+            {this.state.data.map((item, value) => (
+              <ModulesSideBar
+                current={this.state.currentSlide}
+                key={value}
+                data={item}
+                handleToggleClick={this.slideHandler.bind(this)}
+              />
+            ))}
+            </div>
         </div>
       </div>
     );
