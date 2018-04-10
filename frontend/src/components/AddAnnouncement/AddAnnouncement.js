@@ -71,21 +71,21 @@ class AddAnnouncement extends React.Component {
 				onChange={(e) => this.onChange(e.target.id, e.target.value)}
 				className="form-control" id="description" 
 				type="text" 
-				value={this.state.form.description}/>
+				value={this.state.form.eventtime}/>
 
 				<label>Location</label>
 		        <input
 				onChange={(e) => this.onChange(e.target.id, e.target.value)}
 				className="form-control" id="description" 
 				type="text" 
-				value={this.state.form.description}/>
+				value={this.state.form.location}/>
 
 				<label>Link</label>
 		        <input
 				onChange={(e) => this.onChange(e.target.id, e.target.value)}
 				className="form-control" id="description" 
 				type="text" 
-				value={this.state.form.description}/>
+				value={this.state.form.link}/>
 
 		        <label>Display Date</label>
 		        <input
