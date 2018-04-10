@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import getIcons from '../../constants/icons.js';
 import { ListGroup, ListGroupItem} from 'reactstrap';
+import "./ModulesSideBar.css";
+
+
 
 class ModulesSideBar extends Component {
 
@@ -16,7 +19,7 @@ class ModulesSideBar extends Component {
             <div className="mr-md-3">
               <i className={`fa fa-3x ${iconType}`}></i>
             </div>
-            <div className="text ">
+            <div className="text">
               <h4>{this.props.data.title}</h4>
             </div>
           </div>
