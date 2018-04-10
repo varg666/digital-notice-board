@@ -119,9 +119,10 @@ class App extends Component {
 
     //carousel settings for sidebar
     const settings = {
+      // className: "center",
       arrows: false,
       infinite: true,
-      centerMode: true,
+      // centerMode: true,
       focusOnSelect: true,
       slidesToShow: 7,
       slidesToScroll: 1,
