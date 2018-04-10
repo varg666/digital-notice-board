@@ -1,49 +1,38 @@
-import React from 'react';
-import {Button} from 'reactstrap';
-import {Progress} from 'reactstrap';
+import React from "react";
+import { Progress } from "reactstrap";
+import "./SlideTimeline.css";
 
-import './SlideTimeline.css';
 class SlideTimeline extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      progress: 0,
-      time: props.time
-    }
-
-    this.progressTimer = this.progressTimer.bind(this);
+  state = {
+    progress: 0
   };
 
-  componentWillReceiveProps() {
-    clearInterval(this.interval)
-    this.interval = setInterval(this.progressTimer, this.calculateSeconds(this.state.time));
-    this.setState({progress: 0});
-
-  }
-  calculateSeconds(time) {
-    return (time / 100) * (1000)
-  }
-  componentDidMount() {
-    this.interval = setInterval(this.progressTimer, this.calculateSeconds(this.state.time));
+  componentWillReceiveProps(nextProps) {
+    clearInterval(this.interval);
+    this.setState({ progress: 0 });
+    this.interval = setInterval(this.progressTimer, this.convertSecondsToProgress(nextProps.time));
   }
 
-  progressTimer() {
-    this.setState(prevState => {
-      return {
-        progress: prevState.progress + 1
-      }
-    })
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
+
+  convertSecondsToProgress(time) {
+    return time * 1000 / 100;
+  }
+
+  progressTimer = () => {
+    this.setState(prevState => ({ progress: prevState.progress + 1 }));
+  };
 
   render() {
     if (this.state.progress >= 100) {
-      clearInterval(this.interval)
+      clearInterval(this.interval);
     }
     return (
       <div>
         <div className="text-center">{this.state.progress}%</div>
-        <Progress value={this.state.progress}/>
+        <Progress value={this.state.progress} />
       </div>
     );
   }

@@ -5,27 +5,26 @@ const mongoose = require('mongoose');
 const ContentSchema = mongoose.Schema({
   type: {
     type: String,
-    required: true 
+    required: true
   },
   title: {
     type: String,
-    required: true 
+    required: true
   },
   description: {
     type: String,
-    required: true 
+    required: true
   },
   displayDate: {
     type: Date,
-    required: true 
+    required: true
   },
   expiryDate: {
     type: Date,
-    required: true 
+    required: true
   },
   content: {
     type: String,
-    required: true 
   }
 });
 
