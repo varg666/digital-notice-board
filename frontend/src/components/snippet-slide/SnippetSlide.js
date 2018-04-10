@@ -1,30 +1,19 @@
-import React, { Component } from 'react';
-import Caption from '../caption/Caption';
+import React from 'react';
+import Highlight from 'react-highlight';
 
-
-class SnippetSlide extends Component {
-  constructor(props){
-    super(props);
-          this.state={
-            "headerData":{title: "title here", "desc": "discription"}
-
-        }
-  }
-
-render(){
-
+const SnippetSlide = (props) => {
   return(
-  <div>
-    <div className="SnippetSlide">
-      <img src={this.props.image} />
+  <div className="card">
+    <div className="card-body">
+      <h3 className="card-title">{props.data.title} </h3>
+      <p className="card-text">{props.data.description} </p>
     </div>
-    <div className="authorData">
-      <img src={this.props.profilePic} />
-    </div>
-    <Caption data={this.state.headerData} />
+    <Highlight language="javascript">
+      {props.data.content}
+    </Highlight>
   </div>
     );
   }
-}
+
 
 export default SnippetSlide;
