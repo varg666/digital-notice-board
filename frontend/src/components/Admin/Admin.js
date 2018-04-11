@@ -71,21 +71,21 @@ class Admin extends Component {
     }})
   }
 
-   handleSearchInput = (e) => { 
-    const searchData = e.currentTarget.value; 
-    this.setState({searchData}); 
-  } 
- 
-  // handleSearchCheckbox = (e) => { 
-  //   const expiryCheckbox = e.currentTarget.checked; 
-  //   this.setState({showExpired: expiryCheckbox}); 
-  // } 
- 
-  // checkSlideExpired = (slide) => { 
-  //   const expiryDate = new Date(slide.expiryDate); 
-  //   const expiryDateMS = expiryDate.getTime(); 
-  //   return (Date.now() < expiryDateMS); 
-  // } 
+   handleSearchInput = (e) => {
+    const searchData = e.currentTarget.value;
+    this.setState({searchData});
+  }
+
+  // handleSearchCheckbox = (e) => {
+  //   const expiryCheckbox = e.currentTarget.checked;
+  //   this.setState({showExpired: expiryCheckbox});
+  // }
+
+  // checkSlideExpired = (slide) => {
+  //   const expiryDate = new Date(slide.expiryDate);
+  //   const expiryDateMS = expiryDate.getTime();
+  //   return (Date.now() < expiryDateMS);
+  // }
 
 
   render() {
@@ -106,29 +106,29 @@ class Admin extends Component {
     var data = this.state.data
     if(this.state.data.length > 0 && this.state.searchData){
       data = this.state.data.filter(slide => slide.title.toLowerCase().includes(this.state.searchData.toLowerCase()) )
-        //.filter(slide => (this.state.showExpired ? true : this.checkSlideExpired(slide)))  
+        //.filter(slide => (this.state.showExpired ? true : this.checkSlideExpired(slide)))
     }
-              
+
     return (
-      <div className="section">
+      <div className="section backend">
         <AdminNavigation newSlide={this.newSlide.bind(this)}/>
         <div className="d-flex">
           <div className="w-50" >
             <ul className="list-group m-3">
-               <Search 
-                handleSearchInput={this.handleSearchInput} 
-                //handleSearchCheckbox={this.handleSearchCheckbox} 
-                searchData={this.state.searchData} 
-              /> 
-                {data.map((item, value) => ( 
-                  <li className="list-group-item mb-2"> 
-                    <ModulesSideBar 
-                      current={this.state.currentSlide} 
-                      handleToggleClick={() => this.slideHandler(item)} 
-                      key={value} 
-                      data={item}/> 
-                  </li>) 
-                )} 
+               <Search
+                handleSearchInput={this.handleSearchInput}
+                //handleSearchCheckbox={this.handleSearchCheckbox}
+                searchData={this.state.searchData}
+              />
+                {data.map((item, value) => (
+                  <li className="list-group-item mb-2">
+                    <ModulesSideBar
+                      current={this.state.currentSlide}
+                      handleToggleClick={() => this.slideHandler(item)}
+                      key={value}
+                      data={item}/>
+                  </li>)
+                )}
             </ul>
           </div>
           <div className="card w-100 m-3">
