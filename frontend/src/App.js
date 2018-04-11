@@ -9,6 +9,7 @@ import SnippetSlide from "./components/snippet-slide/SnippetSlide.js";
 import { Button, Nav, NavItem, NavLink } from "reactstrap";
 import { PROGRESS_BAR_SPEED } from "./constants/misc.js";
 import Announcement from "./components/Announcement/Announcement";
+import Meetup from "./components/meetup/Meetup";
 import Slider from "react-slick";
 import "./components/modules-side-bar/ModulesSideBar.css";
 
@@ -114,10 +115,11 @@ class App extends Component {
         content = <SnippetSlide data={this.state.currentSlide} />;
       } else if (slideType === "announcement") {
         content = <Announcement data={this.state.currentSlide} />;
+      }else if (slideType === "meetup") {
+        content = <Meetup data={this.state.currentSlide} />;
       }
     }
 
-    //carousel settings for sidebar
     const settings = {
       // className: "center",
       arrows: false,
