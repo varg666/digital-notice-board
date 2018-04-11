@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, FormFeedback, FormText} from 'reactstrap';
-  
+
 
 
 class AddPhoto extends React.Component {
@@ -18,7 +18,7 @@ class AddPhoto extends React.Component {
               errors: {},
               
             }
-        } 
+        }
 
         onChange(field, value) {
             const data = {...this.state.form};
@@ -41,7 +41,7 @@ class AddPhoto extends React.Component {
                         <Label for="exampleText">Description</Label>
                         <Input type="textarea" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="textarea" value={this.state.form.description} id="description" /> 
                     </FormGroup>
-                    <FormGroup>    
+                    <FormGroup>
                             <label>Display Date</label>
                             <Input  
                             className="form-control"  
@@ -89,11 +89,10 @@ class AddPhoto extends React.Component {
                     </div>    
                 </Form>
 
-        
+
             );
         }
 }
 
 
 export default AddPhoto;
-
