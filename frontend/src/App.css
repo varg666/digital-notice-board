@@ -82,6 +82,10 @@ body {
     -ms-flex-preferred-size: 70%;
     flex-basis: 70%;
     max-width: 70%;
+    background-color: var(--main-bg-color);
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding-top: 15px;
   }
 
   .col-lg-2 {
@@ -96,6 +100,7 @@ body {
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
+  max-height: calc(100vh - 50px);
   margin-right: var(--gutter-compensation, -0.5rem);
   margin-left: var(--gutter-compensation, -0.5rem);
 }
@@ -264,4 +269,14 @@ height: 100vh;
 .fa-bullhorn {
   padding-top: 55%;
   padding-left: 10px;
+}
+
+
+.card {
+  border: 0 !important;
+}
+
+.card-body {
+  border: 0 !important;
+
 }

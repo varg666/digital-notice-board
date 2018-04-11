@@ -21,24 +21,28 @@
   --small-font-size: .9rem;
 }
 
-h5 {
+.title {
   font-family: var(--title-font-family);
   font-weight: var(--title-font-weight);
-  font-size: 2.4rem;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 
 }
 
-h6 {
+.subtitle {
   font-family: var(--title-font-family);
   font-weight: var(--title-font-weight);
   font-size: 1.5rem;
-
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-p {
+.text {
   font-family: var(--running-font-family);
   font-weight: var(--running-font-weight);
   font-size: 1.3rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .img-fluid {
