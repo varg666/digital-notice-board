@@ -7,7 +7,7 @@ const Video = props => {
     <div className="slide-body">
       <ReactPlayer
         width="100%"
-        height="80vh"
+        height="60vh"
         onDuration={duration => props.setVideoDuration(duration)}
         onEnded={props.endingHandler}
         url={`https://www.youtube.com/embed/${props.youtubeCode}`}

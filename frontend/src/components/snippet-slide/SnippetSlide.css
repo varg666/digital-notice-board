@@ -4,6 +4,7 @@
     overflow-x: auto;
     padding: 0.5em;
     background: #282a36;
+    min-height: calc(100vh - 400px);
   }
 
   .hljs-keyword,
