@@ -1,32 +1,31 @@
 import React, {Component} from 'react';
 import ModulesSideBar from '../modules-side-bar/ModulesSideBar';
 import Search from "./Search";
-import SlideDetail from "./SlideDetail"
 import AddVideo from '../AddVideo/AddVideo';
 import AddCode from '../AddCode/AddCode';
 import AddPhoto from '../AddPhoto/AddPhoto';
 import AdminNavigation from './AdminNavigation';
-import { Button } from 'reactstrap';
 import axios from 'axios';
 import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
 import AddGithub from '../AddGithub/AddGithub';
-
 
 class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      currentSlide: 0
+      currentSlide: 0,
+      searchData: "",
+      showExpired: false,
     }
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000`).then(resp => resp.json()).then((data) => {
-      this.setState({data: data, currentSlide: data[0]})
-    })
-
+    fetch(`http://localhost:4000`)
+      .then(resp => resp.json())
+      .then((data) => { this.setState({data: data, currentSlide: data[0]})})
   }
+
   sendInfo = (e, slide) => {
     e.preventDefault()
     const form = {};
@@ -58,45 +57,82 @@ class Admin extends Component {
       })
     }
   }
+
   slideHandler(slide) {
     this.setState({currentSlide: slide})
   }
+
   newSlide(type) {
     this.setState({currentSlide: {
       "type": type,
     }})
   }
+
+  handleSearchInput = (e) => {
+    const searchData = e.currentTarget.value;
+    this.setState({searchData});
+  }
+
+  handleSearchCheckbox = (e) => {
+    const expiryCheckbox = e.currentTarget.checked;
+    this.setState({showExpired: expiryCheckbox});
+  }
+
+  checkSlideExpired = (slide) => {
+    const expiryDate = new Date(slide.expiryDate);
+    const expiryDateMS = expiryDate.getTime();
+    return (Date.now() < expiryDateMS);
+  }
+
   render() {
+    let content;
     if(this.state.currentSlide.type){
-      if ( this.state.currentSlide.type.toLowerCase() === "video") {
-        var content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
-      } else if (this.state.currentSlide.type.toLowerCase() === "announcement") {
-        var content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
-      } else if (this.state.currentSlide.type.toLowerCase() === "code") {
-        var content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
-      } else if (this.state.currentSlide.type.toLowerCase() === "repo") {
-        var content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
-      } else if (this.state.currentSlide.type.toLowerCase() === "photos") {
-        var content = <AddPhoto data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      if ( this.state.currentSlide.type === "video") {
+        content = <AddVideo data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type === "announcement") {
+        content = <AddAnnouncement data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type === "code") {
+        content = <AddCode data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type === "repo") {
+        content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type === "photos") {
+        content = <AddPhoto data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
     }
+
+
     return (
       <div className="section">
         <AdminNavigation newSlide={this.newSlide.bind(this)}/>
         <div className="d-flex">
           <div className="w-50" >
             <ul className="list-group m-3">
-              {this.state.data.map((item, value) => <li className="list-group-item mb-2"><ModulesSideBar current={this.state.currentSlide} handleToggleClick={() => this.slideHandler(item)} key={value} data={item}/></li>)}
-              <Search/>
+              <Search
+                handleSearchInput={this.handleSearchInput}
+                handleSearchCheckbox={this.handleSearchCheckbox}
+                searchData={this.state.searchData}
+              />
+              {this.state.data
+                .filter(slide => slide.title
+                  .toLowerCase()
+                  .includes(this.state.searchData.toLowerCase()))
+                .filter(slide => (this.state.showExpired ? true : this.checkSlideExpired(slide)))
+                .map((item, value) => (
+                  <li className="list-group-item mb-2">
+                    <ModulesSideBar
+                      current={this.state.currentSlide}
+                      handleToggleClick={() => this.slideHandler(item)}
+                      key={value}
+                      data={item}/>
+                  </li>)
+                )}
             </ul>
           </div>
-
           <div className="card w-100 m-3">
             <div className="card-body" >
               {content}
             </div>
           </div>
-
         </div>
       </div>
     )
