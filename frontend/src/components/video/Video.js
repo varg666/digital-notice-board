@@ -3,7 +3,6 @@ import ReactPlayer from "react-player";
 import "./Video.css";
 
 const Video = props => {
-  console.log(props)
   return (
     <div className="slide-body">
     <h2>{props.data.title}</h2>
