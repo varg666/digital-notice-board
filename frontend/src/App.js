@@ -9,6 +9,7 @@ import SnippetSlide from "./components/snippet-slide/SnippetSlide.js";
 import { Button, Nav, NavItem, NavLink } from "reactstrap";
 import { PROGRESS_BAR_SPEED } from "./constants/misc.js";
 import Announcement from "./components/Announcement/Announcement";
+import Meetup from "./components/meetup/Meetup";
 import Slider from "react-slick";
 import "./components/modules-side-bar/ModulesSideBar.css";
 
