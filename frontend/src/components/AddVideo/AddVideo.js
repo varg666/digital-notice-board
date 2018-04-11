@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 class AddVideo extends React.Component {
-
+  
   constructor(props) {
     super(props);
 
@@ -44,10 +44,11 @@ class AddVideo extends React.Component {
      }
       if((field == "displayDate") ||  (field == "expiryDate")){
          var displayDate1 =document.getElementById("displayDate").value;
+          
          
          var dis = Date.parse(displayDate1);
          console.log(dis);
-          var expiryDate1 = document.getElementById("expiryDate").value;;
+          var expiryDate1 = document.getElementById("expiryDate").value;
           var exp = Date.parse(expiryDate1)   
          console.log(exp)
          if(dis > exp){
@@ -80,27 +81,24 @@ class AddVideo extends React.Component {
     return (
       <React.Fragment>
 
-      <FormGroup>
-        <FormFeedback>{this.state.errors["title"]}</FormFeedback>
-        <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
-         </FormGroup>
+    
      
       <FormGroup>
-        <Label for="examplePassword">Description</Label>
-        <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description}/>
-          <FormFeedback>{this.state.errors["description"]}</FormFeedback>
-          <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
+        <Label for="title">Title</Label>
+        <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title}/>
+          <FormFeedback>{this.state.errors["title"]}</FormFeedback>
+          <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
         </FormGroup>
         
         <FormGroup>
-          <Label for="examplePassword">Description</Label>
+          <Label for="description">Description</Label>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="description" invalid={this.state.fields["description"]} valid={!this.state.fields["description"]} value={this.state.form.description}/>
           <FormFeedback>{this.state.errors["description"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["description"]}</FormFeedback>
         </FormGroup>
         
         <FormGroup>
-        <Label>Display Date</Label>
+        <Label for ="displayDate">Display Date</Label>
         <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="displayDate" type="date" invalid={this.state.fields["displayDate"]} valid={!this.state.fields["displayDate"]}  />
         <FormFeedback>{this.state.errors["displayDate"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["displayDate"]}</FormFeedback>
@@ -108,23 +106,20 @@ class AddVideo extends React.Component {
 
         <FormGroup>
 
-        <Label>Expiry Date</Label>
+        <Label for= "expiryDate">Expiry Date</Label>
         <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="expiryDate" type="date" value={this.state.form.expiryDate}  invalid={this.state.fields["expiryDate"]} valid={!this.state.fields["expiryDate"]}/>
         <FormFeedback>{this.state.errors["expiryDate"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["expiryDate"]}</FormFeedback>
         </FormGroup>
         
         <FormGroup>
-          <Label for="examplePassword">Youtube-Link</Label>
+          <Label for="content">Youtube-Link</Label>
           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>
           <FormFeedback>{this.state.errors["content"]}</FormFeedback>
           <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
         </FormGroup>
         
-         <FormGroup>
-           <Label for="examplePassword">Youtube-Link</Label>
-           <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>
-            </FormGroup>
+        
       </React.Fragment>
      
     );
