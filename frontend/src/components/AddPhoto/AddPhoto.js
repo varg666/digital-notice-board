@@ -6,14 +6,16 @@ import { Form, FormGroup, Label, Input, FormFeedback, FormText} from 'reactstrap
 class AddPhoto extends React.Component {
         constructor(props) {
             super(props);
-
-            var props = this.props.data
+            var props = this.props.data; 
+            props.displayDate = props.displayDate ? props.displayDate.slice(0, -14) : props.displayDate; 
+            props.expiryDate = props.expiryDate ? props.expiryDate.slice(0, -14) : props.expiryDate;  
+            
             props.content = props.content
             this.state = {
               form: props,
               fields: {},
               errors: {},
-              setOfImages : []
+              
             }
         } 
 
@@ -22,70 +24,70 @@ class AddPhoto extends React.Component {
             data[field] = value;
             this.setState = {form: data};
         }
-        setOfImages(event){
-            event.preventDefault();
-            const setOfImagesCopy = {...this.state.setOfImages};
-            this.setState({
-                setOfImages: ["hello", "hi"]  
-            })
-            
-        }
+        
        
         render(props){
             return(
-                <Form onSubmit={this.props.sendChildInfo}>
+                <Form onSubmit={e => this.props.sendChildInfo(e, this)} > 
+
                     <h1>Add Photos</h1>
                     
                     <FormGroup >
                         <Label for="exampleText">Title</Label>
-                        <Input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title} />
+                        <Input type="textarea" onChange={(e) => this.onChange(e.target.id, e.target.value)} id="title" invalid={this.state.fields["title"]} valid={!this.state.fields["title"]} value={this.state.form.title} /> 
                         <FormFeedback>{this.state.errors["title"]}</FormFeedback>
                         <FormFeedback valid>{this.state.errors["title"]}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleText">Description</Label>
-                        <Input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="text" value={this.state.form.description} id="description" />
+                        <Input type="textarea" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="description" type="textarea" value={this.state.form.description} id="description" /> 
+
                     </FormGroup>
                     <FormGroup>    
                             <label>Display Date</label>
-                            <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="displayDate" type="date" value={this.state.form.displayDate}/>
+                            <Input  
+                            className="form-control"  
+                            id="displayDate"  
+                            type="date"  
+                            defaultValue={this.state.form.displayDate}  
+                            invalid={this.state.fields["displayDate"]}  
+                            valid={!this.state.fields["displayDate"]}  
+                            onChange={(e) => this.onChange(e.target.id, e.target.value)}  
+                            /> 
+                            <FormFeedback>{this.state.errors["displayDate"]}</FormFeedback> 
+                            <FormFeedback valid>{this.state.errors["displayDate"]}</FormFeedback> 
                     </FormGroup>    
                     <FormGroup >    
                             <label>Expiry Date</label>
-                            <input onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="expiryDate" type="date" value={this.state.form.expiryDate}/>
+                            <Input  
+                            className="form-control"  
+                            id="expiryDate"  
+                            type="date"  
+                            defaultValue={this.state.form.expiryDate}  
+                            invalid={this.state.fields["expiryDate"]}  
+                            valid={!this.state.fields["expiryDate"]} 
+                            onChange={(e) => this.onChange(e.target.id, e.target.value)}  
+                            /> 
+                            <FormFeedback>{this.state.errors["expiryDate"]}</FormFeedback> 
+                            <FormFeedback valid>{this.state.errors["expiryDate"]}</FormFeedback> 
+
                     </FormGroup>  
                     <FormGroup>
                             <Label for="examplePassword"></Label>
-                            <div>
-                                <input type="file" name={this.state.setOfImages} id="image-uploder" className="file-loader" multiple />
-                                <button onClick={this.setOfImages.bind(this)}>+</button>
-                                <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/> 
-                            <button type="submit" className="btn btn-primary">Add Photo</button>
-                            </div>
-                            <br />
+                            <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>  
                             <Label for="examplePassword"></Label>
-                            <div>
-                                <input type="file" name={this.state.setOfImages} id="image-uploder" className="file-loader" multiple />
-                                <button onClick={this.setOfImages.bind(this)}>+</button>
-                                <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/> 
-                            <button type="submit" className="btn btn-primary">Add Photo</button>
-                            </div>
-                            <br />
+                            <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>   
                             <Label for="examplePassword"></Label>
-                            <div>
-                                <input type="file" name={this.state.setOfImages} id="image-uploder" className="file-loader" multiple />
-                                <button onClick={this.setOfImages.bind(this)}>+</button>
-                                <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/> 
-                            <button type="submit" className="btn btn-primary">Add Photo</button>
-                            </div>
-
+                            <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>  
+                            <Label for="examplePassword"></Label>
+                            <Input onChange={(e) => this.onChange(e.target.id, e.target.value)} id="content" invalid={this.state.fields["content"]} valid={!this.state.fields["content"]} value={this.state.form.content}/>  
                             <FormFeedback>{this.state.errors["content"]}</FormFeedback>
                             <FormFeedback valid>{this.state.errors["content"]}</FormFeedback>
                     </FormGroup>
                     <div class="d-flex justify-content-between">
-                        <button type="submit" className="btn btn-info">Save Changes</button>
+                        <button type="submit" className="btn btn-primary">{this.props.data._id ? "Edit" : "Add"}</button> 
                         <a href="#">Delete this Slide</a>
-                        <br/>
+                        
                     </div>    
                 </Form>
 
