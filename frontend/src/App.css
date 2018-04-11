@@ -2,16 +2,16 @@
 
 :root {
   --main-bg-color: #fff;
-  --video-description-bg-color: #e6ce00;
+  --video-description-bg-color: #f1f1f1;
   --right-slides-bg-color: rgba(0, 122, 255, 0.8);
   --right-slides-bg-selected: #0054e6;
-  --video-description-bg-color: #c6c6c6;
+  --video-description-bg-color: #f1f1f1;
   --light-text-color: #fff;
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
   --title-font-weight: 700;
   --title-font-size: 2rem;
   --title-font-color: #333;
-  --running-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  --running-font-family: "Roboto", Helvetica, Arial, sans-serif;
   --running-font-weight: 400;
   --running-font-size: 1.4rem;
   --running-font-color: #000;
@@ -22,10 +22,24 @@
 
 body {
   background-color: var(--main-bg-color);
-  font-family: 'Dosis', sans-serif;
+  font-family: var(--running-font-family);
 }
 
-.App {
+#title {
+  display: block;
+  background-color:s;
+  font-size: ;
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  color: var(--title-font-color);
+  margin-left: 0px;
+  padding-left: 30px;
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.grid {
   z-index: 100;
   height: 100vh;
   margin: 0 auto;
@@ -39,7 +53,7 @@ body {
 .skewed {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 400px;
   width: 550px;
   padding-top: 0;
   transform: skew(-20deg);
@@ -70,7 +84,7 @@ height: 100vh;
 .timer {
   margin-top: 0;
   margin-bottom: 0;
-  background-color:  var(--video-description-bg-color);
+  background-color: var(--video-description-bg-color);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
@@ -191,67 +205,3 @@ height: 100vh;
   padding-top: 55%;
   padding-left: 10px;
 }
-
-/* Begin Syntax highlighting for codesnippets */
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #282a36;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
-  color: #8be9fd;
-}
-
-.hljs-function .hljs-keyword {
-  color: #ff79c6;
-}
-
-.hljs,
-.hljs-subst {
-  color: #f8f8f2;
-}
-
-.hljs-string,
-.hljs-title,
-.hljs-name,
-.hljs-type,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #f1fa8c;
-}
-
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
-  color: #6272a4;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-/* END Syntax highlighting for codesnippets */
