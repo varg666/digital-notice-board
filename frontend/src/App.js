@@ -9,6 +9,8 @@ import SnippetSlide from "./components/snippet-slide/SnippetSlide.js";
 import { Button, Nav, NavItem, NavLink } from "reactstrap";
 import { PROGRESS_BAR_SPEED } from "./constants/misc.js";
 import Announcement from "./components/Announcement/Announcement";
+import Slider from "react-slick";
+import "./components/modules-side-bar/ModulesSideBar.css";
 
 require("dotenv").config();
 
@@ -18,7 +20,7 @@ class App extends Component {
     youtubeCode: ["h9bk0m2TDaA"],
     currentSlide: 0,
     playing: true,
-    duration: PROGRESS_BAR_SPEED,
+    duration: PROGRESS_BAR_SPEED
   };
 
   componentDidMount() {
@@ -64,6 +66,7 @@ class App extends Component {
     // for the last slide set index back to zero
     const slideIndex = this.state.data.length - 1 > key ? (key += 1) : 0;
     this.setState({ currentSlide: this.state.data[slideIndex] });
+    this.slider.slickNext();
     this.nextSlideInterval();
   }
 
@@ -114,26 +117,40 @@ class App extends Component {
       }
     }
 
+    //carousel settings for sidebar
+    const settings = {
+      // className: "center",
+      arrows: false,
+      infinite: true,
+      // centerMode: true,
+      focusOnSelect: true,
+      slidesToShow: 7,
+      slidesToScroll: 1,
+      vertical: true,
+      verticalSwiping: true
+    };
+
     return (
-      <div className="App">
-        <div className="skewed">
-        </div>
-        <h1 id="title">DCI Digital Notice Board</h1>
-        <div className="grid">
-          <div className="column1">
+      <div className="App container-fluid">
+        <div className="skewed" />
+        <div className="row"><h1 id="title">DCI Digital Notice Board</h1></div>
+        <div className="row">
+          <div className="col-lg-1">
             {content}
             <SlideTimeline time={this.state.duration} />
           </div>
-          <div className="column2">
-            {this.state.data.map((item, value) => (
-              <ModulesSideBar
-                current={this.state.currentSlide}
-                key={value}
-                data={item}
-                handleToggleClick={this.slideHandler.bind(this)}
-              />
-            ))}
-            </div>
+          <div className="col-lg-2">
+            <Slider ref={x => (this.slider = x)} {...settings}>
+              {this.state.data.map((item, value) => (
+                <ModulesSideBar
+                  current={this.state.currentSlide}
+                  key={value}
+                  data={item}
+                  handleToggleClick={this.slideHandler.bind(this)}
+                />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     );
