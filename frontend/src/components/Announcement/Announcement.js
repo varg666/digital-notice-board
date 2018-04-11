@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardLocation } from 'reactstrap';
+  CardTitle, CardSubtitle } from 'reactstrap';
 class Announcement extends Component {
 	render(props) {
 		return(

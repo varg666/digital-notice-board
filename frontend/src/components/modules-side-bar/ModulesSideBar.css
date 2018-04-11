@@ -2,30 +2,21 @@
 
 :root {
   --main-bg-color: #fff;
-  --video-description-bg-color: #fff;
+  --video-description-bg-color: #e6ce00;
   --right-slides-bg-color: rgba(0, 122, 255, 0.8);
   --right-slides-bg-selected: #0054e6;
-  --video-description-bg-color: #fff;
+  --video-description-bg-color: #c6c6c6;
   --light-text-color: #fff;
   --playpause-text-color: #aaa;
   --title-font-family: "Raleway", Helvetica, Arial, sans-serif;
   --title-font-weight: 700;
   --title-font-size: 2rem;
   --title-font-color: #333;
-  --running-font-family: "Roboto", Helvetica, Arial, sans-serif;
+  --running-font-family: 'Roboto', Helvetica, Arial, sans-serif;
   --running-font-weight: 400;
   --running-font-size: 1.4rem;
   --running-font-color: #000;
   --title-letter-spacing: .05000rem;
   --p-line-height: 2rem;
   --small-font-size: .9rem;
-}
-
-h3 {
-  font-family: var(--title-font-family);
-  font-weight: var(--title-font-weight);
-}
-p {
-  font-family: var(--running-font-family);
-  font-weight: var(--running-font-weight);
 }

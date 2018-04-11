@@ -1,6 +1,8 @@
 .photos{
 	border: 0;
   border-radius: 5px;
+	width: 100vh;
+	align-items: center;
 }
 
 .thumbnails {
@@ -8,18 +10,15 @@
 }
 
 .photos img {
-	margin: 10px;
 	border-radius: 3px;
 
 }
 
 .thumbnails img {
 	border-radius: 3px;
-  height: 69px;
+  height: 10vh;
 	margin: 10px;
 }
-
-
 
 .progressBar {
 	height: 100%;
@@ -36,5 +35,6 @@
 }
 
 .active {
-	border: 5px solid green !important;
+	width: 100vh;
+
 }
