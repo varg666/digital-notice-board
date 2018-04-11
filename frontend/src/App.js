@@ -131,15 +131,15 @@ class App extends Component {
     };
 
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <div className="skewed" />
-        <h1 id="title">DCI Digital Notice Board</h1>
-        <div className="grid">
-          <div className="column1">
+        <div className="row"><h1 id="title">DCI Digital Notice Board</h1></div>
+        <div className="row">
+          <div className="col-lg-1">
             {content}
             <SlideTimeline time={this.state.duration} />
           </div>
-          <div className="column2">
+          <div className="col-lg-2">
             <Slider ref={x => (this.slider = x)} {...settings}>
               {this.state.data.map((item, value) => (
                 <ModulesSideBar
