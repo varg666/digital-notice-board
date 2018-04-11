@@ -21,9 +21,7 @@ class Meetup extends Component {
 	render(props) {
 		return(
 		<div>
-		{this.state.events.map(event => {
-			console.log(event);
-		})}
+		
 		</div>
 		);
 	}
