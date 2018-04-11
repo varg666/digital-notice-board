@@ -48,3 +48,7 @@
 .img-fluid {
   width: 20vh;
 }
+
+.flex-grow {
+  flex-grow: 1;
+}

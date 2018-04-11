@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardLink,
   CardTitle, CardSubtitle } from 'reactstrap';
-  import "./Announcement.css"; 
+  import "./Announcement.css";
 
 class Announcement extends Component {
 	render(props) {
 		return(
-		<div>
+		<div className="flex-grow">
         		<CardBody>
 		          	<CardTitle className="title">{this.props.data.title}</CardTitle>
 		          	<span className="subtitle">{this.props.data.location}</span>

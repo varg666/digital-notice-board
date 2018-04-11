@@ -30,7 +30,7 @@ class SlideTimeline extends React.Component {
       clearInterval(this.interval);
     }
     return (
-      <div>
+      <div className="flex-grow">
         <div className="text-center">{this.state.progress}%</div>
         <Progress value={this.state.progress} />
       </div>
