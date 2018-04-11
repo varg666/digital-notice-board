@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardLink,
   CardTitle, CardSubtitle } from 'reactstrap';
+  import "./Announcement.css";
+
 class Announcement extends Component {
 	render(props) {
 		return(
-		<div>
-			<Card>
+		<div className="flex-grow">
         		<CardBody>
-		          	<CardTitle>{this.props.data.title}</CardTitle>
-		          	<span>{this.props.data.location}</span>
-			    </CardBody>
-		
-			    <CardBody>
-			        <CardText>{this.props.data.description}</CardText>
-			        <a target="_blank" href={this.props.data.link}>go to event</a>
+		          	<CardTitle className="title">{this.props.data.title}</CardTitle>
+		          	<span className="subtitle">{this.props.data.location}</span>
+			        <CardText className="text">{this.props.data.description}</CardText>
 		        </CardBody>
-      		</Card>
 		</div>
 		);
 	}
