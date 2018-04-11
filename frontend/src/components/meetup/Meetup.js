@@ -4,7 +4,7 @@ class Meetup extends Component {
 	render(props) {
 		return(
 		<div>
-			<h1>hallo</h1>
+			
 		</div>
 		);
 	}

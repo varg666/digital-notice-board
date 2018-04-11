@@ -115,6 +115,8 @@ class App extends Component {
         content = <SnippetSlide data={this.state.currentSlide} />;
       } else if (slideType === "announcement") {
         content = <Announcement data={this.state.currentSlide} />;
+      }else if (slideType === "meetup") {
+        content = <Meetup data={this.state.currentSlide} />;
       }
     }
 
