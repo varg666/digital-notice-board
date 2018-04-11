@@ -18,7 +18,7 @@ require("dotenv").config();
 class App extends Component {
   state = {
     data: [],
-    youtubeCode: ["h9bk0m2TDaA"],
+    youtubeCode: "",
     currentSlide: 0,
     playing: true,
     duration: PROGRESS_BAR_SPEED
@@ -101,8 +101,8 @@ class App extends Component {
       const slideType = this.state.currentSlide.type.toLowerCase();
       if (slideType === "video") {
         content = (
-          <Video
-            youtubeCode={this.state.youtubeCode}
+          <Video 
+            data={this.state.currentSlide}
             endingHandler={this.videoEndingHandler}
             setVideoDuration={this.setVideoDuration}
           />
