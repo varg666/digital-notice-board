@@ -1,0 +1,23 @@
+{
+  "name": "digital-notice-board",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/devugees/digital-notice-board.svg?branch=develop)](https://travis-ci.org/devugees/digital-notice-board)",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": " concurrently \"cd backend && npm run server\" \"cd frontend && npm start\" --prefix name -c \"blue.bold,magenta.bold\"" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devugees/digital-notice-board.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devugees/digital-notice-board/issues"
+  },
+  "homepage": "https://github.com/devugees/digital-notice-board#readme"
+}
