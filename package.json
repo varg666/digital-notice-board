@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": " concurrently \"cd backend && npm run server\" \"cd frontend && npm start\" --prefix name -c \"blue.bold,magenta.bold\"" 
+    "start": "concurrently \"cd backend && npm run server\" \"cd frontend && npm start\" --prefix name -c \"blue.bold,magenta.bold\""
   },
   "repository": {
     "type": "git",
