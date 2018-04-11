@@ -131,7 +131,7 @@ class App extends Component {
     };
 
     return (
-      <div className="App container-fluid">
+      <div className="App container-fluid frontend">
         <div className="skewed" />
         <div className="row"><h1 id="title">DCI Digital Notice Board</h1></div>
         <div className="row">

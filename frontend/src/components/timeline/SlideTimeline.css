@@ -1,3 +1,11 @@
 .progress-bar {
   transition: none;
 }
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.margin-bottom {
+  /* margin-bottom: 0; */
+}
