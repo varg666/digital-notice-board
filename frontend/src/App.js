@@ -151,6 +151,7 @@ class App extends Component {
                 />
               ))}
             </Slider>
+            <Meetup />
           </div>
         </div>
       </div>
