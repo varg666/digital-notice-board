@@ -120,7 +120,6 @@ class App extends Component {
       }
     }
 
-    //carousel settings for sidebar
     const settings = {
       // className: "center",
       arrows: false,
