@@ -6,14 +6,13 @@ import Github from "./components/github/Github.js";
 import ModulesSideBar from "./components/modules-side-bar/ModulesSideBar";
 import SlideTimeline from "./components/timeline/SlideTimeline.js";
 import SnippetSlide from "./components/snippet-slide/SnippetSlide.js";
-import { Button, Nav, NavItem, NavLink } from "reactstrap";
+import {  Button, Nav, NavItem, NavLink } from "reactstrap";
 import { PROGRESS_BAR_SPEED } from "./constants/misc.js";
 import Announcement from "./components/Announcement/Announcement";
 import Meetup from "./components/meetup/Meetup";
 import Slider from "react-slick";
 import "./components/modules-side-bar/ModulesSideBar.css";
 
-require("dotenv").config();
 
 class App extends Component {
   state = {
@@ -101,7 +100,7 @@ class App extends Component {
       const slideType = this.state.currentSlide.type.toLowerCase();
       if (slideType === "video") {
         content = (
-          <Video 
+          <Video
             data={this.state.currentSlide}
             endingHandler={this.videoEndingHandler}
             setVideoDuration={this.setVideoDuration}
