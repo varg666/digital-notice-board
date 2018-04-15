@@ -12,6 +12,7 @@ const Video = props => {
         onDuration={duration => props.setVideoDuration(duration)}
         onEnded={props.endingHandler}
         url={`https://www.youtube.com/embed/${props.data.content}`}
+        subtitles="true"
         playing
       />
     </div>

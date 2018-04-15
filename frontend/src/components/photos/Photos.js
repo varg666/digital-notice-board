@@ -12,7 +12,7 @@ class Photos extends Component {
     var images = this.props.data.content.split(',');
     return (
     <div className="photos">
-      <img className="animated zoomIn active" src={images[0]} alt=""/>
+      <img className="w-100 animated zoomIn active" src={images[0]} alt=""/>
       <Slides data={this.props.data}/>
     </div>);
   }

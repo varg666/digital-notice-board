@@ -1,5 +1,7 @@
-.progress-bar {
+.progress {
   transition: none;
+  border: 0;
+  border-radius: 0;
 }
 
 .flex-grow {

@@ -41,9 +41,9 @@ class Register extends React.Component {
     <Row >
       <div className="skewed"></div>
       <Col sm={{ size: 10, order: 2, offset: 1 }} md={{ size: 4, order: 2, offset: 4 }}>
-        <Form className="border bg-white border-primary rounded mt-5 p-5">
+        <Form onSubmit={this.handleSubmit} action="/login" method="post" id="loginform" className="border border-primary rounded mt-5 p-5 bg-white">
           <h1>Register</h1>
-          <FormGroup onSubmit={this.handleSubmit} action="/" method="post">
+          <FormGroup>
             <div className="inputGroup inputGroup1">
               <Label for="email1">Email</Label>
               <Input type="text" id="email" className="email" type="text" name="email" required value={this.state.registerData.email} onChange={this.handleChange} onSubmit={this.validateEmail} maxlength="256" placeholder="Enter Email"/>

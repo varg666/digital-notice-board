@@ -4,9 +4,9 @@ import "./SnippetSlide.css"
 
 const SnippetSlide = (props) => {
   return(
-  <div className="content">
-    <div className="">
-      <h3 className="card-title">{props.data.title} </h3>
+  <div className="bg-white p-5">
+    <div>
+      <h2 className="card-title">{props.data.title} </h2>
       <p className="card-text">{props.data.description} </p>
     </div>
     <Highlight className="javascript">

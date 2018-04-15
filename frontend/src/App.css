@@ -52,7 +52,6 @@ body {
     -ms-flex-preferred-size: 70%;
     flex-basis: 70%;
     max-width: 70%;
-    background: rgba(255,255,255, 1);
     padding-top: 15px;
     max-height: calc(100vh - 200px);
     display: flex;
@@ -64,8 +63,7 @@ body {
   flex-shrink: 1;
   flex-basis: auto;}
 
-  .col-lg-1 > div {
-    height: calc(100vh - 200px);
+  .content {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;  }
@@ -106,7 +104,6 @@ overflow: hidden;
   padding-left: 15px;
   padding-bottom: 25px;
   padding-right: 15px;
-  border-radius: 5px;
   padding-top: 15px;
   background-color: var(--video-description-bg-color);
   margin-bottom: 15px;
@@ -116,7 +113,6 @@ overflow: hidden;
   margin-top: 0;
   margin-bottom: 0;
   background-color: var(--video-description-bg-color);
-  border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
 }
@@ -124,7 +120,6 @@ overflow: hidden;
 .description {
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 5px;
   font-weight: 400;
   background-color: var(--video-description-bg-color);
   color: var(--title-font-color);
@@ -170,14 +165,18 @@ overflow: hidden;
   font-weight: var(--running-font-weight);
   margin-bottom: 10px;
 }
-
+.list-group-item {
+  border-radius: 0 !important;
+  background: #fafafa !important;
+  border: 0 none;
+}
 .slide-selected {
   /*padding-bottom: 3%;*/
   /*padding-left: 8px;*/
   /*display: block;*/
   /*grid-template-columns: 10% 90%;*/
   /*border-radius: 5px;*/
-  background-color: var(--right-slides-bg-selected);
+  background-color: var(--right-slides-bg-selected) !important;
   color: var(--light-text-color);
   /*font-size: var(--running-font-size);*/
   /*font-weight: 100;*/
@@ -235,4 +234,16 @@ overflow: hidden;
 .fa-bullhorn {
   padding-top: 55%;
   padding-left: 10px;
+}
+@keyframes fade {
+  0% {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+.col-lg-1 >*:first-child {
+  animation: fade .5s
 }

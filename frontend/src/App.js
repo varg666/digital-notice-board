@@ -137,7 +137,10 @@ class App extends Component {
         <div className="row"><h1 id="title">DCI Digital Notice Board</h1></div>
         <div className="row">
           <div className="col-lg-1">
-            {content}
+            <div className="content">
+              {content}
+            </div>
+              <span className="text-muted">Slidetype: {this.state.currentSlide.type}</span>
             <SlideTimeline time={this.state.duration} />
           </div>
           <div className="col-lg-2">
