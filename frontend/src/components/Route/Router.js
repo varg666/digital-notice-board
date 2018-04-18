@@ -12,10 +12,10 @@ const Router = () => (
  <BrowserRouter>
    <Switch>
     <Route exact path='/' component={App} />
-    <Route exact path='/login' component={Login} />
-    <Route exact path='/register' component={Register} />
-    <Route exact path='/reset' component={ForgotPassword} />
-    
+    <Route exact path='/admin/login' component={Login} />
+    <Route exact path='/admin/register' component={Register} />
+    <Route exact path='/admin/reset' component={ForgotPassword} />
+    /admin
     <Route exact path='/admin' component={Admin} />
    </Switch>
  </BrowserRouter>

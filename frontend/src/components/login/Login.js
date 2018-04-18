@@ -39,6 +39,7 @@ class Login extends React.Component {
     // here happens the login post request which still fails because of missing auth
     axios.post('http://localhost:4000/login', data).then(function(response) {
       console.log(response.data);
+      localStorage.setItem('token', response.data.token)
     }).catch(function(error) {
       console.log("Error: ", error);
     });
