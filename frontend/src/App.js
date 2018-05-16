@@ -133,17 +133,16 @@ class App extends Component {
 
     return (
       <div className="App container-fluid frontend">
-        <div className="skewed" />
         <div className="row"><h1 id="title">DCI Digital Notice Board</h1></div>
         <div className="row">
-          <div className="col-lg-1">
-            <div className="content">
+          <div className="col-8">
+            <div className="content h-100">
               {content}
             </div>
               <span className="text-muted">Slidetype: {this.state.currentSlide.type}</span>
             <SlideTimeline time={this.state.duration} />
           </div>
-          <div className="col-lg-2">
+          <div className="col-lg-2 px-4">
             <Slider ref={x => (this.slider = x)} {...settings}>
               {this.state.data.map((item, value) => (
                 <ModulesSideBar

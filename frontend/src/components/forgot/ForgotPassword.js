@@ -39,7 +39,6 @@ class ResetPassword extends React.Component {
   render() {
     return (
     <Row >
-      <div className="skewed"></div>
       <Col sm={{ size: 10, order: 2, offset: 1 }} md={{ size: 4, order: 2, offset: 4 }}>
         <Form className="border border-primary bg-white rounded mt-5 p-5">
           <h1>Forgot your password?</h1>

@@ -39,7 +39,6 @@ class Register extends React.Component {
   render() {
     return (
     <Row >
-      <div className="skewed"></div>
       <Col sm={{ size: 10, order: 2, offset: 1 }} md={{ size: 4, order: 2, offset: 4 }}>
         <Form onSubmit={this.handleSubmit} action="/login" method="post" id="loginform" className="border border-primary rounded mt-5 p-5 bg-white">
           <h1>Register</h1>

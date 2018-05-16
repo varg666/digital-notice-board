@@ -4,7 +4,7 @@ import "./Announcement.css";
 
 class Announcement extends Component {
   render(props) {
-    return (<div className="flex-grow bg-white p-5">
+    return (<div className="flex-grow splinter p-5">
       <CardBody className="p-0">
         <h2>{this.props.data.title}</h2>
         <span className="subtitle">{this.props.data.location}</span>
