@@ -27,10 +27,24 @@ class App extends Component {
     //Read the configuration from /frontend/.env with fallback if not .env file created
     const domain = process.env.REACT_APP_DOMAIN || "http://localhost";
     const port = process.env.REACT_APP_BACKENDPORT || 4000;
+    // console.log(process.env.REACT_APP_DOMAIN);
+    // var data =  [{
+    //   "_id": "5ad660a9b7dfad4bd3087632",
+    //   "title": "Our current repository",
+    //   "description": "It help a lot understanding jsx syntax and event handeling",
+    //   "displayDate": "2004-11-01T00:00:00.000Z",
+    //   "expiryDate": "1979-08-23T00:00:00.000Z",
+    //   "content": "devugees/digital-notice-board",
+    //   "type": "meetup",
+    //   "__v": 0
+    // }]
+    // this.setState({ data: data, currentSlide: data[0] });
+    // this.nextSlideInterval();
     fetch(`${domain}:${port}`)
       .then(resp => resp.json())
       .then(data => {
         //get all data from the backend and sets the first slide active
+        // data = data.filter(i => i.type == "photos")
         this.setState({ data: data, currentSlide: data[0] });
         //sets a interval which holds all slides for XXXX milleseconds
         this.nextSlideInterval();
@@ -44,6 +58,7 @@ class App extends Component {
   nextSlideInterval = () => {
     clearInterval(this.timerID);
     // when slide is video, wait for videoEndinghandler instead
+    console.log(this.state.currentSlide.type);
     if (this.state.currentSlide.type === "video") return;
     this.timerID = setInterval(() => {
       if (this.state.playing) {
@@ -78,21 +93,7 @@ class App extends Component {
   slideHandler(slide) {
     this.setState({ currentSlide: slide.props.data, playing: true });
     this.nextSlideInterval();
-    // setTimeout(() => {
-    //   this.setState({ playing: true });
-    // }, PROGRESS_BAR_SPEED * 1000);
   }
-
-  sendInfo = e => {
-    e.preventDefault();
-    const form = {};
-    for (let i = 0; i < e.target.elements.length; i++) {
-      if (e.target.elements[i].value !== "") {
-        form[e.target.elements[i].id] = e.target.elements[i].value;
-      }
-    }
-    this.setState({ form: form });
-  };
 
   render() {
     let content;
@@ -139,8 +140,6 @@ class App extends Component {
             <div className="content h-100">
               {content}
             </div>
-              <span className="text-muted">Slidetype: {this.state.currentSlide.type}</span>
-            <SlideTimeline time={this.state.duration} />
           </div>
           <div className="col-lg-2 px-4">
             <Slider ref={x => (this.slider = x)} {...settings}>
@@ -155,6 +154,7 @@ class App extends Component {
             </Slider>
           </div>
         </div>
+        <SlideTimeline time={this.state.duration} />
       </div>
     );
   }

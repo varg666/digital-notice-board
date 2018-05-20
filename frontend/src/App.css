@@ -50,9 +50,11 @@ h1,h2,h3,h4,h5 {
 }
 .flex-grow {
   flex-grow: 1;
-  flex-shrink: 1;
   flex-basis: auto;}
 
+.flex-shrink {
+  flex-shrink: 1;
+}
   .content {
     flex-grow: 1;
     flex-shrink: 1;
@@ -161,6 +163,7 @@ overflow: hidden;
   margin-bottom: 1px;
 }
 .splinter {
+  z-index: 0;
   position: relative;
   background-color: var(--main-bg-color-trans);
 }
@@ -183,7 +186,8 @@ overflow: hidden;
   background-color: var(--right-slides-bg-color) !important;
   color: var(--light-text-color);
 }
-.splinter.blue::before {
+.splinter.blue::before,
+.splinter.blue::after {
   background-color: var(--right-slides-bg-color) !important;
 }
 
