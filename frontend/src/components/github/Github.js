@@ -2,6 +2,7 @@ import React from 'react';
 import Spinner from '../Spinner/Spinner';
 import './style.css';
 import { Media, ListGroup, ListGroupItem, Badge } from 'reactstrap';
+import { DATACACHE } from "../../constants/misc.js";
 const moment = require('moment');
 
 class Github extends React.Component {
@@ -16,7 +17,7 @@ class Github extends React.Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem('github-data') && JSON.parse(localStorage.getItem('github-data')).timestamp + 3600000 > Date.now()){
+    if (localStorage.getItem('github-data') && JSON.parse(localStorage.getItem('github-data')).timestamp + DATACACHE > Date.now()){
       console.log("github data from local database");
       this.setState({timestamp: Date.now(), commits: JSON.parse(localStorage.getItem('github-data')).commits, issues: JSON.parse(localStorage.getItem('github-data')).issues, loading: false})
       let newtime = JSON.parse(localStorage.getItem('github-data'))

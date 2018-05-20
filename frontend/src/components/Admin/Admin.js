@@ -5,13 +5,21 @@ import SlideDetail from "./SlideDetail"
 import AddVideo from '../AddVideo/AddVideo';
 import AddCode from '../AddCode/AddCode';
 import AddPhoto from '../AddPhoto/AddPhoto';
+import AddMeetup from '../AddMeetup/AddMeetup';
 import AdminNavigation from './AdminNavigation';
-import { Button } from 'reactstrap';
+import { Button, Alert } from 'reactstrap';
 import axios from 'axios';
 import AddAnnouncement from '../AddAnnouncement/AddAnnouncement';
 import AddGithub from '../AddGithub/AddGithub';
 
-
+const style = {
+  alert: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0
+  }
+};
 class Admin extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +27,7 @@ class Admin extends Component {
       data: [],
       currentSlide: 0,
       searchData: "",
+      alert: false,
       //showExpired: false
 
     }
@@ -27,10 +36,24 @@ class Admin extends Component {
   componentDidMount() {
     fetch(`http://localhost:4000`)
     .then(resp => resp.json())
-    .then((data) => {this.setState({data: data, currentSlide: data[0]})
+    .then((data) => {
+        data = data.filter(i => i.type == "meetup")
+        this.setState({data: data, currentSlide: data[0]
+      })
     })
-
   }
+
+  alertFunc = (title, type) => {
+    //here we check if it is the Alert closing click. We dont pass anything in that case. So the title will be the default event
+    if(typeof(title) === "object"){
+      this.setState({alert: false})
+      return;
+    }
+
+    this.setState({alert: {title: title, type: type}});
+    setTimeout(() => this.setState({alert: false}), 5000);
+  }
+
   sendInfo = (e, slide) => {
     e.preventDefault()
     const form = {};
@@ -45,8 +68,14 @@ class Admin extends Component {
 
     if(slide.state.form._id){
       axios.put(`http://localhost:4000/admin/edit/${slide.state.form._id}`, form)
-      .then(function (response) {
-        console.log("Slide edited successful: ", response);
+      .then(response => {
+        console.log(response.data.message);
+        if(response.data.message === "Slide updated successfully!"){
+          this.alertFunc("Slide edited successful", "primary")
+        } else {
+          this.alertFunc("Error: " + response.data.message, "danger")
+          console.log("Error: ", response);
+        }
       })
       .catch(function (error) {
         console.log("Error: ", error);
@@ -101,6 +130,8 @@ class Admin extends Component {
          content = <AddGithub data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       } else if (this.state.currentSlide.type === "photos") {
          content = <AddPhoto data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
+      } else if (this.state.currentSlide.type === "meetup") {
+         content = <AddMeetup data={this.state.currentSlide} sendChildInfo={this.sendInfo.bind(this)}/>
       }
     }
     var data = this.state.data
@@ -112,6 +143,9 @@ class Admin extends Component {
     return (
       <div className="section backend">
         <AdminNavigation newSlide={this.newSlide.bind(this)}/>
+         <Alert style={style.alert} color={this.state.alert.type} toggle={this.alertFunc} isOpen={this.state.alert}>
+          {this.state.alert.title}
+        </Alert>
         <div className="d-flex">
           <div className="w-50" >
             <ul className="list-group m-3">

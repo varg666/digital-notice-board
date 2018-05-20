@@ -24,9 +24,10 @@ const addSlide = (req, res) => {
     newSlide = new Content(slide);
       newSlide.save(function(err) {
         if(err) {
-          return res.send(err);
+          res.status(400);
+          res.send("Error: ", err);
         }
-        return res.send({message: "Content created successfully!"})
+        es.send({message: "Content created successfully!"})
     });
 };
 

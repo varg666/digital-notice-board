@@ -17,11 +17,11 @@ const ContentSchema = mongoose.Schema({
   },
   displayDate: {
     type: Date,
-    required: true
+    // required: true
   },
   expiryDate: {
     type: Date,
-    required: true
+    // required: true
   },
   content: {
     type: String,
